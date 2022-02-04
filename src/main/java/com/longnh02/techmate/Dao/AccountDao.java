@@ -43,15 +43,12 @@ public class AccountDao implements Dao<Account>{
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
-            ResultSet rs = ps.executeQuery();
-            if(rs.next())
-            {
+
                 while (rs.next()) {
                     Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
                     list.add(account);
                 }
                 return list;
-            }
 
         } catch (SQLException e) {
             System.out.println(e);
