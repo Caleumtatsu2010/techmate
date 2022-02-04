@@ -3,13 +3,13 @@ package com.longnh02.techmate.Dao;
 import java.util.List;
 
 public interface Dao<T> {
-    Object get(int id);
+    public Object get(int id);
 
-    List<T> getAll();
+    public List<T> getAll();
 
-    public void save(T t);
+    public void insert(T t);
 
-    void update(T t, String[] params);
+    public void update(T t, int id);
 
-    void delete(T t);
+    public void delete(T t);
 }
