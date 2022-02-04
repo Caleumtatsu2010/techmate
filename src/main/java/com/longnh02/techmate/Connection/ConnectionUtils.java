@@ -1,11 +1,12 @@
-package com.longnh02.techmate.ConnectionUltils;
+package com.longnh02.techmate.Connection;
 
 import java.sql.*;
 
-public class DbConnector {
-    private static final String url = "jdbc:mysql://localhost:3306/techmate";
+public class ConnectionUtils {
+    private static final String dbname = "techmate";
     private static final String username = "root";
     private static final String password = "123456";
+    private static final String url = "jdbc:mysql://localhost:3306/"+ dbname;
 
     public static Connection getConnection() {
         try {
