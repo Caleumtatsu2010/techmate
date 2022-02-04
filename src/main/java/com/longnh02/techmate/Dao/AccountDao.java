@@ -13,6 +13,55 @@ public class AccountDao implements Dao<Account>{
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
+    @Override
+    public Account get(int id) {
+        String query = "SELECT * FROM account WHERE id = ?";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
+                return account;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+    }
+
+    @Override
+    public List<Account> getAll() {
+        String query = "SELECT * FROM account";
+        List<Account> list = new ArrayList<>();
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            if(rs.next())
+            {
+                while (rs.next()) {
+                    Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
+                    list.add(account);
+                }
+                return list;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+    }
 
 
     @Override
