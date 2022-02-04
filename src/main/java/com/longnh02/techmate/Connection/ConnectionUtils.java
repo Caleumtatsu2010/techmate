@@ -8,6 +8,7 @@ public class ConnectionUtils {
     private static final String password = "123456";
     private static final String url = "jdbc:mysql://localhost:3306/"+ dbname;
 
+
     public static Connection getConnection() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
