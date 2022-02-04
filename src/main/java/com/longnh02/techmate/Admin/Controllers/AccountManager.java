@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet(name = "AccountManager", value = "/AccountManager")
 public class AccountManager extends HttpServlet {
@@ -14,16 +15,13 @@ public class AccountManager extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
-         AccountDao accDao= new AccountDetailModel();
-        AccountModel accountModel = new AccountModel();
+         AccountDao accDao = new AccountDao();
 
-        List<Account> list = accDao.getAll();
-        List<Account> listAc = accountModel.storeData();
+        List<Account> listAcc = accDao.getAll();
 
-        request.setAttribute("listDetails", list);
-        request.setAttribute("listAcc", listAc);
+        request.setAttribute("listAccount", listAcc);
 
-        request.getRequestDispatcher("checkAccount.jsp").forward(request, response);
+        request.getRequestDispatcher("AccountManager.jsp").forward(request, response);
     }
 
     @Override
