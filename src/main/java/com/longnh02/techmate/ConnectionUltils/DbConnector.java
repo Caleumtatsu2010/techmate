@@ -1,15 +1,13 @@
-package com.longnh02.techmate.Connect;
+package com.longnh02.techmate.ConnectionUltils;
 
 import java.sql.*;
 
 public class DbConnector {
-    private static final String dbname = "techmate";
+    private static final String url = "jdbc:mysql://localhost:3306/techmate";
     private static final String username = "root";
     private static final String password = "123456";
 
     public static Connection getConnection() {
-        String url = "jdbc:mysql://localhost:3306/" + dbname;
-
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
