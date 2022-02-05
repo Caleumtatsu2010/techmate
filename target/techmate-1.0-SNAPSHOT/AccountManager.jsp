@@ -1,11 +1,4 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: admin
-  Date: 2/5/2022
-  Time: 12:57 AM
-  To change this template use File | Settings | File Templates.
---%>
-<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,7 +6,7 @@
 </head>
 <body>
 <section>
-    
+
     <!--for demo wrap-->
     <h1>Manager Account</h1>
     <div class="tbl-header">
