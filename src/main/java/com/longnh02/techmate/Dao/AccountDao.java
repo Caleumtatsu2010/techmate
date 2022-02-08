@@ -44,14 +44,12 @@ public class AccountDao implements Dao<Account>{
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
-            if(rs.next())
-            {
                 while (rs.next()) {
                     Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
                     list.add(account);
                 }
                 return list;
-            }
+
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
@@ -71,7 +69,7 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(query);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
-            ps.setInt(3, account.getAccountTyped());
+            ps.setInt(3, account.getAccount_typeId());
             ps.setString(4, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");

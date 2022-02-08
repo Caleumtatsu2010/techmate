@@ -17,9 +17,9 @@ public class AccountManager extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
          AccountDao accDao = new AccountDao();
 
-        List<Account> listAcc = accDao.getAll();
+        List<Account> accounts = accDao.getAll();
 
-        request.setAttribute("listAccount", listAcc);
+        request.setAttribute("listAccount", accounts);
 
         request.getRequestDispatcher("AccountManager.jsp").forward(request, response);
     }

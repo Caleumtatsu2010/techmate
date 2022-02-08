@@ -4,14 +4,14 @@ public class Account {
     private int id;
     private String username;
     private String password;
-    private int accountTyped;
+    private int account_typeId;
     private String accountStatus;
 
-    public Account(int id, String username, String password, int accountTyped, String accountStatus) {
+    public Account(int id, String username, String password, int account_typeId, String accountStatus) {
         this.id = id;
         this.username = username;
         this.password = password;
-        this.accountTyped = accountTyped;
+        this.account_typeId = account_typeId;
         this.accountStatus = accountStatus;
     }
 
@@ -41,12 +41,13 @@ public class Account {
         this.password = password;
     }
 
-    public int getAccountTyped() {
-        return accountTyped;
+
+    public int getAccount_typeId() {
+        return account_typeId;
     }
 
-    public void setAccountTyped(int accountTyped) {
-        this.accountTyped = accountTyped;
+    public void setAccount_typeId(int account_typeId) {
+        this.account_typeId = account_typeId;
     }
 
     public String getAccountStatus() {
@@ -63,7 +64,7 @@ public class Account {
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", accountTyped=" + accountTyped +
+                ", accountTyped=" + account_typeId +
                 ", accountStatus='" + accountStatus + '\'' +
                 '}';
     }
