@@ -41,10 +41,11 @@ public class UserDao implements Dao<User>{
             ps.setInt(1,user.getAccountId());
             ps.setString(2,  user.getFirstName());
             ps.setString(3, user.getLastName());
-            ps.setInt(4, user.getCitizen_id());
-            ps.setString(5, user.getEmail());
-            ps.setInt(6,(user.getBusinessPhone()));
-            ps.setInt(7,(user.getMobilePhone()));
+            ps.setInt(4,(user.getMobilePhone()));
+            ps.setInt(5, user.getCitizen_id());
+            ps.setString(6, user.getEmail());
+            ps.setInt(7,(user.getBusinessPhone()));
+
             //insert image
             File f=new File(user.getImage());//pathname
             fs=new FileInputStream(f);
