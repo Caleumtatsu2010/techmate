@@ -3,7 +3,7 @@ package com.longnh02.techmate.Dao;
 import java.util.List;
 
 public interface Dao<T> {
-    public Object get(int id);
+    public T get(int id);
 
     public List<T> getAll();
 

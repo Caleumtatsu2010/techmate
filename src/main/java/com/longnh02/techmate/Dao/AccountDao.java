@@ -69,7 +69,7 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(query);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
-            ps.setInt(3, account.getAccountTyped());
+            ps.setInt(3, account.getAccount_typeId());
             ps.setString(4, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");

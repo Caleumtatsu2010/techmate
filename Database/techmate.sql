@@ -6,17 +6,33 @@ DROP SCHEMA IF EXISTS `techmate` ;
 CREATE SCHEMA IF NOT EXISTS `techmate` DEFAULT CHARACTER SET latin1 ;
 USE `techmate` ;
 
+-- 1 admin, 2 staff, 3 user
+CREATE TABLE IF NOT EXISTS `account_type` (
+  `id` int NOT NULL,
+  `account_type` varchar(50) NOT NULL,
+  `permissions` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+INSERT INTO account_type(id, account_type, permissions)  VALUES (1, 'admin', 'full');
+INSERT INTO account_type(id, account_type, permissions)  VALUES (2, 'staff', '');
+INSERT INTO account_type(id, account_type, permissions)  VALUES (3, 'user', '');
 
 CREATE TABLE IF NOT EXISTS `account` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
   `password` varchar(50) NOT NULL,
-  `account_typed` int,-- 1 admin, 2 staff, 3 user
+  `account_typeId` int,-- 1 admin, 2 staff, 3 user
   `account_status` varchar(50) , -- active -- deactive
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  CONSTRAINT `account_account_type_fk` FOREIGN KEY (`account_typeId`) REFERENCES `account_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO account(username, password, account_typed, account_status)  VALUES ('admin', '1234', '1', 'active');
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('admin', '1234', '1', 'active');
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('staff', '1234', '2', 'active');
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
+
 SELECT * FROM account;
 
 
