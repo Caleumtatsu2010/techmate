@@ -51,8 +51,6 @@ public class UserDao implements Dao<User>{
             fs=new FileInputStream(f);
             ps.setBinaryStream(8,fs,(int)f.length());
 
-            //insert current timestamp to mysql datatabase
-
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 

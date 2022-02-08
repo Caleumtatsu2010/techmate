@@ -15,8 +15,8 @@ public class CreateUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         //String image = request.getParameter("image");
-        String image= "C:/Users/longnh02/Pictures/Saved Pictures/touka.jpg";
-        
+
+
         User user = new User();
         user.setAccountId(1);//admin
         user.setFirstName(request.getParameter("first_name"));
@@ -25,7 +25,7 @@ public class CreateUser extends HttpServlet {
         user.setCitizenId(Integer.parseInt(request.getParameter("citizen_id")));
         user.setEmail(request.getParameter("email"));
         user.setBusinessPhone(Integer.parseInt( request.getParameter("business_phone")));
-        user.setImage(image);
+        user.setImage("C:/Users/longnh02/Pictures/Saved Pictures/touka.jpg");
 
 
         UserDao userDao = new UserDao();
