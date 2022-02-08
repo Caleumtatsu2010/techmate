@@ -478,7 +478,7 @@ John Abraham</span>is now following you
                                         <th>id</th>
                                         <th>Username</th>
                                         <th>Password</th>
-                                        <th>Account Type</th>
+                                        <th>Account Type Id</th>
                                         <th>Account Status</th>
                                         <th>Tool</th>
                                     </tr>
@@ -490,12 +490,12 @@ John Abraham</span>is now following you
                                             <td>${account.id}</td>
                                             <td>${account.username}</td>
                                             <td>${account.password}</td>
-                                            <td>${account.accountTyped}</td>
+                                            <td>${account.account_typeId}</td>
                                             <td>${account.accountStatus}</td>
                                             <td>
-                                                <a class="list-group-item" href="AccountDetail?id=${account.id}"><i class="" aria-hidden="true"></i>&nbsp; Detail</a>
-                                                <a class="list-group-item" href="#"><i class="" aria-hidden="true"></i>&nbsp; Update</a>
-                                                <a class="list-group-item" href="#"><i class="" aria-hidden="true"></i>&nbsp; Delete</a>
+                                                <a class="list-group-item" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
+                                                <a class="list-group-item" href="AccountUpdate?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Update</a>
+                                                <a class="list-group-item" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
 
                                             </td>
                                         </tr>
@@ -505,12 +505,12 @@ John Abraham</span>is now following you
                                     </tbody>
                                     <tfoot>
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>id</th>
+                                        <th>Username</th>
+                                        <th>Password</th>
+                                        <th>Account Type Id</th>
+                                        <th>Account Status</th>
+                                        <th>Tool</th>
                                     </tr>
                                     </tfoot>
                                 </table>

@@ -469,11 +469,11 @@ John Abraham</span>is now following you
                     <div class="card">
                         <h5 class="card-header">Creat New User</h5>
                         <div class="card-body">
-                            <form id="validationform" method="get" action="UserManager" data-parsley-validate="" novalidate="">
+                            <form id="validationform" method="get" action="CreateUser" data-parsley-validate="" novalidate="">
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">First Name</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
-                                        <input name="first_name" type="text" required="" placeholder="Your first name here!" class="form-control">
+                                        <input  name="first_name" type="text" required="" placeholder="Your first name here!" class="form-control">
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -506,20 +506,15 @@ John Abraham</span>is now following you
                                         <input name="business_phone" data-parsley-type="digits" type="text" placeholder="Enter only digits" class="form-control">
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
-                                    <div class="col-12 col-sm-8 col-lg-6">
-                                        <input name="image" type="file" placeholder="Browe" class="form-control">
-                                    </div>
-                                </div>
+
+
                                 <div class="custom-file mb-3">
-                                    <input type="file" class="custom-file-input" id="customFile">
+                                    <input name="image" type="file" class="custom-file-input" id="customFile">
                                     <label class="custom-file-label" for="customFile">File Input</label>
                                 </div>
                                 <div class="form-group row text-right">
                                     <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                                         <button type="submit" class="btn btn-space btn-primary" >submit</button>
-
                                         <button class="btn btn-space btn-secondary">Cancel</button>
                                     </div>
                                 </div>

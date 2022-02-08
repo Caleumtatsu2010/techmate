@@ -34,7 +34,7 @@ public class UserDao implements Dao<User>{
 
     @Override
     public void insert(User user) {
-        String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
+        String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at, modified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -51,6 +51,9 @@ public class UserDao implements Dao<User>{
             fs=new FileInputStream(f);
             ps.setBinaryStream(8,fs,(int)f.length());
 
+            ps.setTimestamp(9, user.getCreatedAt());
+            ps.setTimestamp(10, user.getModifiedAt());
+
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
@@ -65,8 +68,42 @@ public class UserDao implements Dao<User>{
         }
     }
 
+
+
+
     @Override
     public void update(User user, int id) {
+        String query = "UPDATE user set first_name = ?, last_name = ?, mobile_phone= ?, citizen_id= ?, email=?, business_phone=? , image = ?, modified_at =? WHERE id = ?";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setString(1,  user.getFirstName());
+            ps.setString(2, user.getLastName());
+            ps.setInt(3,(user.getMobilePhone()));
+            ps.setInt(4, user.getCitizenId());
+            ps.setString(5, user.getEmail());
+            ps.setInt(6,(user.getBusinessPhone()));
+
+            //insert image
+            File f=new File(user.getImage());//pathname
+            fs=new FileInputStream(f);
+            ps.setBinaryStream(7,fs,(int)f.length());
+
+            ps.setTimestamp(8, user.getModifiedAt());
+
+            ps.setInt(9, id);
+            ps.executeUpdate();
+            System.out.println("Data Updated Successfully");
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeConnection(connection);
+
+        }
     }
 
     @Override

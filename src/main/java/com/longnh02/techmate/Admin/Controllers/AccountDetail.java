@@ -23,7 +23,7 @@ public class AccountDetail extends HttpServlet {
 
         request.setAttribute("Account", account);
 
-        request.getRequestDispatcher("AccountDetail.jsp").forward(request, response);
+        request.getRequestDispatcher("DetailAccount.jsp").forward(request, response);
 
     }
 

@@ -9,11 +9,10 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "AccountManager", value = "/AccountManager")
-public class AccountManager extends HttpServlet {
+@WebServlet(name = "IndexAccount", value = "/IndexAccount")
+public class IndexAccount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
         response.setContentType("text/html;charset=UTF-8");
          AccountDao accDao = new AccountDao();
 
@@ -21,7 +20,7 @@ public class AccountManager extends HttpServlet {
 
         request.setAttribute("listAccount", accounts);
 
-        request.getRequestDispatcher("AccountManager.jsp").forward(request, response);
+        request.getRequestDispatcher("IndexAccount.jsp").forward(request, response);
     }
 
     @Override

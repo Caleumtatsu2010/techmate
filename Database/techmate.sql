@@ -15,9 +15,7 @@ CREATE TABLE IF NOT EXISTS `account_type` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
-INSERT INTO account_type(id, account_type, permissions)  VALUES (1, 'admin', 'full');
-INSERT INTO account_type(id, account_type, permissions)  VALUES (2, 'staff', '');
-INSERT INTO account_type(id, account_type, permissions)  VALUES (3, 'user', '');
+
 
 CREATE TABLE IF NOT EXISTS `account` (
   `id` int NOT NULL AUTO_INCREMENT,
@@ -29,11 +27,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   CONSTRAINT `account_account_type_fk` FOREIGN KEY (`account_typeId`) REFERENCES `account_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('admin', '1234', '1', 'active');
-INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('staff', '1234', '2', 'active');
-INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
 
-SELECT * FROM account;
 
 
 CREATE TABLE IF NOT EXISTS `user` (
@@ -46,9 +40,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `email` varchar(250) ,
   `business_phone` int ,
     `mobile_phone` int,
-  `image` blob,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `image` mediumblob,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`),
   CONSTRAINT `user_account_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -99,9 +93,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `country` varchar(50) ,
   `postal_code` varchar(15),
   `typed_id` int NOT NULL,
-  `last_login` datetime,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `last_login` timestamp,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`),
 	CONSTRAINT `adminuser_fk_1` FOREIGN KEY (`typed_id`) REFERENCES `admintype` (`id`) on delete cascade,
       CONSTRAINT `admin_account_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)  ON DELETE CASCADE
@@ -134,8 +128,8 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `desc` LONGTEXT,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -154,7 +148,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `supplier_id` int not null,
   `product_short_desc` varchar(1000),
   `Product_long_desc` longtext,
-  `image` blob,
+  `image` mediumblob,
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_fk_1` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)  ON DELETE CASCADE,
 	CONSTRAINT `product_fk_2` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`)  ON DELETE CASCADE,
@@ -170,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 CREATE TABLE IF NOT EXISTS `product_image` (
   `id` int NOT NULL auto_increment,
   `name` varchar(100),
-  `image` longblob,
+  `image` mediumblob,
   `product_id` int ,
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_image_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
@@ -181,8 +175,8 @@ CREATE TABLE IF NOT EXISTS `product_image` (
 CREATE TABLE IF NOT EXISTS `product_inventory` (
   `id` int NOT NULL,
   `quantity` int,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -194,8 +188,8 @@ CREATE TABLE IF NOT EXISTS `discount` (
   `desc` LONGTEXT,
   `discount_percent` decimal(4,2),
   `active` boolean,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -205,8 +199,8 @@ CREATE TABLE `cart` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT ,
   `total` int,
-    `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 	ON DELETE CASCADE
@@ -279,8 +273,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `shipping_fee` DECIMAL(19,4) DEFAULT '0.0000',
   `notes` TEXT ,
   `status_id` int,  
-  `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_orders_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`) 
   ON DELETE CASCADE,
@@ -298,8 +292,8 @@ CREATE TABLE IF NOT EXISTS `orders_items` (
   `orders_id` INT,
   `product_id` int,
   `quantity` int,
-  `created_at` datetime,
-  `modified_at` datetime,
+  `created_at` timestamp,
+  `modified_at` timestamp,
     PRIMARY KEY (`id`),
               CONSTRAINT `fk_orders_items_orders_id` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`)
   ON DELETE CASCADE,
