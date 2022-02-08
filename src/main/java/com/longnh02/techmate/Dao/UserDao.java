@@ -34,7 +34,7 @@ public class UserDao implements Dao<User>{
 
     @Override
     public void insert(User user) {
-        String query = "INSERT INTO user(account_id, first_name, last_name, citizen_id, email, business_phone, mobile_phone, image, created_at, modified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -42,7 +42,7 @@ public class UserDao implements Dao<User>{
             ps.setString(2,  user.getFirstName());
             ps.setString(3, user.getLastName());
             ps.setInt(4,(user.getMobilePhone()));
-            ps.setInt(5, user.getCitizen_id());
+            ps.setInt(5, user.getCitizenId());
             ps.setString(6, user.getEmail());
             ps.setInt(7,(user.getBusinessPhone()));
 
@@ -52,8 +52,7 @@ public class UserDao implements Dao<User>{
             ps.setBinaryStream(8,fs,(int)f.length());
 
             //insert current timestamp to mysql datatabase
-            ps.setString(9, "CURRENT_TIMESTAMP");
-            ps.setString(10, null);
+
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
