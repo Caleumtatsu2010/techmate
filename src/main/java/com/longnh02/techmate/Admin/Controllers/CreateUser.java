@@ -7,10 +7,12 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.sql.Time;
 import java.sql.Timestamp;
 import java.util.Date;
+import javax.servlet.annotation.MultipartConfig;
+import javax.servlet.http.Part;
 
+@MultipartConfig(maxFileSize = 16177215)
 @WebServlet(name = "CreateUser", value = "/CreateUser")
 public class CreateUser extends HttpServlet {
     @Override
@@ -18,7 +20,6 @@ public class CreateUser extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
 
         //String image = request.getParameter("image");
-
         User user = new User();
         user.setAccountId(1);//admin
         user.setFirstName(request.getParameter("first_name"));
@@ -28,7 +29,9 @@ public class CreateUser extends HttpServlet {
         user.setEmail(request.getParameter("email"));
         user.setBusinessPhone(Integer.parseInt( request.getParameter("business_phone")));
 
-        user.setImage("C:/Users/admin/Pictures/background/Scenery/1.jpg");
+        Part filePart = request.getPart("image");
+        user.setImage(filePart.getInputStream());
+
         Timestamp currTime = new Timestamp(new Date().getTime());
         user.setCreatedAt(currTime);
         user.setModifiedAt(currTime);

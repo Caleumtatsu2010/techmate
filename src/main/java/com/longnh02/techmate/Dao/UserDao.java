@@ -45,12 +45,7 @@ public class UserDao implements Dao<User>{
             ps.setInt(5, user.getCitizenId());
             ps.setString(6, user.getEmail());
             ps.setInt(7,(user.getBusinessPhone()));
-
-            //insert image
-            File f=new File(user.getImage());//pathname
-            fs=new FileInputStream(f);
-            ps.setBinaryStream(8,fs,(int)f.length());
-
+            ps.setBlob(8, user.getImage());
             ps.setTimestamp(9, user.getCreatedAt());
             ps.setTimestamp(10, user.getModifiedAt());
 
@@ -83,15 +78,10 @@ public class UserDao implements Dao<User>{
             ps.setInt(4, user.getCitizenId());
             ps.setString(5, user.getEmail());
             ps.setInt(6,(user.getBusinessPhone()));
-
-            //insert image
-            File f=new File(user.getImage());//pathname
-            fs=new FileInputStream(f);
-            ps.setBinaryStream(7,fs,(int)f.length());
-
+            ps.setBlob(7, user.getImage());
             ps.setTimestamp(8, user.getModifiedAt());
-
             ps.setInt(9, id);
+
             ps.executeUpdate();
             System.out.println("Data Updated Successfully");
 

@@ -12,3 +12,11 @@ INSERT INTO account(username, password, account_typeId, account_status)  VALUES 
 
 
 
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
+
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
+
+INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
+
+
+

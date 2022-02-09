@@ -7,6 +7,7 @@ import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -22,7 +23,8 @@ public class UpdateUser extends HttpServlet {
         String email = request.getParameter("email");
         int businessphone =  Integer.parseInt( request.getParameter("business_phone"));
 
-        String image = "C:/Users/admin/Pictures/background/Scenery/1.jpg";
+        InputStream image = request.getPart("image").getInputStream();
+
         Timestamp currTime = new Timestamp(new Date().getTime());
 
         User user = new User();

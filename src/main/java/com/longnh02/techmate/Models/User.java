@@ -1,6 +1,7 @@
 package com.longnh02.techmate.Models;
 
 
+import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.Date;
 
@@ -13,14 +14,14 @@ public class User {
     private int citizenId;
     private String email;
     private int businessPhone;
-    private String image;
+    private InputStream image;
     private Timestamp createdAt;
     private Timestamp modifiedAt;
 
     public User() {
     }
 
-    public User(int id, int accountId, String firstName, String lastName, int mobilePhone, int citizenId, String email, int businessPhone, String image, Timestamp createdAt, Timestamp modifiedAt) {
+    public User(int id, int accountId, String firstName, String lastName, int mobilePhone, int citizenId, String email, int businessPhone, InputStream image, Timestamp createdAt, Timestamp modifiedAt) {
         this.id = id;
         this.accountId = accountId;
         this.firstName = firstName;
@@ -98,11 +99,11 @@ public class User {
         this.businessPhone = businessPhone;
     }
 
-    public String getImage() {
+    public InputStream getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(InputStream image) {
         this.image = image;
     }
 

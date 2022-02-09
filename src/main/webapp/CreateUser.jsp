@@ -10,6 +10,7 @@
 <html lang="en">
 <head>
     <!-- Required meta tags -->
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Form Validation</title>
@@ -469,7 +470,7 @@ John Abraham</span>is now following you
                     <div class="card">
                         <h5 class="card-header">Creat New User</h5>
                         <div class="card-body">
-                            <form id="validationform" method="get" action="CreateUser" data-parsley-validate="" novalidate="">
+                            <form id="validationform" method="post" action="CreateUser" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                                 <div class="form-group row">
                                     <label class="col-12 col-sm-3 col-form-label text-sm-right">First Name</label>
                                     <div class="col-12 col-sm-8 col-lg-6">
@@ -509,7 +510,7 @@ John Abraham</span>is now following you
 
 
                                 <div class="custom-file mb-3">
-                                    <input name="image" type="file" class="custom-file-input" id="customFile">
+                                    <input name="image" type="file" class="custom-file-input" id="customFile" >
                                     <label class="custom-file-label" for="customFile">File Input</label>
                                 </div>
                                 <div class="form-group row text-right">
