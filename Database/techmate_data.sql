@@ -12,7 +12,8 @@ INSERT INTO account(username, password, account_typeId, account_status)  VALUES 
 
 
 
-INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
+INSERT INTO product_category(id, name, desc, created_at, modified_at) VALUES (1, 'dfd', 'ddd', '', '');
+
 
 INSERT INTO account(username, password, account_typeId, account_status)  VALUES ('user', '1234', '3', 'deactive');
 

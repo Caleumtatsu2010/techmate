@@ -50,7 +50,27 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
 
     @Override
     public void insert(ProductCategory productCategory) {
+        String query = "INSERT INTO product_category(id, name, desc, created_at, modified_at) VALUES (?, ?, ?, ?, ?)";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1,productCategory.getId());
+            ps.setString(2,  productCategory.getName());
+            ps.setString(3, productCategory.getDesc());
+            ps.setTimestamp(4,(productCategory.getCreatedAt()));
+            ps.setTimestamp(5,(productCategory.getModifiedAt()));
 
+            ps.executeUpdate();
+            System.out.println("Data Added Successfully");
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeConnection(connection);
+        }
     }
 
     @Override

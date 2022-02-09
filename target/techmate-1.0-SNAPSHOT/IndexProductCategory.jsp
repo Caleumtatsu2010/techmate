@@ -277,30 +277,31 @@ John Abraham</span>is now following you
                                 <table id="example" class="table table-striped table-bordered second" style="width:100%">
                                     <thead>
                                     <tr>
-                                        <th>id</th>
-                                        <th>Username</th>
-                                        <th>Password</th>
-                                        <th>Account Type Id</th>
-                                        <th>Account Status</th>
+                                        <th>Id</th>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Created At</th>
+                                        <th>Modified At</th>
                                         <th>Tool</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                        <c:forEach items="${listAccount}" var="account">
+                                    <c:forEach items="${ProdCategories}" var="prodCategory">
                                         <tr>
-                                            <td>${account.id}</td>
-                                            <td>${account.username}</td>
-                                            <td>${account.password}</td>
-                                            <td>${account.account_typeId}</td>
-                                            <td>${account.accountStatus}</td>
+                                            <td>${prodCategory.id}</td>
+                                            <td>${prodCategory.name}</td>
+                                            <td>${prodCategory.desc}</td>
+                                            <td>${prodCategory.createdAt}</td>
+                                            <td>${prodCategory.modifiedAt}</td>
                                             <td>
-                                                <a class="list-group-item-info" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
-                                                <a class="list-group-item-action" href="AccountUpdate?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
-                                                <a class="list-group-item-danger" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                                <a class="list-group-item" href="AccountDetail?id=${prodCategory.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
+                                                <a class="list-group-item" href="AccountUpdate?id=${prodCategory.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Update</a>
+                                                <a class="list-group-item" href="AccountDelete?id=${prodCategory.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+
                                             </td>
                                         </tr>
-                                        </c:forEach>
+                                    </c:forEach>
 
 
                                     </tbody>

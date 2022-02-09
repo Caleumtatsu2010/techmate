@@ -127,7 +127,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 CREATE TABLE IF NOT EXISTS `product_category` (
   `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
-  `desc` LONGTEXT,
+  `desc` mediumtext,
   `created_at` timestamp,
   `modified_at` timestamp,
   PRIMARY KEY (`id`)
