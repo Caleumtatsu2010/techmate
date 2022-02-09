@@ -120,8 +120,9 @@ CREATE TABLE IF NOT EXISTS `supplier` (
   `postal_code` VARCHAR(15) ,
   PRIMARY KEY (`id`)
   ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  
 
-
+-- (id, name, desc, email_address, business_phone, mobile_phone, fax_number, address_line1, address_line2, town, district, city, state_province, country, postal_code)
 
 CREATE TABLE IF NOT EXISTS `product_category` (
   `id` int NOT NULL,
@@ -192,7 +193,6 @@ CREATE TABLE IF NOT EXISTS `discount` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-INSERT INTO 'discount' (id, name, desc, discount_percent, active, created_at, modified_at) values (2, 'sale 50%', '','0.50', true, '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 
 CREATE TABLE `cart` (
   `id` INT NOT NULL AUTO_INCREMENT,
