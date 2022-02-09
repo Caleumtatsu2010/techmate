@@ -23,6 +23,7 @@ public class CreateProductCategory extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         String desc = request.getParameter("desc");
+
         Timestamp currTime = new Timestamp(new Date().getTime());
 
         ProductCategory prodCate = new ProductCategory(id, name, desc, currTime, currTime);

@@ -1,9 +1,8 @@
 package com.longnh02.techmate.Dao;
 
 import com.longnh02.techmate.Connection.ConnectionUtils;
-import com.longnh02.techmate.Models.Account;
-import com.longnh02.techmate.Models.Product;
 import com.longnh02.techmate.Models.ProductCategory;
+
 
 import java.io.FileInputStream;
 import java.sql.Connection;
@@ -50,7 +49,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
 
     @Override
     public void insert(ProductCategory productCategory) {
-        String query = "INSERT INTO product_category(id, name, desc, created_at, modified_at) VALUES (?, ?, ?, ?, ?)";
+        String query = "INSERT INTO product_category VALUES (?, ?, ?, ?, ?)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);

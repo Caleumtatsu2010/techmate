@@ -35,7 +35,6 @@ CREATE TABLE IF NOT EXISTS `user` (
   `account_id` int,
   `first_name` varchar(50),
   `last_name` varchar(50) ,
-  `phone` int DEFAULT NULL,
     `citizen_id` INT NOT NULL,
   `email` varchar(250) ,
   `business_phone` int ,
@@ -193,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `discount` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
-
+INSERT INTO 'discount' (id, name, desc, discount_percent, active, created_at, modified_at) values (2, 'sale 50%', '','0.50', true, '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 
 CREATE TABLE `cart` (
   `id` INT NOT NULL AUTO_INCREMENT,
