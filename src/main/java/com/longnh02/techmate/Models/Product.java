@@ -1,5 +1,7 @@
 package com.longnh02.techmate.Models;
 
+import java.io.InputStream;
+
 public class Product {
     private int id;
     private String name;
@@ -13,12 +15,12 @@ public class Product {
     private int supplierId;
     private String productShortDesc;
     private String productLongDesc;
-    private String image;
+    private InputStream image;
 
     public Product() {
     }
 
-    public Product(int id, String name, String desc, String sku, double price, String unitPrice, int categoryId, int discountId, int inventoryId, int supplierId, String productShortDesc, String productLongDesc, String image) {
+    public Product(int id, String name, String desc, String sku, double price, String unitPrice, int categoryId, int discountId, int inventoryId, int supplierId, String productShortDesc, String productLongDesc, InputStream image) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -34,11 +36,11 @@ public class Product {
         this.image = image;
     }
 
-    public String getImage() {
+    public InputStream getImage() {
         return image;
     }
 
-    public void setImage(String image) {
+    public void setImage(InputStream image) {
         this.image = image;
     }
 
