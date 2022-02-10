@@ -22,6 +22,7 @@ public class IndexProduct extends HttpServlet {
 
         request.setAttribute("listProduct", products);
 
+
         request.getRequestDispatcher("IndexProduct.jsp").forward(request, response);
     }
 

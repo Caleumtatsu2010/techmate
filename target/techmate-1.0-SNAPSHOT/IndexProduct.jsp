@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.longnh02.techmate.Models.Product" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/10/2022
@@ -68,7 +68,7 @@
                                         <td>${product.desc}</td>
                                         <td>${product.price}</td>
                                         <td>${product.unitPrice}</td>
-                                        <td>${product.image}</td>
+                                        <td><img src="data:image/jpg;base64,${product.getInputStreamImage()}" width="170" height="170"/></td>
                                         <td>
                                             <a class="list-group-item" href="AccountDetail?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
                                             <a class="list-group-item" href="AccountUpdate?id=${product.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
