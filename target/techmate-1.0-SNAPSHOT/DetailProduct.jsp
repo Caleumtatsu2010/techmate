@@ -10,6 +10,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page import="java.util.ArrayList"%>
 <t:AdminLayout>
+    <title>Detail</title>
     <div class="container-fluid dashboard-content ">
     <!-- ============================================================== -->
     <!-- pageheader  -->
@@ -17,7 +18,7 @@
     <div class="row">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="page-header">
-                <h2 class="pageheader-title">E-commerce Product Single </h2>
+                <h2 class="pageheader-title">Detail Product </h2>
                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
@@ -45,15 +46,12 @@
                     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
                 <div class="carousel-inner">
+
                     <div class="carousel-item active">
-                        <img class="d-block" src="" alt="First slide">
+                        <img class="d-block" src="data:image/jpg;base64,${Product.getInputStreamImage()}" alt="slide" width="285" height="313">
                     </div>
-                    <div class="carousel-item">
-                        <img class="d-block" src="" alt="Second slide">
-                    </div>
-                    <div class="carousel-item">
-                        <img class="d-block" src="" alt="Third slide">
-                    </div>
+
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -91,25 +89,27 @@
 
 <%--<label for="radio-3"></label>--%>
 </div>
-<%--<div class="product-size border-bottom">--%>
-<%--    <h4>Size</h4>--%>
-<%--    <div class="btn-group" role="group" aria-label="First group">--%>
+<div class="product-size border-bottom">
+    <h4>Size</h4>
+    <div class="btn-group" role="group" aria-label="First group">
 <%--        <button type="button" class="btn btn-outline-light">SM</button>--%>
 <%--        <button type="button" class="btn btn-outline-light">L</button>--%>
 <%--        <button type="button" class="btn btn-outline-light">XL</button>--%>
 <%--        <button type="button" class="btn btn-outline-light">XXl</button>--%>
-<%--    </div>--%>
-<%--    <div class="product-qty">--%>
-<%--        <h4>Quantity</h4>--%>
-<%--        <div class="quantity">--%>
-<%--            <p>${Quantity}</p>--%>
-<%--        </div>--%>
-<%--    </div>--%>
-<%--</div>--%>
-<div class="product-description">
+    </div>
+    <div class="product-qty">
+        <h4>Quantity</h4>
+        <div class="quantity">
+            <p>${Quantity}</p>
+        </div>
+    </div>
+</div>
+<div class="product-description" >
     <h4 class="mb-1">Descriptions</h4>
     <p>${Product.desc}</p>
-    <a href="#" class="btn btn-primary btn-block btn-lg">Add to Cart</a>
+    <a href="#" class="btn btn-primary btn-lg">Edit</a>
+    <a href="#" class="btn btn-danger btn-lg">Cancel</a>
+
 </div>
 </div>
 </div>
