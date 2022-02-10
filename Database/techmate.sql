@@ -134,6 +134,14 @@ CREATE TABLE IF NOT EXISTS `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+CREATE TABLE IF NOT EXISTS `product_colors` (
+  `id` int NOT NULL,
+  `color` varchar(100) NOT NULL,
+  `product_id` int,
+  PRIMARY KEY(`id`),
+  CONSTRAINT `product_colors_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
+  )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 CREATE TABLE IF NOT EXISTS `product` (
   `id` int NOT NULL,

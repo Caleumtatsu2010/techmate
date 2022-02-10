@@ -24,3 +24,31 @@ INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category
 INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('1', 'red', '1');
 INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('2', 'blue', '1');
 INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('3', 'green', '1');
+
+
+SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = 1;
+
+SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
