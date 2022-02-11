@@ -117,7 +117,7 @@
                 </div>
             </div>
         </div>
-<div class="product-description" >
+<div class="product-description">
     <h4 class="mb-1">Descriptions</h4>
     <div  style="text-wrap: normal">${Product.desc}</div>
     <a href="#" class="btn btn-primary btn-lg">Edit</a>
@@ -149,17 +149,18 @@
 <%--                </ul>--%>
                 <p>${Product.productLongDesc}</p>
             </div>
-            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="product-tab-2">
-                <div class="review-block">
-                    <p class="review-text font-italic m-0">“Vestibulum cursus felis vel arcu convallis, viverra commodo felis bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin non auctor est, sed lacinia velit. Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus.”</p>
-                    <div class="rating-star mb-4">
-                        <i class="fa fa-fw fa-star"></i>
-
-                    </div>
-                    <span class="text-dark font-weight-bold">Virgina G. Lightfoot</span><small class="text-mute"> (Company name)</small>
-                </div>
-
-
+<%--            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="product-tab-2">--%>
+<%--                <c:forEach items="ListR" var="rev">--%>
+<%--                    <div class="review-block">--%>
+<%--                            <p>${rev.id}</p>--%>
+<%--                            <p class="review-text font-italic m-0">${rev.content}</p>--%>
+<%--                        <div class="rating-star mb-4">//Reviews--%>
+<%--                                <i class="fa fa-fw fa-star"></i>--%>
+<%--                            <p>${rev.star}</p>--%>
+<%--                        </div>--%>
+<%--                        <span class="text-dark font-weight-bold">${rev.author}</span><small class="text-mute"></small>--%>
+<%--                    </div>--%>
+<%--                </c:forEach>--%>
             </div>
         </div>
     </div>

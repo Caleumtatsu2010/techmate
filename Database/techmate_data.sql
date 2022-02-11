@@ -28,14 +28,21 @@ INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('3
 
 SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = 1;
 
-SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = 1
+SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = 1;
+
+
+
+SELECT * FROM product_category INNER JOIN product ON  product_category.id = product.category_id  where product.category_id = 2 limit 1;
 
 
 
 
 
+select name from discount where id = 2;
 
 
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `author`, `product_id`) VALUES ('4', 'really bad', 'batman', '1');
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `author`, `product_id`) VALUES ('1', 'terrible', 'aaaaaa', '1');
 
 
 

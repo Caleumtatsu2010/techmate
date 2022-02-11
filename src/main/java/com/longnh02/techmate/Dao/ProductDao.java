@@ -3,6 +3,7 @@ package com.longnh02.techmate.Dao;
 import com.longnh02.techmate.Connection.ConnectionUtils;
 import com.longnh02.techmate.Models.Account;
 import com.longnh02.techmate.Models.Product;
+import com.longnh02.techmate.Models.Review;
 
 import java.io.InputStream;
 import java.sql.Connection;
@@ -69,12 +70,12 @@ public class ProductDao implements Dao<Product>{
 
     }
 
-    public int getQuantityById(int id) {
-        String query = "SELECT * FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = ?";//inventory_id in product
+    public int getQuantityById(int inventoryid) {
+        String query = "SELECT * FROM product_inventory  where inventory_id = ?";//inventory_id in product
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
+            ps.setInt(1, inventoryid);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -93,6 +94,7 @@ public class ProductDao implements Dao<Product>{
 
     public String getCategoryById(int categoryid) {
         String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
+
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -112,6 +114,34 @@ public class ProductDao implements Dao<Product>{
         }
         return null;
     }
+
+
+
+//
+public List<Review> getReviews(int id) {
+    String query = "select * from product_reviews where product_id= ?";//review from 1 productt
+    List<Review> list = new ArrayList<>();
+    try {
+        connection = ConnectionUtils.getConnection();
+        ps = connection.prepareStatement(query);
+        ps.setInt(1, id);
+
+        ResultSet rs = ps.executeQuery();
+        if (rs.next()) {
+            Review review = new Review(rs.getInt("id"), rs.getInt("star"), rs.getString("content"), rs.getString("author"), rs.getInt("product_id"));
+            list.add(review);
+        }
+        return list;
+
+    } catch (SQLException e) {
+        System.out.println(e);
+    } finally {
+        ConnectionUtils.closePreparedStatement(ps);
+        ConnectionUtils.closeResultSet(rs);
+        ConnectionUtils.closeConnection(connection);
+    }
+    return null;
+}
 
     public String getDiscount(int discountid) {
         String query = "SELECT * FROM discount where id = ?";//inventory_id in product
@@ -161,6 +191,7 @@ public class ProductDao implements Dao<Product>{
         return null;
 
     }
+
 
     @Override
     public void insert(Product product) {
