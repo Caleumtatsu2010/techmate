@@ -88,6 +88,13 @@
                                     <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <input name="categoryid" type="text" required="" placeholder="Product description here!" class="form-control">
+                                </div>
+                            </div>
+
 
 
 
@@ -113,6 +120,7 @@
                                     <button class="btn btn-space btn-secondary">Cancel</button>
                                 </div>
                             </div>
+
                         </form>
                     </div>
                 </div>
