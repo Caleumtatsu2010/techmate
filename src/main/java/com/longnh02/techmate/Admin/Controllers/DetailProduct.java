@@ -20,10 +20,14 @@ public class DetailProduct extends HttpServlet {
         ProductDao prodDao = new ProductDao();
         Product product = prodDao.get(id);
         int quantity = prodDao.getQuantityById(id);
-
         List<String> listcolor = prodDao.getColorsById(id);
+        String categoryName = prodDao.getCategoryById(product.getCategoryId());
+        String discount  = prodDao.getDiscount(product.getDiscountId());
 
 
+        request.setAttribute("Discount", discount);
+        request.setAttribute("CategoryName", categoryName);
+        
         request.setAttribute("Product", product);
         request.setAttribute("ListColors", listcolor);
         request.setAttribute("Quantity", quantity);

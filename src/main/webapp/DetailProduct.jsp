@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page import="java.util.ArrayList"%>
+
 <t:AdminLayout>
     <title>Detail</title>
     <div class="container-fluid dashboard-content ">
@@ -92,10 +92,11 @@
 <div class="product-size border-bottom">
     <h4>Size</h4>
     <div class="btn-group" role="group" aria-label="First group">
-<%--        <button type="button" class="btn btn-outline-light">SM</button>--%>
-<%--        <button type="button" class="btn btn-outline-light">L</button>--%>
-<%--        <button type="button" class="btn btn-outline-light">XL</button>--%>
-<%--        <button type="button" class="btn btn-outline-light">XXl</button>--%>
+        <p class="p-3 mr-3">SM</p>
+        <p class="p-3 mr-3">SM</p>
+        <p class="p-3 mr-3">SM</p>
+        <p class="p-3 mr-3">SM</p>
+
     </div>
     <div class="product-qty">
         <h4>Quantity</h4>
@@ -104,13 +105,25 @@
         </div>
     </div>
 </div>
+        <div class="product-size border-bottom">
+            <h4>Discount</h4>
+            <div class="btn-group" role="group" aria-label="First group">
+                <p class="">${Discount}</p>
+            </div>
+            <div class="product-qty">
+                <h4>Category</h4>
+                <div class="quantity">
+                    <p>${CategoryName}</p>
+                </div>
+            </div>
+        </div>
 <div class="product-description" >
     <h4 class="mb-1">Descriptions</h4>
-    <p>${Product.desc}</p>
+    <div  style="text-wrap: normal">${Product.desc}</div>
     <a href="#" class="btn btn-primary btn-lg">Edit</a>
     <a href="#" class="btn btn-danger btn-lg">Cancel</a>
-
 </div>
+
 </div>
 </div>
 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-b-60">
@@ -141,35 +154,12 @@
                     <p class="review-text font-italic m-0">“Vestibulum cursus felis vel arcu convallis, viverra commodo felis bibendum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin non auctor est, sed lacinia velit. Orci varius natoque penatibus et magnis dis parturient montes nascetur ridiculus mus.”</p>
                     <div class="rating-star mb-4">
                         <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
+
                     </div>
                     <span class="text-dark font-weight-bold">Virgina G. Lightfoot</span><small class="text-mute"> (Company name)</small>
                 </div>
-                <div class="review-block border-top mt-3 pt-3">
-                    <p class="review-text font-italic m-0">“Integer pretium laoreet mi ultrices tincidunt. Suspendisse eget risus nec sapien malesuada ullamcorper eu ac sapien. Maecenas nulla orci, varius ac tincidunt non, ornare a sem. Aliquam sed massa volutpat, aliquet nibh sit amet, tincidunt ex. Donec interdum pharetra dignissim.”</p>
-                    <div class="rating-star mb-4">
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                    </div>
-                    <span class="text-dark font-weight-bold">Ruby B. Matheny</span><small class="text-mute"> (Company name)</small>
-                </div>
-                <div class="review-block  border-top mt-3 pt-3">
-                    <p class="review-text font-italic m-0">“ Cras non rutrum neque. Sed lacinia ex elit, vel viverra nisl faucibus eu. Aenean faucibus neque vestibulum condimentum maximus. In id porttitor nisi. Quisque sit amet commodo arcu, cursus pharetra elit. Nam tincidunt lobortis augueat euismod ante sodales non. ”</p>
-                    <div class="rating-star mb-4">
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                        <i class="fa fa-fw fa-star"></i>
-                    </div>
-                    <span class="text-dark font-weight-bold">Gloria S. Castillo</span><small class="text-mute"> (Company name)</small>
-                </div>
+
+
             </div>
         </div>
     </div>

@@ -90,6 +90,51 @@ public class ProductDao implements Dao<Product>{
         }
         return 0;
     }
+
+    public String getCategoryById(int categoryid) {
+        String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, categoryid);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+    }
+
+    public String getDiscount(int discountid) {
+        String query = "SELECT * FROM discount where id = ?";//inventory_id in product
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, discountid);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return rs.getString("name");
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+    }
+
     @Override
     public List<Product> getAll() {
         String query = "SELECT * FROM product";

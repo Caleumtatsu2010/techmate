@@ -70,7 +70,7 @@
                                         <td>${product.unitPrice}</td>
                                         <td><img src="data:image/jpg;base64,${product.getInputStreamImage()}" width="170" height="170"/></td>
                                         <td>
-                                            <a class="list-group-item" href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
+                                            <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
                                             <a class="list-group-item" href="EditProduct?id=${product.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
                                             <a class="list-group-item" href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
                                         </td>
