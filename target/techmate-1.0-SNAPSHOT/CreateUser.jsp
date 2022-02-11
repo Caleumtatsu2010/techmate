@@ -81,6 +81,7 @@
                                 <input name="image" type="file" class="custom-file-input" id="customFile" >
                                 <label class="custom-file-label" for="customFile">File Input</label>
                             </div>
+
                             <div class="form-group row text-right">
                                 <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                                     <button type="submit" class="btn btn-space btn-primary" >submit</button>

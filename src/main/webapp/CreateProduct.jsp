@@ -76,10 +76,15 @@
                                 </div>
                             </div>
 
+
+
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Category</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control">
+                                    <select name="categoryid" class="form-control">
+                                        <option value="1">Volvo</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -91,6 +96,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
+
                                     <input name="categoryid" type="text" required="" placeholder="Product description here!" class="form-control">
                                 </div>
                             </div>
@@ -109,6 +115,12 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Long Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <textarea name="productlongdesc" type="text" required placeholder="Product long description here!" class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <input name="image" data-parsley-type="image" type="file" required="" placeholder="" class="form-control border-light ">
                                 </div>
                             </div>
 

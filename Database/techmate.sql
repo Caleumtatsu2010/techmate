@@ -3,7 +3,7 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 DROP SCHEMA IF EXISTS `techmate` ;
-CREATE SCHEMA IF NOT EXISTS `techmate` DEFAULT CHARACTER SET latin1 ;
+CREATE SCHEMA IF NOT EXISTS `techmate` DEFAULT CHARACTER SET utf8 ;
 USE `techmate` ;
 
 -- 1 admin, 2 staff, 3 user
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS `account_type` (
   `account_type` varchar(50) NOT NULL,
   `permissions` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -25,7 +25,7 @@ CREATE TABLE IF NOT EXISTS `account` (
   `account_status` varchar(50) , -- active -- deactive
   PRIMARY KEY (`id`),
   CONSTRAINT `account_account_type_fk` FOREIGN KEY (`account_typeId`) REFERENCES `account_type` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `modified_at` timestamp,
   PRIMARY KEY (`id`),
   CONSTRAINT `user_account_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS `user_address` (
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `user_address` (
   `postal_code` varchar(15),
   PRIMARY KEY (`id`),
   CONSTRAINT `user_address_fk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- admin, staff,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `admintype` (
   `admin_type` varchar(50) NOT NULL,
   `permissions` varchar(50) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -98,7 +98,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   PRIMARY KEY (`id`),
 	CONSTRAINT `adminuser_fk_1` FOREIGN KEY (`typed_id`) REFERENCES `admintype` (`id`) on delete cascade,
       CONSTRAINT `admin_account_fk` FOREIGN KEY (`account_id`) REFERENCES `account` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -119,7 +119,7 @@ CREATE TABLE IF NOT EXISTS `supplier` (
     `country` VARCHAR(50) ,
   `postal_code` VARCHAR(15) ,
   PRIMARY KEY (`id`)
-  ) ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  ) ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
   
 
 -- (id, name, desc, email_address, business_phone, mobile_phone, fax_number, address_line1, address_line2, town, district, city, state_province, country, postal_code)
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   `created_at` timestamp,
   `modified_at` timestamp,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS `product_colors` (
@@ -140,7 +140,7 @@ CREATE TABLE IF NOT EXISTS `product_colors` (
   `product_id` int,
   PRIMARY KEY(`id`),
   CONSTRAINT `product_colors_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
-  )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS `product` (
@@ -163,7 +163,7 @@ CREATE TABLE IF NOT EXISTS `product` (
 	CONSTRAINT `product_fk_3` FOREIGN KEY (`inventory_id`) REFERENCES `product_inventory` (`id`)  ON DELETE CASCADE,
 	CONSTRAINT `product_fk_4` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`)  ON DELETE CASCADE
 
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `product_image` (
   `product_id` int ,
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_image_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -186,7 +186,7 @@ CREATE TABLE IF NOT EXISTS `product_inventory` (
   `created_at` timestamp,
   `modified_at` timestamp,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -199,7 +199,7 @@ CREATE TABLE IF NOT EXISTS `discount` (
   `created_at` timestamp,
   `modified_at` timestamp,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE `cart` (
@@ -211,7 +211,7 @@ CREATE TABLE `cart` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 	ON DELETE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=latin1;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -225,7 +225,7 @@ CREATE TABLE `cart_item` (
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_cart_item_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`) ON DELETE CASCADE,
      CONSTRAINT `fk_cart_item_cart` FOREIGN KEY (`cart_id`) REFERENCES `cart` (`id`) ON DELETE CASCADE
-    )ENGINE=InnoDB DEFAULT CHARSET=latin1;
+    )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 -- -----------------------------------------------------
@@ -247,7 +247,7 @@ CREATE TABLE IF NOT EXISTS `shippers` (
   `notes` TEXT ,
   `status` varchar(10),-- active or not
   PRIMARY KEY (`id`)
-  )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 -- ---------admin----open, confirmed, delivery, completed,  denied, deleted(3 day disappeared)-------------user--pending--confirmed, delivery-, denied, completed----------------------
@@ -255,7 +255,7 @@ CREATE TABLE IF NOT EXISTS `orders_status` (
   `id` int NOT NULL,
   `status_name` VARCHAR(50) ,
   PRIMARY KEY (`id`)
-  )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
@@ -291,7 +291,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   ON DELETE CASCADE,
   CONSTRAINT `fk_orders_orders_status` FOREIGN KEY (`status_id`) REFERENCES `orders_status` (`id`)
   ON DELETE CASCADE
-    )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+    )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 CREATE TABLE IF NOT EXISTS `orders_items` (
@@ -307,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `orders_items` (
     CONSTRAINT `fk_orders_items_product` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)
   ON DELETE CASCADE
     
-)ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+)ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 
@@ -317,7 +317,7 @@ CREATE TABLE IF NOT EXISTS `payment_type`(
   `note` text,
   `created_at` datetime,
   primary key(`id`)
-  )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 
@@ -333,7 +333,7 @@ CREATE TABLE IF NOT EXISTS `payment`(
   ON DELETE CASCADE,
           CONSTRAINT `fk_payment_orders_id` FOREIGN KEY (`orders_id`) REFERENCES `orders` (`id`)
   ON DELETE CASCADE
-  )ENGINE = InnoDB DEFAULT CHARACTER SET = latin1;
+  )ENGINE = InnoDB DEFAULT CHARACTER SET = utf8;
 
 
 
