@@ -75,12 +75,7 @@
                                     <input name="unitprice" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">E-Mail</label>
-                                <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="email" type="email" required="" data-parsley-type="email" placeholder="Enter a valid e-mail" class="form-control">
-                                </div>
-                            </div>
+
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -96,18 +91,22 @@
 
 
 
-
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Short Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="image" required  data-parsley-type="image" type="file"  class="form-control border-white" >
+                                    <textarea name="productshortdesc" type="text" required placeholder="Product short description here!" class="form-control" rows="5" ></textarea>
                                 </div>
                             </div>
 
-<%--                            <div class="custom-file mb-3">--%>
-<%--                                <input name="image" type="file" class="custom-file-input" id="customFile" >--%>
-<%--                                <label class="custom-file-label" for="customFile">File Input</label>--%>
-<%--                            </div>--%>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Long Description</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <textarea name="productlongdesc" type="text" required placeholder="Product long description here!" class="form-control" rows="5"></textarea>
+                                </div>
+                            </div>
+
+
+
                             <div class="form-group row text-right">
                                 <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                                     <button type="submit" class="btn btn-space btn-primary" >submit</button>
