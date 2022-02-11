@@ -94,7 +94,8 @@
     <div class="btn-group" role="group" aria-label="First group">
         <p class="p-3 mr-3">SM</p>
         <p class="p-3 mr-3">SM</p>
-
+        <p class="p-3 mr-3">SM</p>
+        <p class="p-3 mr-3">SM</p>
 
     </div>
     <div class="product-qty">

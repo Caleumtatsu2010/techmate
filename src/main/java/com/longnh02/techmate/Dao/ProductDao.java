@@ -200,32 +200,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void update(Product product, int id) {
-        String query = "UPDATE product set  = ?, last_name = ?, mobile_phone= ?, citizen_id= ?, email=?, business_phone=? , image = ?, modified_at =? WHERE id = ?";
-        try {
-            connection = ConnectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
-            ps.setString(1,  user.getFirstName());
-            ps.setString(2, user.getLastName());
-            ps.setInt(3,(user.getMobilePhone()));
-            ps.setInt(4, user.getCitizenId());
-            ps.setString(5, user.getEmail());
-            ps.setInt(6,(user.getBusinessPhone()));
-            ps.setBlob(7, user.getImage());
-            ps.setTimestamp(8, user.getModifiedAt());
-            ps.setInt(9, id);
 
-            ps.executeUpdate();
-            System.out.println("Data Updated Successfully");
-
-        } catch (Exception e) {
-            System.err.println(e);
-            e.printStackTrace();
-        } finally {
-            System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
-
-        }
     }
 
     @Override
