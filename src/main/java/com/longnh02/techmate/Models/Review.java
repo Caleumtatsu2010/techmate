@@ -5,14 +5,17 @@ public class Review {
     private int id;
     private int star;
     private String content;
-    private String author;
+    private int userId;
     private int productId;
 
-    public Review(int id, int star, String content, String author, int productId) {
+    public Review() {
+    }
+
+    public Review(int id, int star, String content, int userId, int productId) {
         this.id = id;
         this.star = star;
         this.content = content;
-        this.author = author;
+        this.userId = userId;
         this.productId = productId;
     }
 
@@ -40,12 +43,12 @@ public class Review {
         this.content = content;
     }
 
-    public String getAuthor() {
-        return author;
+    public int getUserId() {
+        return userId;
     }
 
-    public void setAuthor(String author) {
-        this.author = author;
+    public void setUserId(int userId) {
+        this.userId = userId;
     }
 
     public int getProductId() {

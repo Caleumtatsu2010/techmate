@@ -46,7 +46,7 @@ public class ProductDao implements Dao<Product>{
 
     public List<String> getColorsById(int id) {
 
-        String query = "SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = ?";
+        String query = "SELECT * FROM product_colors  where product_id = ?";
         List<String> list = new ArrayList<>();
         try {
             connection = ConnectionUtils.getConnection();
@@ -128,7 +128,7 @@ public List<Review> getReviews(int id) {
 
         ResultSet rs = ps.executeQuery();
         if (rs.next()) {
-            Review review = new Review(rs.getInt("id"), rs.getInt("star"), rs.getString("content"), rs.getString("author"), rs.getInt("product_id"));
+            Review review = new Review(rs.getInt("id"), rs.getInt("star"), rs.getString("content"), rs.getInt("user_id"), rs.getInt("product_id"));
             list.add(review);
         }
         return list;

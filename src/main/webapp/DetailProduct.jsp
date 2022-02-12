@@ -75,9 +75,6 @@
     <h4>Colors</h4>
 
     <c:forEach items="ListColors" var="color">
-<%--        <c:if test = "${color > "red"}">--%>
-<%--        <p>color:  <c:out value = "${salary}"/><p>--%>
-<%--        </c:if>--%>
         <p>${color}</p>
     </c:forEach>
 
@@ -92,10 +89,10 @@
 <div class="product-size border-bottom">
     <h4>Size</h4>
     <div class="btn-group" role="group" aria-label="First group">
-        <p class="p-3 mr-3">SM</p>
-        <p class="p-3 mr-3">SM</p>
-        <p class="p-3 mr-3">SM</p>
-        <p class="p-3 mr-3">SM</p>
+        <p class="pr-1">SM</p>
+        <p class="pr-1">SM</p>
+        <p class="pr-1">SM</p>
+        <p class="pr-1">SM</p>
 
     </div>
     <div class="product-qty">
@@ -105,67 +102,68 @@
         </div>
     </div>
 </div>
-        <div class="product-size border-bottom">
-            <h4>Discount</h4>
-            <div class="btn-group" role="group" aria-label="First group">
-                <p class="">${Discount}</p>
-            </div>
-            <div class="product-qty">
-                <h4>Category</h4>
-                <div class="quantity">
-                    <p>${CategoryName}</p>
-                </div>
-            </div>
-        </div>
-<div class="product-description">
-    <h4 class="mb-1">Descriptions</h4>
-    <div  style="text-wrap: normal">${Product.desc}</div>
-    <a href="#" class="btn btn-primary btn-lg">Edit</a>
-    <a href="#" class="btn btn-danger btn-lg">Cancel</a>
-</div>
-
-</div>
-</div>
-<div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 m-b-60">
-    <div class="simple-card">
-        <ul class="nav nav-tabs" id="myTab5" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active border-left-0" id="product-tab-1" data-toggle="tab" href="#tab-1" role="tab" aria-controls="product-tab-1" aria-selected="true">Detail Description</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" id="product-tab-2" data-toggle="tab" href="#tab-2" role="tab" aria-controls="product-tab-2" aria-selected="false">Reviews</a>
-            </li>
-        </ul>
-        <div class="tab-content" id="myTabContent5">
-            <div class="tab-pane fade show active" id="tab-1" role="tabpanel" aria-labelledby="product-tab-1">
-<%--                <p>Praesent et cursus quam. Etiam vulputate est et metus pellentesque iaculis. Suspendisse nec urna augue. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubiliaurae.</p>--%>
-<%--                <p>Nam condimentum erat aliquet rutrum fringilla. Suspendisse potenti. Vestibulum placerat elementum sollicitudin. Aliquam consequat molestie tortor, et dignissim quam blandit nec. Donec tincidunt dui libero, ac convallis urna dapibus eu. Praesent volutpat mi eget diam efficitur, a mollis quam ultricies. Morbi eu turpis odio.</p>--%>
-<%--                <ul class="list-unstyled arrow">--%>
-<%--                    <li>--%>
-<%--                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>--%>
-<%--                    <li>Donec ut elit sodales, dignissim elit et, sollicitudin nulla.</li>--%>
-<%--                    <li>Donec at leo sed nisl vestibulum fermentum.--%>
-<%--                    </li>--%>
-<%--                </ul>--%>
-                <p>${Product.productLongDesc}</p>
-            </div>
-<%--            <div class="tab-pane fade" id="tab-2" role="tabpanel" aria-labelledby="product-tab-2">--%>
-<%--                <c:forEach items="ListR" var="rev">--%>
-<%--                    <div class="review-block">--%>
-<%--                            <p>${rev.id}</p>--%>
-<%--                            <p class="review-text font-italic m-0">${rev.content}</p>--%>
-<%--                        <div class="rating-star mb-4">//Reviews--%>
-<%--                                <i class="fa fa-fw fa-star"></i>--%>
-<%--                            <p>${rev.star}</p>--%>
-<%--                        </div>--%>
-<%--                        <span class="text-dark font-weight-bold">${rev.author}</span><small class="text-mute"></small>--%>
-<%--                    </div>--%>
-<%--                </c:forEach>--%>
-            </div>
+<div class="product-size border-bottom">
+    <h4>Discount</h4>
+    <div class="btn-group" role="group" aria-label="First group">
+        <p class="">${Discount}</p>
+    </div>
+    <div class="product-qty">
+        <h4>Category</h4>
+        <div class="quantity">
+            <p>${CategoryName}</p>
         </div>
     </div>
 </div>
+<%--<div class="product-description">--%>
+<%--    <h4 class="mb-1">Descriptions</h4>--%>
+<%--    <div  style="text-wrap: normal">${Product.desc}</div>--%>
+<%--    <a href="#" class="btn btn-primary btn-lg">Edit</a>--%>
+<%--    <a href="#" class="btn btn-danger btn-lg">Cancel</a>--%>
+<%--</div>--%>
+        <div class="product-description">
+            <h4 class="mb-1">Descriptions</h4>
+            <p>${Product.desc}</p>
+            <a href="#" class="btn btn-primary btn-lg">Edit</a>
+            <a href="#" class="btn btn-danger btn-lg">Cancel</a>
+        </div>
 </div>
+</div>
+        <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-5">
+            <div class="section-block">
+                <h5 class="section-title">Outline Tabs</h5>
+                <p>Takes the basic nav from above and adds the .nav-tabs class to generate a tabbed interface..</p>
+            </div>
+            <div class="tab-outline">
+                <ul class="nav nav-tabs" id="myTab2" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Tab#1</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Tab#2</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Tab#3</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="myTabContent2">
+                    <div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
+                        <p class="lead"> All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
+                        <p>Phasellus non ante gravida, ultricies neque a, fermentum leo. Etiam ornare enim arcu, at venenatis odio mollis quis. Mauris fermentum elementum ligula in efficitur. Aliquam id congue lorem. Proin consectetur feugiasse platea dictumst. Pellentesque sed justo aliquet, posuere sem nec, elementum ante.</p>
+                        <a href="#" class="btn btn-secondary">Go somewhere</a>
+                    </div>
+                    <div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
+                        <h3>Heading Title of Outline Tabs</h3>
+                        <p>Nullam et tellus ac ligula condimentum sodales. Aenean tincidunt viverra suscipit. Maecenas id molestie est, a commodo nisi. Quisque fringilla turpis nec elit eleifend vestibulum. Aliquam sed purus in odio ullamcorper congue consectetur in neque. Aenean sem ex, tempor et auctor sed, congue id neque. </p>
+                        <p>Fusce a eros pellentesque, ultricies urna nec, consectetur dolor. Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. </p>
+                    </div>
+                    <div class="tab-pane fade" id="outline-three" role="tabpanel" aria-labelledby="tab-outline-three">
+                        <h3>Heading Title of Outline Tabs</h3>
+                        <p>Vivamus pellentesque vestibulum lectus vitae auctor. Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. Fusce a eros pellentesque, ultricies urna nec, consectetur dolor. Nam dapibus scelerisque risus, a commodo mi tempus eu.</p>
+                        <p>Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. Fusce a eros pellentesque, ultricies urna nec, consectetur dolor.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 </div>
 </div>

@@ -175,10 +175,10 @@ John Abraham</span>is now following you
                                         <div id="submenu-1-2" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href="">User</a>
+                                                    <a class="nav-link" href="">All User</a>
                                                 </li>
                                                 <li class="nav-item">
-                                                    <a class="nav-link" href=""></a>
+                                                    <a class="nav-link" href="">Address</a>
                                                 </li>
 
                                             </ul>

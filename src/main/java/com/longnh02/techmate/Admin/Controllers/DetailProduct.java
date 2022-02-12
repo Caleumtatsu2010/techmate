@@ -31,7 +31,7 @@ public class DetailProduct extends HttpServlet {
 //        request.setAttribute("CategoryName", categoryName);
 
         request.setAttribute("Product", product);
-//        request.setAttribute("ListColors", listcolor);
+        request.setAttribute("ListColors", listcolor);
 //        request.setAttribute("Quantity", quantity);
 
         request.setAttribute("ListR", listreview);

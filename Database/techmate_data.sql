@@ -41,8 +41,8 @@ SELECT * FROM product_category INNER JOIN product ON  product_category.id = prod
 select name from discount where id = 2;
 
 
-INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `author`, `product_id`) VALUES ('4', 'really bad', 'batman', '1');
-INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `author`, `product_id`) VALUES ('1', 'terrible', 'aaaaaa', '1');
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('4', 'really bad', '', '1');
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('1', 'terrible', '', '1');
 
 
 
