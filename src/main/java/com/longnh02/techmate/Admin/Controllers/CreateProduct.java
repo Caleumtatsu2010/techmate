@@ -19,7 +19,6 @@ public class CreateProduct extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
 
-        //String image = request.getParameter("image");
         Product product = new Product();
         product.setId(Integer.parseInt(request.getParameter("id")));//admin
         product.setName(request.getParameter("name"));

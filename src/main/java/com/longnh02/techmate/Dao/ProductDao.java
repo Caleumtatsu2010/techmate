@@ -1,7 +1,7 @@
 package com.longnh02.techmate.Dao;
 
 import com.longnh02.techmate.Connection.ConnectionUtils;
-import com.longnh02.techmate.Models.Account;
+
 import com.longnh02.techmate.Models.Product;
 import com.longnh02.techmate.Models.Review;
 
@@ -195,7 +195,37 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
+        String query = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1,product.getId());
+            ps.setString(2,  product.getName());
+            ps.setString(3, product.getDesc());
+            ps.setString(4,(product.getSku()));
+            ps.setDouble(5, product.getPrice());
+            ps.setString(6, product.getUnitPrice());
+            ps.setInt(7,(product.getCategoryId()));
+            ps.setInt(8, product.getDiscountId());
+            ps.setInt(9, product.getInventoryId());
+            ps.setInt(10, product.getSupplierId());
+            ps.setString(11, product.getProductShortDesc());
+            ps.setString(12, product.getDetail());
 
+            ps.setBlob(13, product.getImage());
+
+            ps.executeUpdate();
+            System.out.println("Data Added Successfully");
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeConnection(connection);
+
+        }
     }
 
     @Override
