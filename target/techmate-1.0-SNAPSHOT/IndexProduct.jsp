@@ -50,6 +50,7 @@
                             <table id="example" class="table table-striped table-bordered second" style="width:100%">
                                 <thead>
                                 <tr>
+                                    <td>No. </td>
                                     <th>id</th>
                                     <th>Product Name</th>
                                     <th>Description</th>
@@ -61,18 +62,19 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${listProduct}" var="product">
+                                <c:forEach items="${listProduct}" var="product" varStatus="loop">
                                     <tr>
+                                        <td>${loop.count}</td>
                                         <td>${product.id}</td>
                                         <td>${product.name}</td>
                                         <td>${product.desc}</td>
                                         <td>${product.price}</td>
                                         <td>${product.unitPrice}</td>
-                                        <td><img src="data:image/jpg;base64,${product.getInputStreamImage()}" width="170" height="170"/></td>
+                                        <td><img src="data:image/jpg;base64,${product.getInputStreamImage()}" width="120" height="120"/></td>
                                         <td>
-                                            <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp; Detail</a>
-                                            <a class="list-group-item" href="EditProduct?id=${product.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
-                                            <a class="list-group-item" href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                            <a class="list-group-item py-1" href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
+                                            <a class="list-group-item py-1" href="EditProduct?id=${product.id}"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
+                                            <a class="list-group-item py-1" href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i> Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

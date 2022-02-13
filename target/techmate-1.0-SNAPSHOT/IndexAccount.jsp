@@ -42,7 +42,8 @@
                             <table id="example" class="table table-striped table-bordered second" style="width:100%">
                                 <thead>
                                 <tr>
-                                    <th>id</th>
+                                    <th>No.</th>
+                                    <th>Id</th>
                                     <th>Username</th>
                                     <th>Password</th>
                                     <th>Account Type Id</th>
@@ -52,8 +53,9 @@
                                 </thead>
                                 <tbody>
 
-                                <c:forEach items="${listAccount}" var="account">
+                                <c:forEach items="${listAccount}" var="account" varStatus="loop">
                                     <tr>
+                                        <td>${loop.count}</td>
                                         <td>${account.id}</td>
                                         <td>${account.username}</td>
                                         <td>${account.password}</td>

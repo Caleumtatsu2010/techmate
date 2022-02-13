@@ -1,5 +1,6 @@
 package com.longnh02.techmate.Models;
 
+import java.sql.Timestamp;
 import java.util.Date;
 
 public class Discount {
@@ -8,13 +9,13 @@ public class Discount {
     private String desc;
     private Double discountPercent;
     private Boolean active;
-    private Date createdAt;
-    private Date modifiedAt;
+    private Timestamp createdAt;
+    private Timestamp modifiedAt;
 
     public Discount() {
     }
 
-    public Discount(int id, String name, String desc, Double discountPercent, Boolean active, Date createdAt, Date modifiedAt) {
+    public Discount(int id, String name, String desc, Double discountPercent, Boolean active, Timestamp createdAt, Timestamp modifiedAt) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -64,32 +65,19 @@ public class Discount {
         this.active = active;
     }
 
-    public Date getCreatedAt() {
+    public Timestamp getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(Date createdAt) {
+    public void setCreatedAt(Timestamp createdAt) {
         this.createdAt = createdAt;
     }
 
-    public Date getModifiedAt() {
+    public Timestamp getModifiedAt() {
         return modifiedAt;
     }
 
-    public void setModifiedAt(Date modifiedAt) {
+    public void setModifiedAt(Timestamp modifiedAt) {
         this.modifiedAt = modifiedAt;
-    }
-
-    @Override
-    public String toString() {
-        return "Discount{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", discountPercent=" + discountPercent +
-                ", active=" + active +
-                ", createdAt=" + createdAt +
-                ", modifiedAt=" + modifiedAt +
-                '}';
     }
 }

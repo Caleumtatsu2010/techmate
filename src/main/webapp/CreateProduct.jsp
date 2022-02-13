@@ -94,7 +94,9 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Discount</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="discountid" class="form-control">
-                                        <option value="1">Volvo</option>
+                                        <c:forEach items="${listdiscount}" var="discount">
+                                            <option value="${discount.id}">${discount.name}</option>
+                                        </c:forEach>
                                     </select>
 
                                 </div>
@@ -103,7 +105,9 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Inventory</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="inventoryid" class="form-control">
-                                        <option value="1">Volvo</option>
+                                        <c:forEach items="${listinventory}" var="inventory">
+                                            <option value="${inventory.id}">${listinventory.quantity}</option>
+                                        </c:forEach>
                                     </select>
 
                                 </div>

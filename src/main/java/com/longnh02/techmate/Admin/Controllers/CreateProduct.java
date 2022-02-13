@@ -1,5 +1,7 @@
 package com.longnh02.techmate.Admin.Controllers;
 
+import com.longnh02.techmate.Dao.DiscountDao;
+import com.longnh02.techmate.Dao.InventoryDao;
 import com.longnh02.techmate.Dao.ProductCategoryDao;
 import com.longnh02.techmate.Dao.ProductDao;
 
@@ -21,9 +23,13 @@ public class CreateProduct extends HttpServlet {
 
 
         ProductCategoryDao prod = new ProductCategoryDao();
+        DiscountDao dis = new DiscountDao();
+        InventoryDao inv = new InventoryDao();
 
 
         request.setAttribute("listcategory", prod.getAll());
+        request.setAttribute("listdiscount", dis.getAll());
+        request.setAttribute("listinventory", inv.getAll());
 
         request.getRequestDispatcher("CreateProduct.jsp").forward(request, response);
 
