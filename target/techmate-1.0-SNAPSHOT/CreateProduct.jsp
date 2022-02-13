@@ -38,7 +38,7 @@
                 <div class="card">
                     <h5 class="card-header">Creat New Product</h5>
                     <div class="card-body">
-                        <form id="validationform" method="post" action="CreateProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                        <form id="validationform" method="get" action="CreateProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Id</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -77,7 +77,6 @@
                             </div>
 
 
-
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Category</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -87,6 +86,7 @@
 
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Discount</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -127,6 +127,7 @@
                                     <textarea name="detail" type="text" required placeholder="Product detail here!" class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
                                 <div class="col-12 col-sm-8 col-lg-6">

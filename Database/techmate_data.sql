@@ -19,7 +19,8 @@ INSERT INTO discount values (1, 'Sale 50%', '','0.50', true, '2022-02-09 20:46:0
 INSERT INTO product_inventory values (1, '14', '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 INSERT INTO supplier VALUES (1, 'Keychron', 'a', '', 5, 5,  '', '', '', '', '', '', '', '', '');
 
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`) VALUES ('1', 'Keychron', '2500000000', 'VNĐ', '1', '1', '1', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ', '1', '1', '1', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'VNĐ', '1', '1', '1', '1');
 
 
 INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('4', 'really bad', '1', '1');

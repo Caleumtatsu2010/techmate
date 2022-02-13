@@ -199,6 +199,7 @@ public List<Review> getReviews(int id) {
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
+
             ps.setInt(1,product.getId());
             ps.setString(2,  product.getName());
             ps.setString(3, product.getDesc());

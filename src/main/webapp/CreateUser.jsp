@@ -77,9 +77,15 @@
                             </div>
 
 
-                            <div class="custom-file mb-3">
-                                <input name="image" type="file" class="custom-file-input" id="customFile" >
-                                <label class="custom-file-label" for="customFile">File Input</label>
+<%--                            <div class="custom-file mb-3">--%>
+<%--                                <input name="image" type="file" class="custom-file-input" id="customFile" >--%>
+<%--                                <label class="custom-file-label" for="customFile">File Input</label>--%>
+<%--                            </div>--%>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <input name="image" data-parsley-type="image" type="file" required="" placeholder="" class="form-control border-light ">
+                                </div>
                             </div>
 
                             <div class="form-group row text-right">
