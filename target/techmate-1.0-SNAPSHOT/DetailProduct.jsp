@@ -136,10 +136,10 @@
             <div class="tab-outline">
                 <ul class="nav nav-tabs" id="myTab2" role="tablist">
                     <li class="nav-item">
-                        <a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Tab#1</a>
+                        <a class="nav-link active" id="tab-outline-one" data-toggle="tab" href="#outline-one" role="tab" aria-controls="home" aria-selected="true">Detail</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Tab#2</a>
+                        <a class="nav-link" id="tab-outline-two" data-toggle="tab" href="#outline-two" role="tab" aria-controls="profile" aria-selected="false">Review</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" id="tab-outline-three" data-toggle="tab" href="#outline-three" role="tab" aria-controls="contact" aria-selected="false">Tab#3</a>
@@ -149,19 +149,26 @@
                     <div class="tab-pane fade show active" id="outline-one" role="tabpanel" aria-labelledby="tab-outline-one">
                         <p class="lead"> All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. </p>
                         <p>Phasellus non ante gravida, ultricies neque a, fermentum leo. Etiam ornare enim arcu, at venenatis odio mollis quis. Mauris fermentum elementum ligula in efficitur. Aliquam id congue lorem. Proin consectetur feugiasse platea dictumst. Pellentesque sed justo aliquet, posuere sem nec, elementum ante.</p>
-                        <a href="#" class="btn btn-secondary">Go somewhere</a>
+                    //ckedittor go here
                     </div>
                     <div class="tab-pane fade" id="outline-two" role="tabpanel" aria-labelledby="tab-outline-two">
-                        <h3>Heading Title of Outline Tabs</h3>
-                        <p>Nullam et tellus ac ligula condimentum sodales. Aenean tincidunt viverra suscipit. Maecenas id molestie est, a commodo nisi. Quisque fringilla turpis nec elit eleifend vestibulum. Aliquam sed purus in odio ullamcorper congue consectetur in neque. Aenean sem ex, tempor et auctor sed, congue id neque. </p>
-                        <p>Fusce a eros pellentesque, ultricies urna nec, consectetur dolor. Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. </p>
+                        <c:forEach items="${ListReview}" var="review">
+                            <p>Id: ${review.id}</p>
+                            <p>Star: ${review.star}</p>
+                            <p>${review.content}</p>
+                            <h4>User Id: ${review.userId}</h4>
+                        </c:forEach>
                     </div>
+
+
                     <div class="tab-pane fade" id="outline-three" role="tabpanel" aria-labelledby="tab-outline-three">
                         <h3>Heading Title of Outline Tabs</h3>
                         <p>Vivamus pellentesque vestibulum lectus vitae auctor. Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. Fusce a eros pellentesque, ultricies urna nec, consectetur dolor. Nam dapibus scelerisque risus, a commodo mi tempus eu.</p>
                         <p>Maecenas eu sodales arcu. Fusce lobortis, libero ac cursus feugiat, nibh ex ultricies tortor, id dictum massa nisl ac nisi. Fusce a eros pellentesque, ultricies urna nec, consectetur dolor.</p>
                     </div>
+
                 </div>
+
             </div>
         </div>
 

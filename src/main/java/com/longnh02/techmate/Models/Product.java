@@ -18,13 +18,13 @@ public class Product {
     private int inventoryId;
     private int supplierId;
     private String productShortDesc;
-    private String productLongDesc;
+    private String detail;
     private InputStream image;
 
     public Product() {
     }
 
-    public Product(int id, String name, String desc, String sku, double price, String unitPrice, int categoryId, int discountId, int inventoryId, int supplierId, String productShortDesc, String productLongDesc, InputStream image) {
+    public Product(int id, String name, String desc, String sku, double price, String unitPrice, int categoryId, int discountId, int inventoryId, int supplierId, String productShortDesc, String detail, InputStream image) {
         this.id = id;
         this.name = name;
         this.desc = desc;
@@ -36,15 +36,7 @@ public class Product {
         this.inventoryId = inventoryId;
         this.supplierId = supplierId;
         this.productShortDesc = productShortDesc;
-        this.productLongDesc = productLongDesc;
-        this.image = image;
-    }
-
-    public InputStream getImage() {
-        return image;
-    }
-
-    public void setImage(InputStream image) {
+        this.detail = detail;
         this.image = image;
     }
 
@@ -136,12 +128,20 @@ public class Product {
         this.productShortDesc = productShortDesc;
     }
 
-    public String getProductLongDesc() {
-        return productLongDesc;
+    public String getDetail() {
+        return detail;
     }
 
-    public void setProductLongDesc(String productLongDesc) {
-        this.productLongDesc = productLongDesc;
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public InputStream getImage() {
+        return image;
+    }
+
+    public void setImage(InputStream image) {
+        this.image = image;
     }
 
     public String getInputStreamImage() {

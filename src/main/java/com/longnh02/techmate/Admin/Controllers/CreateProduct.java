@@ -31,7 +31,7 @@ public class CreateProduct extends HttpServlet {
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
         product.setInventoryId(Integer.parseInt( request.getParameter("inventoryid")));
         product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
-        product.setProductLongDesc(request.getParameter("productlongdesc"));
+        product.setDetail(request.getParameter("detail"));
         product.setProductShortDesc(request.getParameter("productshortdesc"));
 
         Part filePart = request.getPart("image");

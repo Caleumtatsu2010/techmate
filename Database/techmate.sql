@@ -154,8 +154,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   `discount_id` int NOT NULL,
   `inventory_id` int NOT NULL,
   `supplier_id` int not null,
-  `product_short_desc` varchar(1000),
-  `Product_long_desc` longtext,
+  `product_short_desc` longtext,
+  `detail` longtext,
   `image` mediumblob,
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_fk_1` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)  ON DELETE CASCADE,
@@ -165,6 +165,17 @@ CREATE TABLE IF NOT EXISTS `product` (
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE IF NOT EXISTS `product_reviews` (
+  `id` int NOT NULL auto_increment,
+  `star` varchar(10),
+  `content` text,
+  `user_id` int,
+  `product_id` int ,
+  PRIMARY KEY (`id`),
+	CONSTRAINT `user_reviews_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE,
+	CONSTRAINT `product_reviews_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -213,6 +224,17 @@ CREATE TABLE `cart` (
 	ON DELETE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+
+CREATE TABLE `cart` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT ,
+  `total` int,
+  `created_at` timestamp,
+  `modified_at` timestamp,
+  PRIMARY KEY (`id`),
+  CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
+	ON DELETE CASCADE
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

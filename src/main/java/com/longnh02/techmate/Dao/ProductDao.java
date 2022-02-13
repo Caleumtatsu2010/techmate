@@ -30,7 +30,7 @@ public class ProductDao implements Dao<Product>{
             if (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
                         rs.getString("unit_price"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("inventory_id"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("product_long_desc"), rs.getBinaryStream("image"));
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
                 return product;
             }
 
@@ -127,7 +127,7 @@ public List<Review> getReviews(int id) {
         ps.setInt(1, id);
 
         ResultSet rs = ps.executeQuery();
-        if (rs.next()) {
+        while (rs.next()) {
             Review review = new Review(rs.getInt("id"), rs.getInt("star"), rs.getString("content"), rs.getInt("user_id"), rs.getInt("product_id"));
             list.add(review);
         }
@@ -176,7 +176,7 @@ public List<Review> getReviews(int id) {
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
                         rs.getString("unit_price"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("inventory_id"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("product_long_desc"), rs.getBinaryStream("image"));
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
                 list.add(product);
             }
             return list;

@@ -20,6 +20,27 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
 
     @Override
     public ProductCategory get(int id) {
+        String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
+
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new ProductCategory(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"));
+
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+
         return null;
     }
 

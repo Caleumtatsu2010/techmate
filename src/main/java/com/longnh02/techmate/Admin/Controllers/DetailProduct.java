@@ -1,5 +1,6 @@
 package com.longnh02.techmate.Admin.Controllers;
 
+import com.longnh02.techmate.Dao.ProductCategoryDao;
 import com.longnh02.techmate.Dao.ProductDao;
 import com.longnh02.techmate.Models.Product;
 import com.longnh02.techmate.Models.Review;
@@ -19,22 +20,25 @@ public class DetailProduct extends HttpServlet {
         int id =Integer.parseInt(request.getParameter("id"));
 
         ProductDao prodDao = new ProductDao();
+//        ProductCategoryDao prodCateDao = new ProductCategoryDao();
+
         Product product = prodDao.get(id);
-        int quantity = prodDao.getQuantityById(product.getInventoryId());
-        List<String> listcolor = prodDao.getColorsById(id);
-        String categoryName = prodDao.getCategoryById(product.getCategoryId());
-        String discount  = prodDao.getDiscount(product.getDiscountId());
+//        int quantity = prodDao.getQuantityById(product.getInventoryId());
+//        List<String> listcolor = prodDao.getColorsById(id);
+//        ProductDao categoryName = prodCateDao.getCategoryById(product.getCategoryId());
+//        String discount  = prodDao.getDiscount(product.getDiscountId());
 
         List<Review> listreview = prodDao.getReviews(id);
+
 
 //        request.setAttribute("Discount", discount);
 //        request.setAttribute("CategoryName", categoryName);
 
         request.setAttribute("Product", product);
-        request.setAttribute("ListColors", listcolor);
+//        request.setAttribute("ListColors", listcolor);
 //        request.setAttribute("Quantity", quantity);
 
-        request.setAttribute("ListR", listreview);
+        request.setAttribute("ListReview", listreview);
 
         request.getRequestDispatcher("DetailProduct.jsp").forward(request, response);
 

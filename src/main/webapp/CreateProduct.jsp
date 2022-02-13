@@ -112,9 +112,9 @@
                             </div>
 
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Long Description</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Detail</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <textarea name="productlongdesc" type="text" required placeholder="Product long description here!" class="form-control" rows="5"></textarea>
+                                    <textarea name="detail" type="text" required placeholder="Product long description here!" class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">

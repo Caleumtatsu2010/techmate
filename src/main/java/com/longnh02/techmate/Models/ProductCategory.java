@@ -9,6 +9,17 @@ public class ProductCategory {
     private Timestamp createdAt;
     private Timestamp modifiedAt;
 
+    public ProductCategory() {
+    }
+
+    public ProductCategory(int id, String name, String desc, Timestamp createdAt, Timestamp modifiedAt) {
+        this.id = id;
+        this.name = name;
+        this.desc = desc;
+        this.createdAt = createdAt;
+        this.modifiedAt = modifiedAt;
+    }
+
     public int getId() {
         return id;
     }
@@ -46,14 +57,6 @@ public class ProductCategory {
     }
 
     public void setModifiedAt(Timestamp modifiedAt) {
-        this.modifiedAt = modifiedAt;
-    }
-
-    public ProductCategory(int id, String name, String desc, Timestamp createdAt, Timestamp modifiedAt) {
-        this.id = id;
-        this.name = name;
-        this.desc = desc;
-        this.createdAt = createdAt;
         this.modifiedAt = modifiedAt;
     }
 }
