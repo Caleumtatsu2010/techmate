@@ -43,7 +43,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
-
+                        <a class="btn btn-primary float-right" href="CreateProduct">New Product</a>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

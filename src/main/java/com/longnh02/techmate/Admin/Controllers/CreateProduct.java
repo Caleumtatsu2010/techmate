@@ -1,5 +1,6 @@
 package com.longnh02.techmate.Admin.Controllers;
 
+import com.longnh02.techmate.Dao.ProductCategoryDao;
 import com.longnh02.techmate.Dao.ProductDao;
 import com.longnh02.techmate.Dao.UserDao;
 import com.longnh02.techmate.Models.Product;
@@ -18,7 +19,17 @@ public class CreateProduct extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         response.setContentType("text/html;charset=UTF-8");
+        ProductCategoryDao prod = new ProductCategoryDao();
 
+        request.setAttribute("listcategory", prod.getAll());
+
+
+        request.getRequestDispatcher("CreateProduct.jsp").forward(request, response);
+
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Product product = new Product();
         product.setId(Integer.parseInt(request.getParameter("id")));//admin
         product.setName(request.getParameter("name"));
@@ -39,10 +50,5 @@ public class CreateProduct extends HttpServlet {
 
         ProductDao prodDao = new ProductDao();
         prodDao.insert(product);
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        doGet(request, response);
     }
 }
