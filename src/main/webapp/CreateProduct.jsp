@@ -8,6 +8,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <t:AdminLayout>
     <div class="container-fluid  dashboard-content">
@@ -81,7 +82,9 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Category</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="categoryid" class="form-control">
-                                        <option value="1">Volvo</option>
+                                        <c:forEach items="${listcategory}" var="category">
+                                            <option value="${category.id}">${category.name}</option>
+                                        </c:forEach>
                                     </select>
 
                                 </div>

@@ -22,6 +22,7 @@ public class CreateProduct extends HttpServlet {
 
         ProductCategoryDao prod = new ProductCategoryDao();
 
+
         request.setAttribute("listcategory", prod.getAll());
 
         request.getRequestDispatcher("CreateProduct.jsp").forward(request, response);
@@ -30,6 +31,7 @@ public class CreateProduct extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         Product product = new Product();
         product.setId(Integer.parseInt(request.getParameter("id")));//admin
         product.setName(request.getParameter("name"));
