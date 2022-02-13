@@ -106,7 +106,7 @@
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="inventoryid" class="form-control">
                                         <c:forEach items="${listinventory}" var="inventory">
-                                            <option value="${inventory.id}">${listinventory.quantity}</option>
+                                            <option value="${inventory.id}">${inventory.quantity}</option>
                                         </c:forEach>
                                     </select>
 
