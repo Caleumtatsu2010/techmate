@@ -23,7 +23,6 @@ public class CreateProduct extends HttpServlet {
 
         request.setAttribute("listcategory", prod.getAll());
 
-
         request.getRequestDispatcher("CreateProduct.jsp").forward(request, response);
 
     }

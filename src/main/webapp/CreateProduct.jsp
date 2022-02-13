@@ -83,29 +83,37 @@
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="categoryid" class="form-control">
                                         <option value="1">Volvo</option>
-
-
                                     </select>
 
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Discount</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control">
+                                    <select name="discountid" class="form-control">
+                                        <option value="1">Volvo</option>
+                                    </select>
+
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Inventory</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
+                                    <select name="inventoryid" class="form-control">
+                                        <option value="1">Volvo</option>
+                                    </select>
 
-                                    <input name="categoryid" type="text" required="" placeholder="Product description here!" class="form-control">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Supllier</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <select name="supplierid" class="form-control">
+                                        <option value="1">Volvo</option>
+                                    </select>
 
-
-
-
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Short Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -116,7 +124,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Detail</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <textarea name="detail" type="text" required placeholder="Product long description here!" class="form-control" rows="5"></textarea>
+                                    <textarea name="detail" type="text" required placeholder="Product detail here!" class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
                             <div class="form-group row">
