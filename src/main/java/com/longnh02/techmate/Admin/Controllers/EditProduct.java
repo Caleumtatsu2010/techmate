@@ -1,9 +1,6 @@
 package com.longnh02.techmate.Admin.Controllers;
 
-import com.longnh02.techmate.Dao.DiscountDao;
-import com.longnh02.techmate.Dao.InventoryDao;
-import com.longnh02.techmate.Dao.ProductCategoryDao;
-import com.longnh02.techmate.Dao.ProductDao;
+import com.longnh02.techmate.Dao.*;
 import com.longnh02.techmate.Models.Product;
 
 import javax.servlet.*;
@@ -22,10 +19,13 @@ public class EditProduct extends HttpServlet {
         Product product = prodDao.get(id);
         ProductCategoryDao prod = new ProductCategoryDao();
         DiscountDao dis = new DiscountDao();
+        SupplierDao sup = new SupplierDao();
 
 
         request.setAttribute("listcategory", prod.getAll());
         request.setAttribute("listdiscount", dis.getAll());
+        request.setAttribute("listsupplier", sup.getAll());
+
 
         request.setAttribute("Product", product);
 

@@ -116,7 +116,6 @@
                                                     <option value="${discount.id}">${discount.name}</option>
                                                 </c:otherwise>
                                             </c:choose>
-                                            <option value="${discount.id}">${discount.name}</option>
                                         </c:forEach>
                                     </select>
 
@@ -132,8 +131,15 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Supplier</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="supplierid" class="form-control">
-                                        <c:forEach items="${listdiscount}" var="discount">
-                                            <option value="${discount.id}">${discount.name}</option>
+                                        <c:forEach items="${listsupplier}" var="supply">
+                                            <c:choose>
+                                                <c:when test="${supply.id == Product.supplierId}">
+                                                    <option selected value="${supply.id}">${supply.name}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${supply.id}">${supply.name}</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                         </c:forEach>
                                     </select>
 
