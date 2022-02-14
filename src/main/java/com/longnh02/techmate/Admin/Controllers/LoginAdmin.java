@@ -20,7 +20,7 @@ public class LoginAdmin extends HttpServlet {
         HttpSession session=request.getSession();
 
         if(account != null){
-            session.setAttribute("user",name);
+            session.setAttribute("user",account);
         }
 
     }
