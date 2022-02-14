@@ -64,13 +64,29 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Price</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="price" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control" value="${Product.price}">
+                                    <input name="price"  type="number" required="" placeholder="Enter only digits" class="form-control" value="${Product.price}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Unit Price</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="unitprice" type="text" required="" placeholder="Enter unit price" class="form-control" value="${Product.unitPrice}">
+                                    <select name="unitprice" class="form-control">
+                                        <option  value="${Product.unitPrice}">${Product.unitPrice}</option>
+                                        <option  value="VND">VND</option>
+                                        <option  value="JPY">JPY</option>
+                                        <option  value="EUR">EUR</option>
+                                        <option  value="AUD">AUD</option>
+                                        <option  value="CAD">CAD</option>
+                                        <option  value="USD">USD</option>
+                                        <option  value="KRW">KRW</option>
+                                        <option  value="GBP">GBP</option>
+                                        <option  value="RUB">RUB</option>
+                                        <option  value="HKD">HKD</option>
+
+
+
+                                    </select>
+<%--                                    <input name="unitprice" data-parsley-type="digits" required="" placeholder="Enter unit price" class="form-control" value="">--%>
                                 </div>
                             </div>
 
@@ -162,10 +178,23 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="image" data-parsley-type="image" type="file" required="" placeholder="" class="form-control border-light ">
+                                    <input name="image" accept="image/*" data-parsley-type="image" type="file" id="file"   placeholder="" class="form-control border-light" onchange="loadFile(event)" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right"></label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <img class="rounded" id="output" width="200" />
                                 </div>
                             </div>
 
+
+                            <script>
+                                var loadFile = function(event) {
+                                    var image = document.getElementById('output');
+                                    image.src = URL.createObjectURL(event.target.files[0]);
+                                };
+                            </script>
 
 
                             <div class="form-group row text-right">

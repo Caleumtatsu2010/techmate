@@ -140,10 +140,23 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="image" data-parsley-type="image" type="file" required="" placeholder="" class="form-control border-light ">
+                                    <input name="image" accept="image/*" data-parsley-type="image" type="file" id="file"  required="" placeholder="" class="form-control border-light" onchange="loadFile(event)" >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right"></label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <img class="rounded" id="output" width="200" />
                                 </div>
                             </div>
 
+
+                            <script>
+                                var loadFile = function(event) {
+                                var image = document.getElementById('output');
+                                image.src = URL.createObjectURL(event.target.files[0]);
+                                };
+                            </script>
 
 
                             <div class="form-group row text-right">
