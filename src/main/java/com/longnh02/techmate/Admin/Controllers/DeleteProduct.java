@@ -15,7 +15,7 @@ public class DeleteProduct extends HttpServlet {
 
         ProductDao prod = new ProductDao();
         prod.delete(Integer.parseInt(request.getParameter("id")));
-        request.getRequestDispatcher(IndexProduct).forward(request, response);
+        request.getRequestDispatcher("IndexProduct").forward(request, response);
     }
 
     @Override
