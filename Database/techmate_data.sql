@@ -17,6 +17,7 @@ INSERT INTO account(username, password, account_typeId, account_status)  VALUES 
 
 INSERT INTO discount values (1, 'Sale 50%', '','0.50', true, '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `created_at`, `modified_at`) VALUES ('2', 'Sale 20%', '0.2', '1', '2022-02-09 20:46:08', '2022-02-09 20:46:08');
+INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `created_at`, `modified_at`) VALUES ('3', 'Sale 10%', '0.10', '1', '2022-02-09 20:46:08', '2022-02-09 20:46:08');
 
 
 
@@ -30,14 +31,17 @@ INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, 
 
 
 
-INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('4', 'really bad', '1', '1');
-INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('1', 'terrible', '1', '1');
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('4', 'this product is really bad. I just bought it yesyterday and it broke this morning. I swear I would never buy it again', '1', '1');
+INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('1', 'terrible is not enought to describe the feeling of this product', '1', '1');
 
 
 
 INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('1', 'Mechanical Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
 
 INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('2', 'Touch Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
+
+INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('3', 'Wireless Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
+
 
 
 

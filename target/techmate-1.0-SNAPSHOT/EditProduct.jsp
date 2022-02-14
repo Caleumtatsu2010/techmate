@@ -44,38 +44,38 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Name</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input  name="Product.name" type="text" required="" placeholder="Product name here!" class="form-control">
+                                    <input  name="name" type="text" required="" placeholder="Product name here!" class="form-control" value="${Product.name}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="Product.desc" type="text" required="" placeholder="Product description here!" class="form-control">
+                                    <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control" value="${Product.desc}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Sku</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="sku" type="text" required="" placeholder="Product sku here!" class="form-control">
+                                    <input name="sku" type="text" required="" placeholder="Product sku here!" class="form-control" value="${Product.desc}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Price</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="price" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
+                                    <input name="price" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control" value="${Product.price}">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Unit Price</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="unitprice" type="text" required="" placeholder="Enter unit price" class="form-control">
+                                    <input name="unitprice" type="text" required="" placeholder="Enter unit price" class="form-control" value="${Product.unitPrice}">
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Color</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="color" type="text" required="" placeholder="Chose product color!" class="form-control">
+                                    <input name="color" type="text" required="" placeholder="Chose product color!" class="form-control" value="${Product.color}">
                                 </div>
                             </div>
 
@@ -86,7 +86,15 @@
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="categoryid" class="form-control">
                                         <c:forEach items="${listcategory}" var="category">
-                                            <option value="${category.id}">${category.name}</option>
+                                            <c:choose>
+                                                <c:when test="${category.id == Product.categoryId}">
+                                                    <option selected value="${category.id}">${category.name}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${category.id}">${category.name}</option>
+                                                </c:otherwise>
+                                            </c:choose>
+
                                         </c:forEach>
                                     </select>
 
@@ -98,6 +106,14 @@
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="discountid" class="form-control">
                                         <c:forEach items="${listdiscount}" var="discount">
+                                            <c:choose>
+                                                <c:when test="${discount.id == Product.discountId}">
+                                                    <option selected value="${discount.id}">${discount.name}</option>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <option value="${discount.id}">${discount.name}</option>
+                                                </c:otherwise>
+                                            </c:choose>
                                             <option value="${discount.id}">${discount.name}</option>
                                         </c:forEach>
                                     </select>
