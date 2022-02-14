@@ -40,7 +40,7 @@
                     <h5 class="card-header">Edit Product</h5>
                     <div class="card-body">
                         <form id="validationform" method="post" action="EditProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
-
+                            <input type="hidden" name="id" value="${Product.id}">
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Name</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
