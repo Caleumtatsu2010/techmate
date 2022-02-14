@@ -50,13 +50,15 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control" value="${Product.desc}">
+
+                                    <textarea name="desc" type="text" required placeholder="Product description here!" class="form-control" rows="3" >${Product.desc}</textarea>
+
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Sku</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="sku" type="text" required="" placeholder="Product sku here!" class="form-control" value="${Product.desc}">
+                                    <input name="sku" type="text" required="" placeholder="Product sku here!" class="form-control" value="${Product.sku}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -123,7 +125,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Quantity</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="quantity" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
+                                    <input name="quantity" data-parsley-type="digits" type="number" required="" placeholder="Enter only digits" class="form-control" value="${Product.quantity}">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -140,14 +142,14 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Short Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <textarea name="productshortdesc" type="text" required placeholder="Product short description here!" class="form-control" rows="5" ></textarea>
+                                    <textarea name="productshortdesc" type="text" required placeholder="Product short description here!" class="form-control" rows="5" >${Product.productShortDesc}</textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Detail</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <textarea name="detail" type="text" required placeholder="Product detail here!" class="form-control" rows="5"></textarea>
+                                    <textarea name="detail" type="text" required placeholder="Product detail here!" class="form-control" rows="5">${Product.detail}</textarea>
                                 </div>
                             </div>
 
