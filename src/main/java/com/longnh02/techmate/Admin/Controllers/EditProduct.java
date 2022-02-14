@@ -29,7 +29,6 @@ public class EditProduct extends HttpServlet {
 
         request.setAttribute("Product", product);
 
-
         request.getRequestDispatcher("EditProduct.jsp").forward(request, response);
 
 
@@ -38,6 +37,6 @@ public class EditProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        
+
     }
 }

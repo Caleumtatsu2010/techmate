@@ -24,12 +24,10 @@ public class CreateProduct extends HttpServlet {
 
         ProductCategoryDao prod = new ProductCategoryDao();
         DiscountDao dis = new DiscountDao();
-        InventoryDao inv = new InventoryDao();
 
-
+        //load category, discount
         request.setAttribute("listcategory", prod.getAll());
         request.setAttribute("listdiscount", dis.getAll());
-        request.setAttribute("listinventory", inv.getAll());
 
         request.getRequestDispatcher("CreateProduct.jsp").forward(request, response);
 
