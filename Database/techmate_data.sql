@@ -21,14 +21,14 @@ INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `
 
 
 
-INSERT INTO product_inventory values (1, '14', '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
+
 INSERT INTO supplier VALUES (1, 'Keychron', 'a', '', 5, 5,  '', '', '', '', '', '', '', '', '');
 
 
 
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`,`quantity`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ','black', '1', '1', '6', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'EUR','blue','1', '1', '10', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('3', 'Filco', '100000', 'USD','red','2', '2', '5', '2');
+INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('1', 'Keychron','this is description', 'SKU1234', '250000', 'VNĐ','black', '1', '1', '6', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko','this is description', 'SKU1234', '250000', '13000000', 'EUR','blue','1', '1', '10', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('3', 'Filco','this is description', 'SKU1234', '250000', '100000', 'USD','red','2', '2', '5', '2');
 
 
 

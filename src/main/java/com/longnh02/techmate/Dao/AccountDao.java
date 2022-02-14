@@ -36,6 +36,32 @@ public class AccountDao implements Dao<Account>{
         return null;
     }
 
+
+    public Account login(String name, String pass) {
+        String query = "SELECT * FROM account WHERE username = ? and password = ?";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+
+            ps.setString(1, name);
+            ps.setString(2, pass);
+
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
+                return account;
+            }
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+    }
+
     @Override
     public List<Account> getAll() {
         String query = "SELECT * FROM account";
