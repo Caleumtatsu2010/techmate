@@ -87,7 +87,7 @@ public class AccountDao implements Dao<Account>{
     }
 
     @Override
-    public void delete(Account account) {
+    public void delete(int id) {
     }
 
 }

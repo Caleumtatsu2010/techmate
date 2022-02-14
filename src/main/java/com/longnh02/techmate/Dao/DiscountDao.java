@@ -96,6 +96,6 @@ public class DiscountDao implements Dao<Discount>{
     }
 
     @Override
-    public void delete(Discount discount) {
+    public void delete(int id) {
     }
 }

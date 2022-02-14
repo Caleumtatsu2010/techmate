@@ -97,7 +97,7 @@ public class SupplierDao implements Dao<Supplier>{
     }
 
     @Override
-    public void delete(Supplier supplier) {
+    public void delete(int id) {
 
     }
 

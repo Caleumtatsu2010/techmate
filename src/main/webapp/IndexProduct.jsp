@@ -74,10 +74,11 @@
                                         <td>
                                             <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
                                             <a class="list-group-item " href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
-                                            <a class="list-group-item " href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i> Delete</a>
+                                            <a class="list-group-item " href="DeleteProduct?id=${product.id}" onclick="return confirm('Are you sure you want to delete this item?')"><i class="fas fa-trash" aria-hidden="true" ></i> Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
+
 
 
                                 </tbody>

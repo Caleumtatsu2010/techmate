@@ -78,7 +78,7 @@ public class InventoryDao implements Dao<Inventory>{
     }
 
     @Override
-    public void delete(Inventory inventory) {
+    public void delete(int id) {
 
     }
 }

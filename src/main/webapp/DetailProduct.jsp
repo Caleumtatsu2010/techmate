@@ -121,7 +121,7 @@
         <div class="product-description">
             <h4 class="mb-1">Descriptions</h4>
             <p>${Product.desc}</p>
-            <a href="#" class="btn btn-primary btn-lg m-1">Edit</a>
+            <a href="EditProduct?id=${Product.id}" class="btn btn-primary btn-lg m-1">Edit</a>
             <a href="#" class="btn btn-danger btn-lg m-1">Delete</a>
 
             <a href="IndexProduct" class="btn btn-info btn-lg m-1">Cancel</a>

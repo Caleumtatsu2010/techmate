@@ -26,8 +26,9 @@ INSERT INTO supplier VALUES (1, 'Keychron', 'a', '', 5, 5,  '', '', '', '', '', 
 
 
 
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`,`quantity`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ','red', '1', '1', '6', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'VNĐ','blue','1', '1', '10', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`,`quantity`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ','black', '1', '1', '6', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'EUR','blue','1', '1', '10', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('3', 'Filco', '100000', 'USD','red','2', '2', '5', '2');
 
 
 
@@ -55,7 +56,6 @@ SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inven
 SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = 1;
 
 SELECT * FROM product_colors  where product_id = 1;
-
 
 select * from product_reviews where product_id= 1;
 

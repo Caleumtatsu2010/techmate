@@ -99,7 +99,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
     }
 
     @Override
-    public void delete(ProductCategory productCategory) {
+    public void delete(int id) {
 
     }
 }

@@ -272,13 +272,13 @@ public List<Review> getReviews(int id) {
     }
 
     @Override
-    public void delete(Product product) {
+    public void delete(int id) {
         String query = "DELETE FROM `techmate`.`product` WHERE (`id` = ?)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1,  product.getId());
+            ps.setInt(1,  id);
 
             System.out.println("Delete Successfully");
             ps.executeUpdate();
