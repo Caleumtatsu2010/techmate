@@ -273,6 +273,24 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void delete(Product product) {
+        String query = "DELETE FROM `techmate`.`product` WHERE (`id` = ?)";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
 
+            ps.setInt(1,  product.getId());
+
+            System.out.println("Delete Successfully");
+            ps.executeUpdate();
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeConnection(connection);
+
+        }
     }
 }

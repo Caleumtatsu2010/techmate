@@ -37,20 +37,20 @@
             <!-- ============================================================== -->
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
-                    <h5 class="card-header">Creat New Product</h5>
+                    <h5 class="card-header">Edit Product</h5>
                     <div class="card-body">
                         <form id="validationform" method="post" action="EditProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
 
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Name</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input  name="name" type="text" required="" placeholder="Product name here!" class="form-control">
+                                    <input  name="Product.name" type="text" required="" placeholder="Product name here!" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Description</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="desc" type="text" required="" placeholder="Product description here!" class="form-control">
+                                    <input name="Product.desc" type="text" required="" placeholder="Product description here!" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -114,7 +114,9 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Supplier</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="supplierid" class="form-control">
-                                        <option value="1">Volvo</option>
+                                        <c:forEach items="${listdiscount}" var="discount">
+                                            <option value="${discount.id}">${discount.name}</option>
+                                        </c:forEach>
                                     </select>
 
                                 </div>
