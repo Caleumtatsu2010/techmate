@@ -235,7 +235,7 @@ public List<Review> getReviews(int id) {
     @Override
     public void update(Product product, int id) {
 
-        String query = "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ?) WHERE (`id` = ?)";
+        String query = "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
