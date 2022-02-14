@@ -23,20 +23,15 @@ public class DetailProduct extends HttpServlet {
 //        ProductCategoryDao prodCateDao = new ProductCategoryDao();
 
         Product product = prodDao.get(id);
-//        int quantity = prodDao.getQuantityById(product.getInventoryId());
-//        List<String> listcolor = prodDao.getColorsById(id);
-//        ProductDao categoryName = prodCateDao.getCategoryById(product.getCategoryId());
-//        String discount  = prodDao.getDiscount(product.getDiscountId());
+
+//        ProductDao categoryName = ;
 
         List<Review> listreview = prodDao.getReviews(id);
 
-
-//        request.setAttribute("Discount", discount);
-//        request.setAttribute("CategoryName", categoryName);
+        request.setAttribute("CategoryName", prodDao.getCategoryById(product.getCategoryId()));
 
         request.setAttribute("Product", product);
-//        request.setAttribute("ListColors", listcolor);
-//        request.setAttribute("Quantity", quantity);
+        request.setAttribute("Discount", prodDao.getDiscount(product.getDiscountId()));
 
         request.setAttribute("ListReview", listreview);
 

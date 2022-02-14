@@ -17,7 +17,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
                     <h2 class="pageheader-title">New Product </h2>
-<%--                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>--%>
+                        <%--                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>--%>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
@@ -39,13 +39,8 @@
                 <div class="card">
                     <h5 class="card-header">Creat New Product</h5>
                     <div class="card-body">
-                        <form id="validationform" method="post" action="CreateProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
-                            <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Id</label>
-                                <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="id" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
-                                </div>
-                            </div>
+                        <form id="validationform" method="post" action="EditProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Name</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -73,13 +68,14 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Unit Price</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="unitprice" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
+                                    <input name="unitprice" type="text" required="" placeholder="Enter unit price" class="form-control">
                                 </div>
                             </div>
+
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Color</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="color" type="text" required="" placeholder="Product sku here!" class="form-control">
+                                    <input name="color" type="text" required="" placeholder="Chose product color!" class="form-control">
                                 </div>
                             </div>
 

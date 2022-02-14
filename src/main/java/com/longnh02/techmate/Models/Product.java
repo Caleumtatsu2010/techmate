@@ -13,9 +13,11 @@ public class Product {
     private String sku;
     private double price;
     private String unitPrice;
+    private String color;
+
     private int categoryId;
     private int discountId;
-    private int inventoryId;
+    private int quantity;
     private int supplierId;
     private String productShortDesc;
     private String detail;
@@ -24,16 +26,17 @@ public class Product {
     public Product() {
     }
 
-    public Product(int id, String name, String desc, String sku, double price, String unitPrice, int categoryId, int discountId, int inventoryId, int supplierId, String productShortDesc, String detail, InputStream image) {
+    public Product(int id, String name, String desc, String sku, double price, String unitPrice, String color, int categoryId, int discountId, int quantity, int supplierId, String productShortDesc, String detail, InputStream image) {
         this.id = id;
         this.name = name;
         this.desc = desc;
         this.sku = sku;
         this.price = price;
         this.unitPrice = unitPrice;
+        this.color = color;
         this.categoryId = categoryId;
         this.discountId = discountId;
-        this.inventoryId = inventoryId;
+        this.quantity = quantity;
         this.supplierId = supplierId;
         this.productShortDesc = productShortDesc;
         this.detail = detail;
@@ -88,6 +91,14 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
     public int getCategoryId() {
         return categoryId;
     }
@@ -104,12 +115,12 @@ public class Product {
         this.discountId = discountId;
     }
 
-    public int getInventoryId() {
-        return inventoryId;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setInventoryId(int inventoryId) {
-        this.inventoryId = inventoryId;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     public int getSupplierId() {

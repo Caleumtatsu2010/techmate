@@ -134,13 +134,6 @@ CREATE TABLE IF NOT EXISTS `product_category` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
-CREATE TABLE IF NOT EXISTS `product_colors` (
-  `id` int NOT NULL,
-  `color` varchar(100) NOT NULL,
-  `product_id` int,
-  PRIMARY KEY(`id`),
-  CONSTRAINT `product_colors_fk` FOREIGN KEY (`product_id`) REFERENCES `product` (`id`)  ON DELETE CASCADE
-  )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 CREATE TABLE IF NOT EXISTS `product` (
@@ -150,9 +143,10 @@ CREATE TABLE IF NOT EXISTS `product` (
   `SKU` varchar(50),
   `price` float NOT NULL,
   `unit_price` varchar(50),
+  `color` varchar(100) ,
   `category_id` int not null,
   `discount_id` int NOT NULL,
-  `inventory_id` int NOT NULL,
+  `quantity` int,
   `supplier_id` int not null,
   `product_short_desc` longtext,
   `detail` longtext,
@@ -160,8 +154,8 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_fk_1` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)  ON DELETE CASCADE,
 	CONSTRAINT `product_fk_2` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`)  ON DELETE CASCADE,
-	CONSTRAINT `product_fk_3` FOREIGN KEY (`inventory_id`) REFERENCES `product_inventory` (`id`)  ON DELETE CASCADE,
-	CONSTRAINT `product_fk_4` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`)  ON DELETE CASCADE
+
+	CONSTRAINT `product_fk_3` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`)  ON DELETE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
@@ -191,13 +185,6 @@ CREATE TABLE IF NOT EXISTS `product_image` (
 
 
 
-CREATE TABLE IF NOT EXISTS `product_inventory` (
-  `id` int NOT NULL,
-  `quantity` int,
-  `created_at` timestamp,
-  `modified_at` timestamp,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 
@@ -224,17 +211,6 @@ CREATE TABLE `cart` (
 	ON DELETE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-
-CREATE TABLE `cart` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `user_id` INT ,
-  `total` int,
-  `created_at` timestamp,
-  `modified_at` timestamp,
-  PRIMARY KEY (`id`),
-  CONSTRAINT `fk_cart_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
-	ON DELETE CASCADE
-)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

@@ -16,14 +16,14 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Form Validations </h2>
-                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
+                    <h2 class="pageheader-title">New Product </h2>
+<%--                    <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>--%>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Forms</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Form Validations</li>
+                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Product</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">New Product</li>
                             </ol>
                         </nav>
                     </div>
@@ -39,7 +39,7 @@
                 <div class="card">
                     <h5 class="card-header">Creat New Product</h5>
                     <div class="card-body">
-                        <form id="validationform" method="get" action="CreateProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                        <form id="validationform" method="post" action="CreateProduct" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Id</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
@@ -76,6 +76,13 @@
                                     <input name="unitprice" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Product Color</label>
+                                <div class="col-12 col-sm-8 col-lg-6">
+                                    <input name="color" type="text" required="" placeholder="Product sku here!" class="form-control">
+                                </div>
+                            </div>
+
 
 
                             <div class="form-group row">
@@ -102,18 +109,13 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Inventory</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Quantity</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <select name="inventoryid" class="form-control">
-                                        <c:forEach items="${listinventory}" var="inventory">
-                                            <option value="${inventory.id}">${inventory.quantity}</option>
-                                        </c:forEach>
-                                    </select>
-
+                                    <input name="quantity" data-parsley-type="digits" type="text" required="" placeholder="Enter only digits" class="form-control">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Supllier</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Supplier</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="supplierid" class="form-control">
                                         <option value="1">Volvo</option>

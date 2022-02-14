@@ -45,9 +45,10 @@ public class CreateProduct extends HttpServlet {
         product.setSku(request.getParameter("sku"));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
         product.setUnitPrice(request.getParameter("unitprice"));
+        product.setColor(request.getParameter("color"));
         product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
-        product.setInventoryId(Integer.parseInt( request.getParameter("inventoryid")));
+        product.setQuantity(Integer.parseInt( request.getParameter("quantity")));
         product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
         product.setProductShortDesc(request.getParameter("productshortdesc"));
         product.setDetail(request.getParameter("detail"));

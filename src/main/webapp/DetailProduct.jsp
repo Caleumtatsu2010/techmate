@@ -22,9 +22,11 @@
                 <p class="pageheader-text">Nulla euismod urna eros, sit amet scelerisque torton lectus vel mauris facilisis faucibus at enim quis massa lobortis rutrum.</p>
                 <div class="page-breadcrumb">
                     <nav aria-label="breadcrumb">
+
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">E-coommerce</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">E-Commerce Product Single</li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Product</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Detail</li>
                         </ol>
                     </nav>
                 </div>
@@ -73,12 +75,7 @@
     </div>
     <div class="product-colors border-bottom">
     <h4>Colors</h4>
-
-    <c:forEach items="ListColors" var="color">
-        <p>${color}</p>
-    </c:forEach>
-
-
+    <p>${Product.color}</p>
 
 <%--<label for="radio-1"></label>--%>
 
@@ -95,10 +92,11 @@
         <p class="pr-1">SM</p>
 
     </div>
+
     <div class="product-qty">
         <h4>Quantity</h4>
-        <div class="quantity">
-            <p>${Quantity}</p>
+        <div class="quantity-up">
+            ${Product.quantity}
         </div>
     </div>
 </div>
@@ -107,7 +105,7 @@
     <div class="btn-group" role="group" aria-label="First group">
         <p class="">${Discount}</p>
     </div>
-    <div class="product-qty">
+    <div class="product-sidebar-widget-title">
         <h4>Category</h4>
         <div class="quantity">
             <p>${CategoryName}</p>
@@ -123,8 +121,10 @@
         <div class="product-description">
             <h4 class="mb-1">Descriptions</h4>
             <p>${Product.desc}</p>
-            <a href="#" class="btn btn-primary btn-lg">Edit</a>
-            <a href="#" class="btn btn-danger btn-lg">Cancel</a>
+            <a href="#" class="btn btn-primary btn-lg m-1">Edit</a>
+            <a href="#" class="btn btn-danger btn-lg m-1">Delete</a>
+
+            <a href="IndexProduct" class="btn btn-info btn-lg m-1">Cancel</a>
         </div>
 </div>
 </div>

@@ -16,33 +16,44 @@ INSERT INTO account(username, password, account_typeId, account_status)  VALUES 
 
 
 INSERT INTO discount values (1, 'Sale 50%', '','0.50', true, '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
+INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `created_at`, `modified_at`) VALUES ('2', 'Sale 20%', '0.2', '1', '2022-02-09 20:46:08', '2022-02-09 20:46:08');
+
+
+
 INSERT INTO product_inventory values (1, '14', '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 INSERT INTO supplier VALUES (1, 'Keychron', 'a', '', 5, 5,  '', '', '', '', '', '', '', '', '');
 
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ', '1', '1', '1', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'VNĐ', '1', '1', '1', '1');
+
+
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`,`quantity`, `supplier_id`) VALUES ('1', 'Keychron', '250000', 'VNĐ','red', '1', '1', '6', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko', '13000000', 'VNĐ','blue','1', '1', '10', '1');
+
 
 
 INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('4', 'really bad', '1', '1');
 INSERT INTO `techmate`.`product_reviews` (`star`, `content`, `user_id`, `product_id`) VALUES ('1', 'terrible', '1', '1');
 
 
-INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('1', 'red', '1');
-INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('2', 'blue', '1');
-INSERT INTO `techmate`.`product_colors` (`id`, `color`, `product_id`) VALUES ('3', 'green', '1');
+
+INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('1', 'Mechanical Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
+
+INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('2', 'Touch Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
+
+
+
+
+
+
 
 
 SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = 1;
 
 SELECT * FROM product_colors INNER JOIN product ON  product_colors.product_id = product.id  where product.id = 1;
 
-SELECT * FROM product_colors  where product_id = 1
-
-SELECT * FROM product_category INNER JOIN product ON  product_category.id = product.category_id  where product.category_id = 2 limit 1;
+SELECT * FROM product_colors  where product_id = 1;
 
 
-
-select * from product_reviews where product_id= 1
+select * from product_reviews where product_id= 1;
 
 select name from discount where id = 2;
 

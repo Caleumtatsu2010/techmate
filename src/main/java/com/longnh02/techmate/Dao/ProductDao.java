@@ -2,6 +2,7 @@ package com.longnh02.techmate.Dao;
 
 import com.longnh02.techmate.Connection.ConnectionUtils;
 
+import com.longnh02.techmate.Models.Discount;
 import com.longnh02.techmate.Models.Product;
 import com.longnh02.techmate.Models.Review;
 
@@ -29,7 +30,7 @@ public class ProductDao implements Dao<Product>{
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("unit_price"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("inventory_id"), rs.getInt("supplier_id"),
+                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
                         rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
                 return product;
             }
@@ -44,31 +45,31 @@ public class ProductDao implements Dao<Product>{
         return null;
     }
 
-    public List<String> getColorsById(int id) {
-
-        String query = "SELECT * FROM product_colors  where product_id = ?";
-        List<String> list = new ArrayList<>();
-        try {
-            connection = ConnectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
-            ps.setInt(1, id);
-
-            ResultSet rs = ps.executeQuery();
-            while (rs.next()) {
-                list.add(rs.getString("color"));
-            }
-            return list;
-
-        } catch (SQLException e) {
-            System.out.println(e);
-        } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
-        }
-        return null;
-
-    }
+//    public List<String> getColorsById(int id) {
+//
+//        String query = "SELECT * FROM product_colors  where product_id = ?";
+//        List<String> list = new ArrayList<>();
+//        try {
+//            connection = ConnectionUtils.getConnection();
+//            ps = connection.prepareStatement(query);
+//            ps.setInt(1, id);
+//
+//            ResultSet rs = ps.executeQuery();
+//            while (rs.next()) {
+//                list.add(rs.getString("color"));
+//            }
+//            return list;
+//
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        } finally {
+//            ConnectionUtils.closePreparedStatement(ps);
+//            ConnectionUtils.closeResultSet(rs);
+//            ConnectionUtils.closeConnection(connection);
+//        }
+//        return null;
+//
+//    }
 
     public int getQuantityById(int inventoryid) {
         String query = "SELECT * FROM product_inventory  where inventory_id = ?";//inventory_id in product
@@ -153,6 +154,7 @@ public List<Review> getReviews(int id) {
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 return rs.getString("name");
+                //System.out.println(rs.getString("name"));
             }
 
         } catch (SQLException e) {
@@ -175,7 +177,7 @@ public List<Review> getReviews(int id) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("unit_price"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("inventory_id"), rs.getInt("supplier_id"),
+                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
                         rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
                 list.add(product);
             }
@@ -195,7 +197,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
-        String query = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`, `category_id`, `discount_id`, `inventory_id`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String query = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`,`color`, `category_id`, `discount_id`, `quantity`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
             connection = ConnectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -206,14 +208,15 @@ public List<Review> getReviews(int id) {
             ps.setString(4,(product.getSku()));
             ps.setDouble(5, product.getPrice());
             ps.setString(6, product.getUnitPrice());
-            ps.setInt(7,(product.getCategoryId()));
-            ps.setInt(8, product.getDiscountId());
-            ps.setInt(9, product.getInventoryId());
-            ps.setInt(10, product.getSupplierId());
-            ps.setString(11, product.getProductShortDesc());
-            ps.setString(12, product.getDetail());
+            ps.setString(7, product.getColor());
+            ps.setInt(8, (product.getCategoryId()));
+            ps.setInt(9, product.getDiscountId());
+            ps.setInt(10, product.getQuantity());
+            ps.setInt(11, product.getSupplierId());
+            ps.setString(12, product.getProductShortDesc());
+            ps.setString(13, product.getDetail());
 
-            ps.setBlob(13, product.getImage());
+            ps.setBlob(14, product.getImage());
 
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
@@ -232,6 +235,40 @@ public List<Review> getReviews(int id) {
     @Override
     public void update(Product product, int id) {
 
+        String query = "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?,`color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ?) WHERE (`id` = ?)";
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+
+            ps.setString(1,  product.getName());
+            ps.setString(2, product.getDesc());
+            ps.setString(3,(product.getSku()));
+            ps.setDouble(4, product.getPrice());
+            ps.setString(5, product.getUnitPrice());
+            ps.setString(6, product.getColor());
+            ps.setInt(7, (product.getCategoryId()));
+            ps.setInt(8, product.getDiscountId());
+            ps.setInt(9, product.getQuantity());
+            ps.setInt(10, product.getSupplierId());
+            ps.setString(11, product.getProductShortDesc());
+            ps.setString(12, product.getDetail());
+
+            ps.setBlob(13, product.getImage());
+
+            ps.setInt(14, id);
+
+            ps.executeUpdate();
+            System.out.println("Data Updated Successfully");
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeConnection(connection);
+
+        }
     }
 
     @Override

@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="page-header">
-                    <h2 class="pageheader-title">Data Tables</h2>
+                    <h2 class="pageheader-title">All Product</h2>
                     <p class="pageheader-text">Proin placerat ante duiullam scelerisque a velit ac porta, fusce sit amet vestibulum mi. Morbi lobortis pulvinar quam.</p>
                     <div class="page-breadcrumb">
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Dashboard</a></li>
-                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Tables</a></li>
-                                <li class="breadcrumb-item active" aria-current="page">Data Tables</li>
+                                <li class="breadcrumb-item"><a href="#" class="breadcrumb-link">Product</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">All Product</li>
                             </ol>
                         </nav>
                     </div>
@@ -42,7 +42,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
+<%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
                         <a class="btn btn-primary float-right" href="CreateProduct" methods="get">New Product</a>
                     </div>
                     <div class="card-body">
@@ -72,9 +72,9 @@
                                         <td>${product.unitPrice}</td>
                                         <td><img src="data:image/jpg;base64,${product.getInputStreamImage()}" width="120" height="120"/></td>
                                         <td>
-                                            <a class="list-group-item py-1" href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
-                                            <a class="list-group-item py-1" href="EditProduct?id=${product.id}"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
-                                            <a class="list-group-item py-1" href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i> Delete</a>
+                                            <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
+                                            <a class="list-group-item " href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
+                                            <a class="list-group-item " href="DeleteProduct?id=${product.id}"><i class="fas fa-trash" aria-hidden="true"></i> Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>

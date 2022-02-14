@@ -55,8 +55,9 @@ public class DiscountDao implements Dao<Discount>{
                         rs.getString("desc"), rs.getDouble("discount_percent"),
                         rs.getBoolean("active"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"));
                 list.add(discount);
-                return list;
+
             }
+            return list;
 
         } catch (SQLException e) {
             System.out.println(e);
