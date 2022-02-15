@@ -1,4 +1,4 @@
-<%--
+<%@ tag import="com.longnh02.techmate.Models.Account" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/9/2022
@@ -122,11 +122,26 @@ John Abraham</span>is now following you
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item dropdown nav-user">
 
-<%--                        <a class="nav-link nav-user-img d-flex" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="" alt="" class="user-avatar-md rounded-circle"><div class="user-avatar-info pl-1 pr-1"><p>long1234</p></div></a>--%>
 
-                        <a class="nav-link nav-user-img d-flex" href="LoginAdmin.jsp" >Login</a>
+                        <%
+                            Account account= (Account) session.getAttribute("account");    //Getting Session Attribute
+                            if(account!= null)  {
+                                %>
+
+                                <a class="nav-link nav-user-img d-flex" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="" alt="" class="user-avatar-md rounded-circle"><div class="user-avatar-info pl-1 pr-1"><p><%= account.getUsername() %> </p></div></a>
+
+                                <%
+                            } else {
+                                %>
+                                <a class="nav-link nav-user-img d-flex" href="LoginAdmin.jsp" >Login</a>
+                                <%
+                                }
+                        %>
+
+
 
 
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
@@ -135,9 +150,9 @@ John Abraham</span>is now following you
                                     </h5>
                                 <span class="status"></span><span class="ml-2">Available</span>
                             </div>
-                            <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
+                            <a class="dropdown-item" href=""><i class="fas fa-user mr-2"></i>Account</a>
                             <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                            <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            <a class="dropdown-item" href="Logout"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
 

@@ -48,10 +48,10 @@
         <div class="card-body">
             <form action="LoginAdmin" method="get">
                 <div class="form-group">
-                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off">
+                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" required>
                 </div>
                 <div class="form-group">
-                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password">
+                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" required>
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
@@ -70,6 +70,13 @@
         </div>
     </div>
 </div>
+<c:if test="${not empty loginError}">
+    <script>
+        window.addEventListener("load",function(){
+            alert("${loginError}");
+        })
+    </script>
+</c:if>
 
 <!-- ============================================================== -->
 <!-- end login page  -->

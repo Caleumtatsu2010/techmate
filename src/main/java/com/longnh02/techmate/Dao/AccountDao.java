@@ -48,7 +48,7 @@ public class AccountDao implements Dao<Account>{
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
+                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typeId"),rs.getString("account_status"));
                 return account;
             }
 
