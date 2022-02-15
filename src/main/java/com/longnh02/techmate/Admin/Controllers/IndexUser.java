@@ -21,6 +21,7 @@ public class IndexUser extends HttpServlet {
 
         List<User> users = userdao.getAll();
 
+        
         request.setAttribute("listuser", users);
 
         request.getRequestDispatcher("IndexUser.jsp").forward(request, response);
