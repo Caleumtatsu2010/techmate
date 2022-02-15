@@ -56,8 +56,8 @@
 <%--                                    String temp = "active";--%>
 <%--                                %>--%>
                                 <c:forEach items="${listAccount}" var="account" varStatus="loop">
-<%--                                    <c:choose>--%>
-<%--                                        <c:when test="${account.accountStatus}">--%>
+                                    <c:choose>
+                                        <c:when test="${account.accountStatus ==  'active'}">
                                             <tr>
                                                 <td class="bg-success-light">${loop.count}</td>
                                                 <td class="bg-success-light">${account.id}</td>
@@ -72,23 +72,23 @@
                                                 </td>
                                             </tr>
 
-<%--                                        </c:when>--%>
-<%--                                        <c:otherwise>--%>
-<%--                                            <tr>--%>
-<%--                                                <td class="bg-secondary-light">${loop.count}</td>--%>
-<%--                                                <td class="bg-secondary-light">${account.id}</td>--%>
-<%--                                                <td class="bg-secondary-light">${account.username}</td>--%>
-<%--                                                <td class="bg-secondary-light">${account.password}</td>--%>
-<%--                                                <td class="bg-secondary-light">${account.account_typeId}</td>--%>
-<%--                                                <td class="bg-secondary-light">${account.accountStatus}</td>--%>
-<%--                                                <td class="bg-secondary-light">--%>
-<%--                                                    <a class="list-group-item-info p-2 m-2" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>--%>
-<%--                                                    <a class="list-group-item-action p-2 m-2" href="AccountUpdate?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>--%>
-<%--                                                    <a class="list-group-item-danger p-2 m-2" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>--%>
-<%--                                                </td>--%>
-<%--                                            </tr>--%>
-<%--                                        </c:otherwise>--%>
-<%--                                    </c:choose>--%>
+                                        </c:when>
+                                        <c:otherwise>
+                                            <tr>
+                                                <td class="bg-secondary-light">${loop.count}</td>
+                                                <td class="bg-secondary-light">${account.id}</td>
+                                                <td class="bg-secondary-light">${account.username}</td>
+                                                <td class="bg-secondary-light">${account.password}</td>
+                                                <td class="bg-secondary-light">${account.account_typeId}</td>
+                                                <td class="bg-secondary-light">${account.accountStatus}</td>
+                                                <td class="bg-secondary-light">
+                                                    <a class="list-group-item-info p-2 m-2" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>
+                                                    <a class="list-group-item-action p-2 m-2" href="AccountUpdate?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
+                                                    <a class="list-group-item-danger p-2 m-2" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                                </td>
+                                            </tr>
+                                        </c:otherwise>
+                                    </c:choose>
 
                                 </c:forEach>
 
