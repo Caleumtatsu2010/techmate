@@ -53,6 +53,7 @@
                 <div class="form-group">
                     <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" required>
                 </div>
+
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
@@ -69,14 +70,14 @@
             </div>
         </div>
     </div>
-</div>
-<c:if test="${not empty loginError}">
-    <script>
-        window.addEventListener("load",function(){
-            alert("${loginError}");
-        })
-    </script>
-</c:if>
+<%--</div>--%>
+<%--<c:if test="${not empty loginError}">--%>
+<%--    <script>--%>
+<%--        window.addEventListener("load",function(){--%>
+<%--            alert("${loginError}");--%>
+<%--        })--%>
+<%--    </script>--%>
+<%--</c:if>--%>
 
 <!-- ============================================================== -->
 <!-- end login page  -->

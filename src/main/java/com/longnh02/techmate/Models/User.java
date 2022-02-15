@@ -1,8 +1,12 @@
 package com.longnh02.techmate.Models;
 
 
+import com.longnh02.techmate.Utility.ImageUtility;
+
+import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Timestamp;
+import java.util.Base64;
 import java.util.Date;
 
 public class User {
@@ -10,9 +14,9 @@ public class User {
     private int accountId;
     private String firstName;
     private String lastName;
-    private int mobilePhone;
     private int citizenId;
     private String email;
+    private int mobilePhone;
     private int businessPhone;
     private InputStream image;
     private Timestamp createdAt;
@@ -21,14 +25,14 @@ public class User {
     public User() {
     }
 
-    public User(int id, int accountId, String firstName, String lastName, int mobilePhone, int citizenId, String email, int businessPhone, InputStream image, Timestamp createdAt, Timestamp modifiedAt) {
+    public User(int id, int accountId, String firstName, String lastName, int citizenId, String email, int mobilePhone, int businessPhone, InputStream image, Timestamp createdAt, Timestamp modifiedAt) {
         this.id = id;
         this.accountId = accountId;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.mobilePhone = mobilePhone;
         this.citizenId = citizenId;
         this.email = email;
+        this.mobilePhone = mobilePhone;
         this.businessPhone = businessPhone;
         this.image = image;
         this.createdAt = createdAt;
@@ -67,14 +71,6 @@ public class User {
         this.lastName = lastName;
     }
 
-    public int getMobilePhone() {
-        return mobilePhone;
-    }
-
-    public void setMobilePhone(int mobilePhone) {
-        this.mobilePhone = mobilePhone;
-    }
-
     public int getCitizenId() {
         return citizenId;
     }
@@ -89,6 +85,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public int getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public void setMobilePhone(int mobilePhone) {
+        this.mobilePhone = mobilePhone;
     }
 
     public int getBusinessPhone() {
@@ -121,5 +125,9 @@ public class User {
 
     public void setModifiedAt(Timestamp modifiedAt) {
         this.modifiedAt = modifiedAt;
+    }
+
+    public String getSeenImage() {
+        return ImageUtility.getInputStreamImage(this.image);
     }
 }

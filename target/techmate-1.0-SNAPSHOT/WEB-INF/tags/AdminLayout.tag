@@ -136,7 +136,7 @@ John Abraham</span>is now following you
                                 <%
                             } else {
                                 %>
-                                <a class="nav-link nav-user-img d-flex" href="LoginAdmin.jsp" >Login</a>
+                                <a class="nav-link nav-user-img d-flex" href="LoginAdmin.jsp" methods="get">Login</a>
                                 <%
                                 }
                         %>
@@ -182,19 +182,22 @@ John Abraham</span>is now following you
                             <a class="nav-link active" href="Dashboard" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
                             <div id="submenu-1" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">User</a>
-                                        <div id="submenu-1-2" class="collapse submenu" style="">
-                                            <ul class="nav flex-column">
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="">All User</a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="">Address</a>
-                                                </li>
+<%--                                    <li class="nav-item">--%>
+<%--                                        <a class="nav-link" href="" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">User</a>--%>
+<%--                                        <div id="submenu-1-2" class="collapse submenu" style="">--%>
+<%--                                            <ul class="nav flex-column">--%>
+<%--                                                <li class="nav-item">--%>
+<%--                                                    <a class="nav-link" href="IndexUser">All User</a>--%>
+<%--                                                </li>--%>
+<%--                                                <li class="nav-item">--%>
+<%--                                                    <a class="nav-link" href=""></a>--%>
+<%--                                                </li>--%>
 
-                                            </ul>
-                                        </div>
+<%--                                            </ul>--%>
+<%--                                        </div>--%>
+<%--                                    </li>--%>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="IndexUser">User</a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" href="IndexAccount">Account</a>

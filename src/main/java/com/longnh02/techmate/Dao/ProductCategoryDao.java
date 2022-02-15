@@ -53,7 +53,8 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                ProductCategory pdcategory = new ProductCategory(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"));
+                ProductCategory pdcategory = new ProductCategory(rs.getInt("id"), rs.getString("name"),
+                        rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"));
                 list.add(pdcategory);
             }
             return list;

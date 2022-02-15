@@ -27,8 +27,8 @@ INSERT INTO supplier VALUES (1, 'Keychron', 'a', '', 5, 5,  '', '', '', '', '', 
 
 
 INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('1', 'Keychron','this is description', 'SKU1234', '250000', 'VNĐ','black', '1', '1', '6', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko','this is description', 'SKU1234', '250000', '13000000', 'EUR','blue','1', '1', '10', '1');
-INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('3', 'Filco','this is description', 'SKU1234', '250000', '100000', 'USD','red','2', '2', '5', '2');
+INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('2', 'Akko','this is description', 'SKU1234', '250000',  'EUR','blue','1', '1', '10', '1');
+INSERT INTO `techmate`.`product` (`id`, `name`,`desc`,`SKU`, `price`, `unit_price`, `color`, `category_id`, `discount_id`, `quantity`, `supplier_id`) VALUES ('3', 'Filco','this is description', 'SKU1234', '250000','USD','red','2', '2', '5', '2');
 
 
 
@@ -44,8 +44,9 @@ INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified
 INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('3', 'Wireless Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
 
 
+INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `image`, `created_at`, `modified_at`) VALUES ('1', '1', 'long', 'hoang', '0302000', 'abc@gmail.com', '1234567', '3456789', ?, '22:02:15 11:11:11', '22:02:15 11:11:11');
 
-
+INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `image`, `created_at`, `modified_at`) VALUES ('2', '2', 'hoa', 'mai', '2222', 'abc@gmail.com', '222', '222', ?, '2022-02-15 11:11:11', '2022-02-15 11:11:11');
 
 
 

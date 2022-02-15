@@ -19,13 +19,34 @@ public class UserDao implements Dao<User>{
 
     @Override
     public User get(int id) {
-        //            Blob imageBlob = resultSet.getBlob(yourBlobColumnIndex);
-//            InputStream binaryStream = imageBlob.getBinaryStream(0, imageBlob.length());
+
         return null;
     }
 
     @Override
     public List<User> getAll() {
+        String query = "SELECT * FROM user";
+        List<User> list = new ArrayList<>();
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                User user = new User(rs.getInt("id"), rs.getInt("account_id"),
+                        rs.getString("first_name"), rs.getString("last_name"),
+                        rs.getInt("citizen_id"), rs.getString("email"), rs.getInt("business_phone"), rs.getInt("mobile_phone"),
+                        rs.getBinaryStream("image"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"));
+                list.add(user);
+            }
+            return list;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
         return null;
     }
 
