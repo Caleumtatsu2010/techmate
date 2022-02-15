@@ -37,6 +37,8 @@
                         <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
 
                     </div>
+
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="example" class="table table-striped table-bordered second" style="width:100%">
@@ -56,6 +58,8 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+
+
 
                                 <c:forEach items="${listuser}" var="user" varStatus="loop">
                                     <tr>
