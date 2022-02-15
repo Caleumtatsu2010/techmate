@@ -61,7 +61,7 @@ select * from product_reviews where product_id= 1;
 
 select name from discount where id = 2;
 
-
+select * from account where username = "admin" and password = "1234"
 
 
 

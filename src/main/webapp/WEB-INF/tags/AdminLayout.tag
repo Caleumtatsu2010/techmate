@@ -45,9 +45,9 @@
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav ml-auto navbar-right-top">
+                <ul class="navbar-nav ml-auto mr-4 navbar-right-top">
                     <li class="nav-item ml-5">
-                        <form id="custom-search" class="top-search-bar d-inline-flex ">
+                        <form id="custom-search" class="top-search-bar  d-inline-flex">
                             <input class="form-control " name="searchname" type="text" placeholder="Search..">
                             <button class="btn btn-success" type="submit">Search</button>
                         </form>
@@ -106,25 +106,15 @@ John Abraham</span>is now following you
                             <li class="connection-list">
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/github.png" alt="" > <span>Github</span></a>
+                                        <a href="#" class="connection-item"><img src="" alt="" > <span>Github</span></a>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dribbble.png" alt="" > <span>Dribbble</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt="" > <span>Dropbox</span></a>
-                                    </div>
+
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
+                                        <a href="#" class="connection-item"><img src="" alt=""> <span>Bitbucket</span></a>
                                     </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
-                                    </div>
-                                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="" > <span>Slack</span></a>
-                                    </div>
+
                                 </div>
                             </li>
                             <li>
@@ -133,7 +123,12 @@ John Abraham</span>is now following you
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="" alt="" class="user-avatar-md rounded-circle"></a>
+
+<%--                        <a class="nav-link nav-user-img d-flex" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="" alt="" class="user-avatar-md rounded-circle"><div class="user-avatar-info pl-1 pr-1"><p>long1234</p></div></a>--%>
+
+                        <a class="nav-link nav-user-img d-flex" href="LoginAdmin.jsp" >Login</a>
+
+
                         <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
                             <div class="nav-user-info">
                                 <h5 class="mb-0 text-white nav-user-name">
@@ -145,6 +140,7 @@ John Abraham</span>is now following you
                             <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
                         </div>
                     </li>
+
                 </ul>
             </div>
         </nav>

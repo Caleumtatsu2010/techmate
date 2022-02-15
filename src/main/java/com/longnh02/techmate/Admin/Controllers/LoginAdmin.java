@@ -20,7 +20,11 @@ public class LoginAdmin extends HttpServlet {
         HttpSession session=request.getSession();
 
         if(account != null){
-            session.setAttribute("user",account);
+            session.setAttribute("account",account);
+        }
+        else{
+//            out.print("Username or password not found!");
+            request.getRequestDispatcher("AdminLogin.jsp").include(request, response);
         }
 
     }
