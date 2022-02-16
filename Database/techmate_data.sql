@@ -15,6 +15,7 @@ INSERT INTO account(username, password, account_typeId, account_status)  VALUES 
 -- INSERT INTO product_category  VALUES (1, 'dfd', 'ddd', '00:00:00 00:00:00', '00:00:00 00:00:00');
 
 
+
 INSERT INTO discount values (1, 'Sale 50%', '','0.50', true, '2022-02-09 20:46:08', '2022-02-09 20:46:08' );
 INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `created_at`, `modified_at`) VALUES ('2', 'Sale 20%', '0.2', '1', '2022-02-09 20:46:08', '2022-02-09 20:46:08');
 INSERT INTO `techmate`.`discount` (`id`, `name`, `discount_percent`, `active`, `created_at`, `modified_at`) VALUES ('3', 'Sale 10%', '0.10', '1', '2022-02-09 20:46:08', '2022-02-09 20:46:08');
