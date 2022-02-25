@@ -1,4 +1,4 @@
-<%@ page import="com.longnh02.techmate.Models.Product" %><%--
+<%@ page import="com.longnh02.techmate.models.Product" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/10/2022

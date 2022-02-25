@@ -1,4 +1,4 @@
-<%@ tag import="com.longnh02.techmate.Models.Account" %>
+<%@ tag import="com.longnh02.techmate.models.Account" %>
 <%--
   Created by IntelliJ IDEA.
   User: admin
