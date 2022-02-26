@@ -1,8 +1,8 @@
-<%@ page import="com.longnh02.techmate.models.Product" %><%--
+<%--
   Created by IntelliJ IDEA.
   User: admin
-  Date: 2/10/2022
-  Time: 12:56 AM
+  Date: 2/26/2022
+  Time: 2:05 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -10,7 +10,7 @@
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
 
-<t:AdminLayout>
+<t:ClientLayout>
     <div class="container-fluid  dashboard-content">
         <!-- ============================================================== -->
         <!-- pageheader -->
@@ -43,7 +43,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-<%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
+                            <%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
                         <a class="btn btn-primary float-right" href="CreateProduct" methods="get">New Product</a>
                     </div>
                     <div class="card-body">
@@ -105,5 +105,5 @@
         </div>
 
     </div>
-</t:AdminLayout>
+</t:ClientLayout>
 
