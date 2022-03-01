@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ tag import="com.longnh02.techmate.models.Account" %><%--
   Created by IntelliJ IDEA.
   User: admin
@@ -20,13 +21,12 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css">
-    <link href="admin/assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
+    <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
-
-    <link rel="stylesheet" href="admin/assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-    <link rel="stylesheet" type="text/css" href="admin/assets/vendor/datatables/css/dataTables.bootstrap4.css">
-    <link rel="stylesheet" type="text/css" href="admin/assets/vendor/datatables/css/buttons.bootstrap4.css">
-    <link rel="stylesheet" type="text/css" href="admin/assets/vendor/datatables/css/select.bootstrap4.css">
+    <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/dataTables.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/buttons.bootstrap4.css">
+    <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/select.bootstrap4.css">
     <link rel="stylesheet" type="text/css" href="assets/vendor/datatables/css/fixedHeader.bootstrap4.css">
 </head>
 
@@ -197,13 +197,13 @@ John Abraham</span>is now following you
 <%--                                        </div>--%>
 <%--                                    </li>--%>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="IndexUser">User</a>
+                                        <a class="nav-link" href="/IndexUser">User</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="IndexAccount">Account</a>
+                                        <a class="nav-link" href="/IndexAccount">Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="IndexProduct">Product</a>
+                                        <a class="nav-link" href="/IndexProduct">Product</a>
                                     </li>
 
                                 </ul>
@@ -271,19 +271,16 @@ John Abraham</span>is now following you
         <jsp:doBody/>
         <!-- ============================================================== -->
 
-
-
-
+        <!-- ============================================================== -->
         <!-- footer -->
         <!-- ============================================================== -->
         <div class="footer">
             <div class="container-fluid">
                 <div class="row">
-
                     <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
-                        Techmate 2022 - All rights reversed.
+                        Copyright © 2018 Concept. All rights reserved. Dashboard by <a href="https://colorlib.com/wp/">Colorlib</a>.
                     </div>
-                    <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                    <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12">
                         <div class="text-md-right footer-links d-none d-sm-block">
                             <a href="javascript: void(0);">About</a>
                             <a href="javascript: void(0);">Support</a>

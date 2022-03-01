@@ -10,7 +10,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(name = "IndexProduct", value = "/admin/controllers/product/IndexProduct")
+@WebServlet(name = "IndexProduct", value = "/IndexProduct")
 public class IndexProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -22,7 +22,7 @@ public class IndexProduct extends HttpServlet {
         request.setAttribute("listProduct", products);
 
 
-        request.getRequestDispatcher("IndexProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/product/IndexProduct.jsp").forward(request, response);
     }
 
     @Override

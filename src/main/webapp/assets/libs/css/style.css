@@ -1943,7 +1943,7 @@ Container / Wrapper
 .dashboard-wrapper {
     position: relative;
     left: 0;
-    margin-left: 264px;
+    margin-left: 0px;
     min-height: 870px !important;
 }
 
@@ -2078,7 +2078,7 @@ Pageheader
 
 
 /* ==========================================================================
-  1. Dashboard IndexProduct-sales
+  1. Dashboard Index-sales
    ========================================================================== */
 
 .chart-widget-list {
@@ -2101,7 +2101,7 @@ Pageheader
 
 
 /* ==========================================================================
-  2. Dashboard IndexProduct-Finance
+  2. Dashboard Index-Finance
    ========================================================================== */
 
 .dashboard-finance {}
@@ -2423,14 +2423,7 @@ clip-path: polygon(10% 25%, 10% 0, 35% 0%, 65% 0%, 90% 0, 90% 25%, 90% 50%, 91% 
     padding: 0;
     display: none;
 }
-.product-description{
-
-}
-
-.product-diventory{
-
-
-}
+.product-description{}
 
 
 .product-colors label {
