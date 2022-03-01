@@ -1,5 +1,5 @@
 # techmate
-Interns  ecomerce project in college 
+ecomerce project
 
 
 How to run with inteliJ Idea ULTIMATE
