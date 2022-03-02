@@ -1,5 +1,5 @@
 # techmate
-ecomerce project
+ecomerce project powered with AI
 
 
 How to run with inteliJ Idea ULTIMATE
