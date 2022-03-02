@@ -194,6 +194,32 @@ public List<Review> getReviews(int id) {
 
     }
 
+    public List<Product> getAllByCategoryId(int id) {
+        String query = "SELECT * FROM product WHERE category_id = ?";
+        List<Product> list = new ArrayList<>();
+        try {
+            connection = ConnectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, id);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
+                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
+                list.add(product);
+            }
+            return list;
+
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtils.closePreparedStatement(ps);
+            ConnectionUtils.closeResultSet(rs);
+            ConnectionUtils.closeConnection(connection);
+        }
+        return null;
+
+    }
 
     @Override
     public void insert(Product product) {
