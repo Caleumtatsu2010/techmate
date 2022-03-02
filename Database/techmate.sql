@@ -124,13 +124,43 @@ CREATE TABLE IF NOT EXISTS `supplier` (
 
 -- (id, name, desc, email_address, business_phone, mobile_phone, fax_number, address_line1, address_line2, town, district, city, state_province, country, postal_code)
 
+CREATE TABLE IF NOT EXISTS `category_section` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `techmate`.`category_type` 
+ADD COLUMN `category_section_id` INT NULL AFTER `desc`;
+
+
+
+CREATE TABLE IF NOT EXISTS `category_type` (
+  `id` int NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `desc` mediumtext,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE `techmate`.`category_type` 
+ADD INDEX `category_section_fk_idx` (`category_section_id` ASC) VISIBLE;
+;
+ALTER TABLE `techmate`.`category_type` 
+ADD CONSTRAINT `category_section_fk`
+  FOREIGN KEY (`category_section_id`)
+  REFERENCES `techmate`.`category_section` (`id`)
+  ON DELETE NO ACTION
+  ON UPDATE NO ACTION;
+
+
+
 CREATE TABLE IF NOT EXISTS `product_category` (
   `id` int NOT NULL,
   `name` varchar(50) NOT NULL,
   `desc` mediumtext,
   `created_at` timestamp,
   `modified_at` timestamp,
-  PRIMARY KEY (`id`)
+  `category_type_id` int,
+  PRIMARY KEY (`id`),
+  	CONSTRAINT `product_category_category_type_fk` FOREIGN KEY (`category_type_id`) REFERENCES `category_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
@@ -154,7 +184,6 @@ CREATE TABLE IF NOT EXISTS `product` (
   PRIMARY KEY (`id`),
 	CONSTRAINT `product_fk_1` FOREIGN KEY (`category_id`) REFERENCES `product_category` (`id`)  ON DELETE CASCADE,
 	CONSTRAINT `product_fk_2` FOREIGN KEY (`discount_id`) REFERENCES `discount` (`id`)  ON DELETE CASCADE,
-
 	CONSTRAINT `product_fk_3` FOREIGN KEY (`supplier_id`) REFERENCES `supplier` (`id`)  ON DELETE CASCADE
 
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
