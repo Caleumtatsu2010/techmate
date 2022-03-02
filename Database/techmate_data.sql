@@ -49,8 +49,11 @@ INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `c
 
 INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `created_at`, `modified_at`) VALUES ('2', '2', 'hoa', 'mai', '2222', 'abc@gmail.com', '222', '222', '2022-02-15 11:11:11', '2022-02-15 11:11:11');
 
+INSERT INTO `techmate`.`shippers` (`id`, `citizen_id`, `first_name`, `last_name`, `email_address`, `business_phone`, `mobile_phone`, `address_line`, `town`, `district`, `city`, `state_province`, `country`, `status`) VALUES ('2', '01234', 'amy', 'pascal', 'abc@123', '1111', '1111', 'hanoi', 'new york', '9', 'america', 'alabama', 'vietnam', 'deactive');
 
 
+
+INSERT INTO `techmate`.`category_type` (`id`, `name`) VALUES ('1', 'Electronics');
 
 
 SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = 1;
