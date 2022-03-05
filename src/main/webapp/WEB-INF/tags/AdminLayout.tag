@@ -197,13 +197,13 @@ John Abraham</span>is now following you
 <%--                                        </div>--%>
 <%--                                    </li>--%>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/IndexUser">User</a>
+                                        <a class="nav-link" href="IndexUser">User</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/IndexAccount">Account</a>
+                                        <a class="nav-link" href="IndexAccount">Account</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="/IndexProduct">Product</a>
+                                        <a class="nav-link" href="IndexProduct">Product</a>
                                     </li>
 
                                 </ul>
