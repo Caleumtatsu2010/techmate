@@ -45,12 +45,15 @@ INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified
 INSERT INTO `techmate`.`product_category` (`id`, `name`, `created_at`, `modified_at`) VALUES ('3', 'Wireless Keyboard', '11:11:11 11:11:11', '11:11:11 11:11:11');
 
 
-INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `image`, `created_at`, `modified_at`) VALUES ('1', '1', 'long', 'hoang', '0302000', 'abc@gmail.com', '1234567', '3456789', ?, '22:02:15 11:11:11', '22:02:15 11:11:11');
+INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `created_at`, `modified_at`) VALUES ('1', '1', 'long', 'hoang', '0302000', 'abc@gmail.com', '1234567', '3456789', '22:02:15 11:11:11', '22:02:15 11:11:11');
 
-INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `image`, `created_at`, `modified_at`) VALUES ('2', '2', 'hoa', 'mai', '2222', 'abc@gmail.com', '222', '222', ?, '2022-02-15 11:11:11', '2022-02-15 11:11:11');
+INSERT INTO `techmate`.`user` (`id`, `account_id`, `first_name`, `last_name`, `citizen_id`, `email`, `business_phone`, `mobile_phone`, `created_at`, `modified_at`) VALUES ('2', '2', 'hoa', 'mai', '2222', 'abc@gmail.com', '222', '222', '2022-02-15 11:11:11', '2022-02-15 11:11:11');
+
+INSERT INTO `techmate`.`shippers` (`id`, `citizen_id`, `first_name`, `last_name`, `email_address`, `business_phone`, `mobile_phone`, `address_line`, `town`, `district`, `city`, `state_province`, `country`, `status`) VALUES ('2', '01234', 'amy', 'pascal', 'abc@123', '1111', '1111', 'hanoi', 'new york', '9', 'america', 'alabama', 'vietnam', 'deactive');
 
 
 
+INSERT INTO `techmate`.`category_type` (`id`, `name`) VALUES ('1', 'Electronics');
 
 
 SELECT quantity, name FROM product_inventory INNER JOIN product ON product_inventory.id = product.inventory_id where product.id = 1;

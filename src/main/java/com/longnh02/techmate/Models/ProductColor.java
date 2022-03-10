@@ -1,4 +1,4 @@
-package com.longnh02.techmate.Models;
+package com.longnh02.techmate.models;
 
 public class ProductColor {
     private int id;

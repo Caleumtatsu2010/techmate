@@ -1,7 +1,7 @@
-package com.longnh02.techmate.Dao;
+package com.longnh02.techmate.dao;
 
-import com.longnh02.techmate.Connection.ConnectionUtils;
-import com.longnh02.techmate.Models.ProductCategory;
+import com.longnh02.techmate.connection.ConnectionUtils;
+import com.longnh02.techmate.models.ProductCategory;
 
 
 import java.io.FileInputStream;

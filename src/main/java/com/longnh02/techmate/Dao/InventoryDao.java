@@ -1,8 +1,7 @@
-package com.longnh02.techmate.Dao;
+package com.longnh02.techmate.dao;
 
-import com.longnh02.techmate.Connection.ConnectionUtils;
-import com.longnh02.techmate.Models.Account;
-import com.longnh02.techmate.Models.Inventory;
+import com.longnh02.techmate.connection.ConnectionUtils;
+import com.longnh02.techmate.models.Inventory;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;

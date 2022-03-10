@@ -1,4 +1,4 @@
-package com.longnh02.techmate.Dao;
+package com.longnh02.techmate.dao;
 
 import java.util.List;
 

@@ -1,4 +1,4 @@
-package com.longnh02.techmate.Utility;
+package com.longnh02.techmate.utility;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;

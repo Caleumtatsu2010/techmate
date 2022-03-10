@@ -1,4 +1,4 @@
-package com.longnh02.techmate.Admin.Controllers;
+package com.longnh02.techmate.admin.controllers;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

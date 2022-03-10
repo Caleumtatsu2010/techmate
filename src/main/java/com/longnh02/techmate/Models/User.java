@@ -1,13 +1,10 @@
-package com.longnh02.techmate.Models;
+package com.longnh02.techmate.models;
 
 
-import com.longnh02.techmate.Utility.ImageUtility;
+import com.longnh02.techmate.utility.ImageUtility;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
 import java.sql.Timestamp;
-import java.util.Base64;
-import java.util.Date;
 
 public class User {
     private int id;

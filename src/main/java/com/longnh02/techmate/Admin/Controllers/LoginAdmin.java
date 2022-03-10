@@ -1,18 +1,24 @@
-package com.longnh02.techmate.Admin.Controllers;
+package com.longnh02.techmate.admin.controllers;
 
-import com.longnh02.techmate.Dao.AccountDao;
-import com.longnh02.techmate.Models.Account;
+import com.longnh02.techmate.dao.AccountDao;
+import com.longnh02.techmate.models.Account;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet(name = "LoginAdmin", value = "/LoginAdmin")
 public class LoginAdmin extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/views/admin/login/LoginAdmin.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
         response.setContentType("text/html;charset=UTF-8");
         try{
 
@@ -25,23 +31,17 @@ public class LoginAdmin extends HttpServlet {
             if(account != null){
 
                 session.setAttribute("account",account);
-                response.sendRedirect("Dashboard");
+                request.getRequestDispatcher("/views/admin/home/HomeAdmin.jsp").forward(request, response);
             }
             else
             {
                 request.setAttribute("loginError","Incorrect username or password");
-                request.getRequestDispatcher("LoginAdmin.jsp").forward(request, response);
+                request.getRequestDispatcher("/views/admin/login/LoginAdmin.jsp").forward(request, response);
             }
 
         }catch (Exception ex)
         {
             ex.printStackTrace();
         }
-
-    }
-
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
     }
 }

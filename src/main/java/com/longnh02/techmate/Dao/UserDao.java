@@ -1,14 +1,11 @@
-package com.longnh02.techmate.Dao;
+package com.longnh02.techmate.dao;
 
-import com.longnh02.techmate.Connection.ConnectionUtils;
-import com.longnh02.techmate.Models.Account;
-import com.longnh02.techmate.Models.User;
+import com.longnh02.techmate.connection.ConnectionUtils;
+import com.longnh02.techmate.models.User;
 
-import java.io.File;
 import java.io.FileInputStream;
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 public class UserDao implements Dao<User>{

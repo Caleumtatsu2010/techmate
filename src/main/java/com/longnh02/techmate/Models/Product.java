@@ -1,12 +1,10 @@
-package com.longnh02.techmate.Models;
+package com.longnh02.techmate.models;
 
 
 
-import com.longnh02.techmate.Utility.ImageUtility;
+import com.longnh02.techmate.utility.ImageUtility;
 
-import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.util.Base64;
 
 public class Product {
     private int id;

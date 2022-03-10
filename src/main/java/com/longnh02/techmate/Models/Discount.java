@@ -1,7 +1,6 @@
-package com.longnh02.techmate.Models;
+package com.longnh02.techmate.models;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
 public class Discount {
     private int id;

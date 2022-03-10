@@ -1,6 +1,4 @@
-package com.longnh02.techmate.Models;
-
-import java.util.Date;
+package com.longnh02.techmate.models;
 
 public class Shippers {
     private int id;
