@@ -31,9 +31,8 @@ public class AccountDao implements Dao<Account>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
+
         }
         return null;
     }
@@ -57,9 +56,8 @@ public class AccountDao implements Dao<Account>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
+
         }
         return null;
     }
@@ -81,9 +79,8 @@ public class AccountDao implements Dao<Account>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
+
         }
         return null;
     }

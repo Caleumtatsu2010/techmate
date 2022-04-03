@@ -16,6 +16,7 @@ public class SupplierDao implements Dao<Supplier>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
     FileInputStream fs=null;
 
     @Override
@@ -30,7 +31,7 @@ public class SupplierDao implements Dao<Supplier>{
         String query = "SELECT * FROM techmate.supplier;";
         List<Supplier> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -47,9 +48,7 @@ public class SupplierDao implements Dao<Supplier>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
         }
         return null;
 

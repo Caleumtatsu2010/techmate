@@ -14,13 +14,14 @@ public class DiscountDao implements Dao<Discount>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
 
     @Override
     public Discount get(int id) {
         String query = "SELECT * FROM discount WHERE id = ?";
 
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -44,7 +45,7 @@ public class DiscountDao implements Dao<Discount>{
         String query = "SELECT * FROM discount";
         List<Discount> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

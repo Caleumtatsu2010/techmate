@@ -12,6 +12,7 @@ public class UserDao implements Dao<User>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
     FileInputStream fs=null;
 
     @Override
@@ -25,7 +26,7 @@ public class UserDao implements Dao<User>{
         String query = "SELECT * FROM user";
         List<User> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -40,9 +41,7 @@ public class UserDao implements Dao<User>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -54,7 +53,7 @@ public class UserDao implements Dao<User>{
     public void insert(User user) {
         String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at, modified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1,user.getAccountId());
             ps.setString(2,  user.getFirstName());
@@ -88,7 +87,7 @@ public class UserDao implements Dao<User>{
     public void update(User user, int id) {
         String query = "UPDATE user set first_name = ?, last_name = ?, mobile_phone= ?, citizen_id= ?, email=?, business_phone=? , image = ?, modified_at =? WHERE id = ?";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setString(1,  user.getFirstName());
             ps.setString(2, user.getLastName());

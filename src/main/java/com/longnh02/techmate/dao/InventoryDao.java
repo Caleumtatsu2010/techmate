@@ -17,13 +17,11 @@ public class InventoryDao implements Dao<Inventory>{
     private ResultSet rs = null;
     private ConnectionUtils connectionUtils;
 
-
-
     @Override
     public Inventory get(int id) {
         String query = "SELECT * FROM techmate.product_inventory WHERE id = ?";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -47,7 +45,7 @@ public class InventoryDao implements Dao<Inventory>{
         String query = "SELECT * FROM product_inventory";
         List<Inventory> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

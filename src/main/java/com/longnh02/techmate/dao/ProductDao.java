@@ -168,7 +168,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public List<Product> getAll() {
-        String query = "SELECT * FROM product";
+        String query = DatabaseQuery.getSelectAllProduct();
         List<Product> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
@@ -292,7 +292,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void delete(int id) {
-        String query = "DELETE FROM `techmate`.`product` WHERE (`id` = ?)";
+        String query = DatabaseQuery.getDeleteProduct();
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);

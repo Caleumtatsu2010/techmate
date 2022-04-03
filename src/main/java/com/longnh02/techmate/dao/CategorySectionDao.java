@@ -40,9 +40,8 @@ public class CategorySectionDao implements Dao<CategorySection> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeResultSet(rs);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
+
         }
         return null;
     }
