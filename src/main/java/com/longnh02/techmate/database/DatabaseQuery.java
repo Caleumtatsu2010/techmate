@@ -6,10 +6,24 @@ public class DatabaseQuery {
      * product queries
      */
     //insert product
-    public static String insertProduct = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`,`color`, `category_id`, `discount_id`, `quantity`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    private static String insertProduct = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`,`color`, `category_id`, `discount_id`, `quantity`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    //update product by id
+    private static String updateProduct =  "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
+    //delete product by id
+    private static String deleteProduct = "DELETE FROM `techmate`.`product` WHERE (`id` = ?)";
 
-    public static String
 
 
 
+    public static String getInsertProduct() {
+        return insertProduct;
+    }
+
+    public static String getUpdateProduct() {
+        return updateProduct;
+    }
+
+    public static String getDeleteProduct() {
+        return deleteProduct;
+    }
 }

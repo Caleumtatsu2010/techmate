@@ -218,7 +218,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
-        String query = DatabaseQuery.insertProduct;
+        String query = DatabaseQuery.getInsertProduct();//insert table query
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -247,16 +247,14 @@ public List<Review> getReviews(int id) {
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
-
+            ConnectionUtils.closeAll(connection, ps, rs);
         }
     }
 
     @Override
     public void update(Product product, int id) {
 
-        String query = "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
+        String query = DatabaseQuery.getUpdateProduct();
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
