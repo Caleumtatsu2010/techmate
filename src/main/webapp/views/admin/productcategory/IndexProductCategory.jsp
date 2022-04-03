@@ -34,6 +34,10 @@
                 <div class="card">
                     <div class="card-header">
                         <a class="btn btn-info float-right" href="CreateProductCategory" methods="get">New Product Category</a>
+
+                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
+
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

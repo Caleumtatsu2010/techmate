@@ -9,7 +9,6 @@
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
-
 <t:AdminLayout>
     <div class="dashboard-ecommerce">
         <div class="container-fluid dashboard-content">
@@ -532,6 +531,6 @@
                 </div>
             </div>
         </div>
-    </div>
+
 </t:AdminLayout>
 

@@ -45,7 +45,11 @@
     <div class="card ">
         <div class="card-header text-center"><a href=""><img class="logo-img" src="../../../assets/images/logon.PNG" alt="logo"></a><span class="splash-description">Please enter your account information.</span></div>
         <div class="card-body">
+
             <form action="LoginAdmin" method="post">
+
+            <form action="LoginAdmin" method="get">
+
                 <div class="form-group">
                     <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" required>
                 </div>
