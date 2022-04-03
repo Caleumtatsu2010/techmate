@@ -43,7 +43,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-<%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
+                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
                         <a class="btn btn-primary float-right" href="CreateProduct" methods="get">New Product</a>
                     </div>
                     <div class="card-body">
@@ -62,7 +62,6 @@
                                 </tr>
                                 </thead>
                                 <tbody>
-
                                 <c:forEach items="${listProduct}" var="product" varStatus="loop">
                                     <tr>
                                         <td>${loop.count}</td>
@@ -71,7 +70,7 @@
                                         <td>${product.desc}</td>
                                         <td>${product.price}</td>
                                         <td>${product.unitPrice}</td>
-                                        <td><img src="data:image/jpg;base64,${product.getSeenImage()}" width="120" height="120"/></td>
+                                        <td><img src="data:image/jpg;base64,${product.getSeenImage()}" width="100" height="100"/></td>
                                         <td>
                                             <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
                                             <a class="list-group-item " href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>

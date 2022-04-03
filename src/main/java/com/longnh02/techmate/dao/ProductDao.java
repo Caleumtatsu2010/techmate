@@ -138,9 +138,7 @@ public List<Review> getReviews(int id) {
     } catch (SQLException e) {
         System.out.println(e);
     } finally {
-        ConnectionUtils.closePreparedStatement(ps);
-        ConnectionUtils.closeResultSet(rs);
-        ConnectionUtils.closeConnection(connection);
+        ConnectionUtils.closeAll(connection, ps, rs);
     }
     return null;
 }

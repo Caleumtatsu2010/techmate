@@ -16,6 +16,10 @@ public class DiscountDao implements Dao<Discount>{
     private ResultSet rs = null;
     private ConnectionUtils connectionUtils;
 
+    public DiscountDao() {
+        this.connectionUtils = new ConnectionUtils();
+    }
+
     @Override
     public Discount get(int id) {
         String query = "SELECT * FROM discount WHERE id = ?";

@@ -19,6 +19,10 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
     private ResultSet rs = null;
     private ConnectionUtils connectionUtils;
 
+    public ProductCategoryDao() {
+        this.connectionUtils = new ConnectionUtils();
+    }
+
     @Override
     public ProductCategory get(int id) {
         String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
