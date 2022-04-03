@@ -15,6 +15,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
 
     @Override
     public CategoryType get(int id) {
@@ -26,7 +27,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         String query = "SELECT * FROM techmate.category_type";
         List<CategoryType> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -50,7 +51,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         String query = "SELECT * FROM techmate.category_type WHERE category_section_id = ?";
         List<CategoryType> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();

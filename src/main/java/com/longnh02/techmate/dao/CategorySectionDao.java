@@ -15,6 +15,8 @@ public class CategorySectionDao implements Dao<CategorySection> {
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
+
 
     @Override
     public CategorySection get(int id) {
@@ -26,7 +28,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
         String query = "SELECT * FROM techmate.category_section";
         List<CategorySection> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {

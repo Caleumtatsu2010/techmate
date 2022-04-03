@@ -12,12 +12,14 @@ public class AccountDao implements Dao<Account>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
+    private ConnectionUtils connectionUtils;
+
 
     @Override
     public Account get(int id) {
         String query = "SELECT * FROM account WHERE id = ?";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -40,7 +42,7 @@ public class AccountDao implements Dao<Account>{
     public Account login(String name, String pass) {
         String query = "SELECT * FROM account WHERE username = ? and password = ?";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
 
             ps.setString(1, name);
@@ -67,7 +69,7 @@ public class AccountDao implements Dao<Account>{
         String query = "SELECT * FROM account";
         List<Account> list = new ArrayList<>();
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
@@ -91,7 +93,7 @@ public class AccountDao implements Dao<Account>{
     public void insert(Account account) {
         String query = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?)";
         try {
-            connection = ConnectionUtils.getConnection();
+            connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
