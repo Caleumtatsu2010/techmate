@@ -218,7 +218,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
-        String query = DatabaseQuery.in;
+        String query = DatabaseQuery;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
