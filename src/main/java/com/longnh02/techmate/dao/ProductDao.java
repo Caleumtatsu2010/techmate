@@ -166,7 +166,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public List<Product> getAll() {
-        String query = DatabaseQuery.getSelectAllProduct();
+        String query = DatabaseQuery.selectAllProduct;
         List<Product> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
@@ -216,7 +216,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
-        String query = DatabaseQuery.getInsertProduct();//insert table query
+        String query = DatabaseQuery.insertProduct;//insert table query
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -252,7 +252,7 @@ public List<Review> getReviews(int id) {
     @Override
     public void update(Product product, int id) {
 
-        String query = DatabaseQuery.getUpdateProduct();
+        String query = DatabaseQuery.updateProduct;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -290,7 +290,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void delete(int id) {
-        String query = DatabaseQuery.getDeleteProduct();
+        String query = DatabaseQuery.deleteProduct;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
