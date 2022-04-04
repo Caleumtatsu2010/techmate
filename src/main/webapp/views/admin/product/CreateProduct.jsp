@@ -168,7 +168,7 @@
                             <div class="form-group row text-right">
                                 <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">
                                     <button type="submit" class="btn btn-space btn-primary" >submit</button>
-                                    <button class="btn btn-space btn-secondary">Cancel</button>
+                                    <a class="btn btn-space btn-secondary" href="IndexProduct">Cancel</a>
                                 </div>
                             </div>
 
