@@ -33,7 +33,7 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <a class="btn btn-info float-right" href="CreateProductCategory" methods="get">New Product Category</a>
+                        <a class="btn btn-info float-right" href="CreateProductCategory" methods="get">New Category</a>
 
                         <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
 
