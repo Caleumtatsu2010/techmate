@@ -1,6 +1,7 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
+import com.longnh02.techmate.database.DatabaseQuery;
 import com.longnh02.techmate.models.CategorySection;
 
 import java.sql.Connection;
@@ -17,6 +18,9 @@ public class CategorySectionDao implements Dao<CategorySection> {
     private ResultSet rs = null;
     private ConnectionUtils connectionUtils;
 
+    public CategorySectionDao() {
+        connectionUtils = new ConnectionUtils();
+    }
 
     @Override
     public CategorySection get(int id) {
@@ -25,7 +29,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public List<CategorySection> getAll() {
-        String query = "SELECT * FROM techmate.category_section";
+        String query = DatabaseQuery.selectAllCateSection;
         List<CategorySection> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
@@ -41,14 +45,30 @@ public class CategorySectionDao implements Dao<CategorySection> {
             System.out.println(e);
         } finally {
             ConnectionUtils.closeAll(connection, ps, rs);
-
         }
         return null;
     }
 
     @Override
     public void insert(CategorySection categorySection) {
+        String query = DatabaseQuery.insertCateSection;//insert category section query
+        try {
+            connection = connectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
 
+            ps.setInt(1,categorySection.getId());
+            ps.setString(2,  categorySection.getName());
+
+            ps.executeUpdate();
+            System.out.println("Data Added Successfully");
+
+        } catch (Exception e) {
+            System.err.println(e);
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtils.closeAll(connection, ps, rs);
+        }
     }
 
     @Override
