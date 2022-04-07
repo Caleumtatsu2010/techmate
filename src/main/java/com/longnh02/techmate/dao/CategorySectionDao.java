@@ -78,6 +78,17 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public void delete(int id) {
-
+        String query = DatabaseQuery.deleteCategorySection;
+        try {
+            connection = connectionUtils.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1,  id);
+            System.out.println("Delete Successfully");
+            ps.executeUpdate();
+        } catch (Exception e) {
+            System.err.println("Delete");
+        } finally {
+            ConnectionUtils.closeAll(connection, ps, rs);
+        }
     }
 }
