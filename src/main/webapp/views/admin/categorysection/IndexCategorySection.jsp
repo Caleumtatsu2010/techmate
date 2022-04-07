@@ -65,7 +65,7 @@
                                         <td>
                                             <a class="list-group-item-info p-2 m-2" href="AccountDetail?id=${cateSec.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>
                                             <a class="list-group-item-action p-2 m-2" href="AccountUpdate?id=${cateSec.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
-                                            <a class="list-group-item-danger p-2 m-2" href="AccountDelete?id=${cateSec.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                            <a class="list-group-item-danger p-2 m-2" href="DeleteCategorySection?id=${cateSec.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
