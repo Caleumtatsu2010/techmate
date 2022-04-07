@@ -5,6 +5,9 @@ public class CategorySection {
     private int id;
     private String name;
 
+    public CategorySection() {
+    }
+
     public CategorySection(int id, String name) {
         this.id = id;
         this.name = name;
