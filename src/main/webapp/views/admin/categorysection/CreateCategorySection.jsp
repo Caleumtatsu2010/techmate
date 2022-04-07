@@ -39,7 +39,7 @@
                 <div class="card">
                     <h5 class="card-header">Creat New Category Section</h5>
                     <div class="card-body">
-                        <form id="validationform" method="post" action="CreateCategorySection" data-parsley-validate="" novalidate="" enctype="multipart/form-data">
+                        <form id="validationform" method="post" action="CreateCategorySection" data-parsley-validate="" novalidate="" >
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Category Section Id</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
