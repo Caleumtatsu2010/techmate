@@ -12,8 +12,6 @@ import java.io.IOException;
 public class DeleteProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         ProductDao prod = new ProductDao();
         prod.delete(Integer.parseInt(request.getParameter("id")));
         request.getRequestDispatcher("/views/admin/product/IndexProduct").forward(request, response);
