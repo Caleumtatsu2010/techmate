@@ -157,12 +157,7 @@
                             </div>
 
 
-                            <script>
-                                var loadFile = function(event) {
-                                var image = document.getElementById('output');
-                                image.src = URL.createObjectURL(event.target.files[0]);
-                                };
-                            </script>
+
 
 
                             <div class="form-group row text-right">
@@ -218,6 +213,13 @@
             });
         }, false);
     })();
+</script>
+<!-- preview image -->
+<script>
+    var loadFile = function(event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
 </script>
 </body>
 
