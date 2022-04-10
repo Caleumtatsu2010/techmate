@@ -1,8 +1,8 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
-import com.longnh02.techmate.database.DatabaseQuery;
-import com.longnh02.techmate.models.CategorySection;
+import com.longnh02.techmate.database.query.CategorySectionQueries;
+import com.longnh02.techmate.models.category.CategorySection;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -29,7 +29,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public List<CategorySection> getAll() {
-        String query = DatabaseQuery.selectAllCateSection;
+        String query = CategorySectionQueries.selectAllCateSection;
         List<CategorySection> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
@@ -51,7 +51,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public void insert(CategorySection categorySection) {
-        String query = DatabaseQuery.insertCateSection;//insert category section query
+        String query = CategorySectionQueries.insertCateSection;//insert category section query
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -78,7 +78,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public void delete(int id) {
-        String query = DatabaseQuery.deleteCategorySection;
+        String query = CategorySectionQueries.deleteCategorySection;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
