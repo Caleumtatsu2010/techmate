@@ -2,12 +2,10 @@ package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
 
-import com.longnh02.techmate.database.DatabaseQuery;
-import com.longnh02.techmate.models.Discount;
-import com.longnh02.techmate.models.Product;
+import com.longnh02.techmate.database.query.ProductQueries;
+import com.longnh02.techmate.models.product.Product;
 import com.longnh02.techmate.models.Review;
 
-import java.io.InputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -166,7 +164,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public List<Product> getAll() {
-        String query = DatabaseQuery.selectAllProduct;
+        String query = ProductQueries.selectAllProduct;
         List<Product> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
@@ -216,7 +214,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void insert(Product product) {
-        String query = DatabaseQuery.insertProduct;//insert table query
+        String query = ProductQueries.insertProduct;//insert table query
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -252,7 +250,7 @@ public List<Review> getReviews(int id) {
     @Override
     public void update(Product product, int id) {
 
-        String query = DatabaseQuery.updateProduct;
+        String query = ProductQueries.updateProduct;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -290,7 +288,7 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void delete(int id) {
-        String query = DatabaseQuery.deleteProduct;
+        String query = ProductQueries.deleteProduct;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
