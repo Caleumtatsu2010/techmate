@@ -8,13 +8,13 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "DeleteProduct", value = "/DeleteProduct")
+@WebServlet(name = "DeleteCategoryType", value = "/DeleteCategoryType")
 public class DeleteProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ProductDao prod = new ProductDao();
         prod.delete(Integer.parseInt(request.getParameter("id")));
-        request.getRequestDispatcher("/views/admin/product/IndexProduct").forward(request, response);
+        request.getRequestDispatcher("/views/admin/product/IndexCategoryType").forward(request, response);
     }
 
     @Override
