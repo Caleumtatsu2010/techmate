@@ -1,8 +1,7 @@
 package com.longnh02.techmate.admin.controllers.user;
 
-import com.longnh02.techmate.dao.ProductCategoryDao;
 import com.longnh02.techmate.dao.UserDao;
-import com.longnh02.techmate.models.User;
+import com.longnh02.techmate.models.user.User;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
