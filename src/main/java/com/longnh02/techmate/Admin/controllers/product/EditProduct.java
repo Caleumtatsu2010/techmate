@@ -1,7 +1,7 @@
 package com.longnh02.techmate.admin.controllers.product;
 
 import com.longnh02.techmate.dao.*;
-import com.longnh02.techmate.models.Product;
+import com.longnh02.techmate.models.product.Product;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @MultipartConfig(maxFileSize = 16177215)
-@WebServlet(name = "EditProduct", value = "/EditProduct")
+@WebServlet(name = "EditCategoryType", value = "/EditCategoryType")
 public class EditProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class EditProduct extends HttpServlet {
 
         request.setAttribute("Product", product);
 
-        request.getRequestDispatcher("/views/admin/product/EditProduct.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/product/EditCategoryType.jsp").forward(request, response);
 
 
     }
