@@ -1,10 +1,9 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
-import com.longnh02.techmate.models.ProductCategory;
+import com.longnh02.techmate.models.category.ProductCategory;
 
 
-import java.io.FileInputStream;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
