@@ -27,10 +27,8 @@ public class AccountDao implements Dao<Account>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typed"),rs.getString("account_status"));
-                return account;
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typed"),rs.getString("account_status"));
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         } finally {

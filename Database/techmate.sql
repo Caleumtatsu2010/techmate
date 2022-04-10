@@ -27,6 +27,10 @@ CREATE TABLE IF NOT EXISTS `account` (
   CONSTRAINT `account_account_type_fk` FOREIGN KEY (`account_typeId`) REFERENCES `account_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `techmate`.`account` ADD COLUMN `created_at` timestamp AFTER `password`;
+ALTER TABLE `techmate`.`account` ADD COLUMN   `modified_at` timestamp AFTER `created_at`;
+
+
 
 
 
