@@ -1,4 +1,4 @@
-package com.longnh02.techmate.models;
+package com.longnh02.techmate.models.admin;
 
 import java.util.Date;
 
