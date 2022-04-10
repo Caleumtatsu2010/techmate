@@ -1,7 +1,7 @@
 package com.longnh02.techmate.admin.controllers.account;
 
 import com.longnh02.techmate.dao.AccountDao;
-import com.longnh02.techmate.models.Account;
+import com.longnh02.techmate.models.account.Account;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
