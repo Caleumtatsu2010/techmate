@@ -1,7 +1,7 @@
 package com.longnh02.techmate.admin.controllers.categorysection;
 
 import com.longnh02.techmate.dao.CategorySectionDao;
-import com.longnh02.techmate.models.CategorySection;
+import com.longnh02.techmate.models.category.CategorySection;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -17,7 +17,7 @@ public class IndexCategorySection extends HttpServlet {
         List<CategorySection> list = dao.getAll();
 
         request.setAttribute("listCateSection", list);
-        request.getRequestDispatcher("/views/admin/categorysection/IndexCategorySection.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/categorysection/IndexCategoryType.jsp").forward(request, response);
 
     }
 
