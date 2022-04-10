@@ -1,12 +1,11 @@
 package com.longnh02.techmate.admin.controllers.productcategory;
 import com.longnh02.techmate.dao.ProductCategoryDao;
-import com.longnh02.techmate.models.ProductCategory;
+import com.longnh02.techmate.models.category.ProductCategory;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.InputStream;
 import java.sql.Timestamp;
 import java.util.Date;
 
