@@ -1,7 +1,7 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
-import com.longnh02.techmate.models.Discount;
+import com.longnh02.techmate.models.discount.Discount;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
