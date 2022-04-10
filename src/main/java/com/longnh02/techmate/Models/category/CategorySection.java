@@ -1,4 +1,4 @@
-package com.longnh02.techmate.models;
+package com.longnh02.techmate.models.category;
 
 public class CategorySection {
 
