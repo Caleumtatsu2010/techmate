@@ -1,8 +1,7 @@
 package com.longnh02.techmate.admin.controllers.product;
 
-import com.longnh02.techmate.dao.ProductCategoryDao;
 import com.longnh02.techmate.dao.ProductDao;
-import com.longnh02.techmate.models.Product;
+import com.longnh02.techmate.models.product.Product;
 import com.longnh02.techmate.models.Review;
 
 import javax.servlet.*;
