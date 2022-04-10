@@ -1,4 +1,4 @@
-package com.longnh02.techmate.models;
+package com.longnh02.techmate.models.cart;
 
 public class CartItem {
     private int id;
