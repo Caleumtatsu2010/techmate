@@ -1,5 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ tag import="com.longnh02.techmate.models.Account" %><%--
+<%@ tag import="com.longnh02.techmate.models.account.Account" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/9/2022
@@ -196,14 +196,28 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="IndexCategorySection">Category Section</a>
                                                 </li>
-
-<%--                                                <li class="nav-item">--%>
-<%--                                                    <a class="nav-link" href="IndexAccount">Account</a>--%>
-<%--                                                </li>--%>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="IndexCategoryType">Category Type</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="IndexAccount">Account</a>
+                                                </li>
                                             </ul>
                                         </div>
                                     </li>
-
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">User</a>
+                                        <div id="submenu-1-1" class="collapse submenu" style="">
+                                            <ul class="nav flex-column">
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="IndexUser">User</a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="IndexAccount">Account</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
                         </li>
