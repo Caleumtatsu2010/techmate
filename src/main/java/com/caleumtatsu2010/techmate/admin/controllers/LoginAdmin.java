@@ -1,7 +1,7 @@
-package com.longnh02.techmate.admin.controllers;
+package com.caleumtatsu2010.techmate.admin.controllers;
 
-import com.longnh02.techmate.dao.AccountDao;
-import com.longnh02.techmate.models.account.Account;
+import com.caleumtatsu2010.techmate.dao.AccountDao;
+import com.caleumtatsu2010.techmate.models.account.Account;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
