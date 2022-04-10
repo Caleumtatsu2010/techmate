@@ -9,7 +9,7 @@ import javax.servlet.annotation.*;
 import java.io.IOException;
 
 @MultipartConfig(maxFileSize = 16177215)
-@WebServlet(name = "EditCategoryType", value = "/EditCategoryType")
+@WebServlet(name = "EditProduct", value = "/EditProduct")
 public class EditProduct extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,7 +31,7 @@ public class EditProduct extends HttpServlet {
 
         request.setAttribute("Product", product);
 
-        request.getRequestDispatcher("/views/admin/product/EditCategoryType.jsp").forward(request, response);
+        request.getRequestDispatcher("/views/admin/product/EditProduct.jsp").forward(request, response);
 
 
     }

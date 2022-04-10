@@ -144,15 +144,9 @@ CREATE TABLE IF NOT EXISTS `category_type` (
   `desc` mediumtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE `techmate`.`category_type` 
-ADD INDEX `category_section_fk_idx` (`category_section_id` ASC) VISIBLE;
-;
-ALTER TABLE `techmate`.`category_type` 
-ADD CONSTRAINT `category_section_fk`
-  FOREIGN KEY (`category_section_id`)
-  REFERENCES `techmate`.`category_section` (`id`)
-  ON DELETE NO ACTION
-  ON UPDATE NO ACTION;
+ALTER TABLE `techmate`.`category_type` ADD INDEX `category_section_fk_idx` (`category_section_id` ASC) VISIBLE;;
+ALTER TABLE `techmate`.`category_type` ADD CONSTRAINT `category_section_fk`
+  FOREIGN KEY (`category_section_id`) REFERENCES `techmate`.`category_section` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 
 

@@ -1,12 +1,12 @@
 package com.longnh02.techmate.admin.controllers.categorytype;
 
+import com.longnh02.techmate.dao.CategoryTypeDao;
 import com.longnh02.techmate.dao.DiscountDao;
 import com.longnh02.techmate.dao.ProductCategoryDao;
 import com.longnh02.techmate.dao.ProductDao;
 import com.longnh02.techmate.models.product.Product;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.MultipartConfig;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -14,17 +14,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.Part;
 import java.io.IOException;
 
-@MultipartConfig(maxFileSize = 16177215)
 @WebServlet(name = "CreateCategoryType", value = "/CreateCategoryType")
 public class CreateCategoryType extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        ProductCategoryDao prod = new ProductCategoryDao();
-        DiscountDao dis = new DiscountDao();
-        //load category, discount
-        request.setAttribute("listcategory", prod.getAll());
-        request.setAttribute("listdiscount", dis.getAll());
+
         request.getRequestDispatcher("/views/admin/product/CreateCategoryType.jsp").forward(request, response);
     }
     @Override

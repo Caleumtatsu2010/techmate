@@ -146,7 +146,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="image" accept="image/*" data-parsley-type="image" type="file" id="file"  required="" placeholder="" class="form-control border-light" onchange="loadFile(event)" >
+                                    <input name="image" accept="image/*" data-parsley-type="image" type="file" id="file" required placeholder="" class="form-control border-light" onchange="loadFile(event)" >
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -155,10 +155,6 @@
                                     <img class="rounded" id="output" width="200" />
                                 </div>
                             </div>
-
-
-
-
 
                             <div class="form-group row text-right">
                                 <div class="col col-sm-10 col-lg-9 offset-sm-1 offset-lg-0">

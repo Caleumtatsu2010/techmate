@@ -199,9 +199,6 @@
                                                 <li class="nav-item">
                                                     <a class="nav-link" href="IndexCategoryType">Category Type</a>
                                                 </li>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="IndexAccount">Account</a>
-                                                </li>
                                             </ul>
                                         </div>
                                     </li>
