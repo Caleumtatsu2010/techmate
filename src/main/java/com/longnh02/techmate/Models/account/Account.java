@@ -1,21 +1,41 @@
-package com.longnh02.techmate.models;
+package com.longnh02.techmate.models.account;
+
+import java.sql.Timestamp;
 
 public class Account {
     private int id;
     private String username;
     private String password;
+    private Timestamp createdAt;
+    private Timestamp modifiedAt;
     private int account_typeId;
     private String accountStatus;
 
-    public Account(int id, String username, String password, int account_typeId, String accountStatus) {
+    public Account(int id, String username, String password, Timestamp createdAt, Timestamp modifiedAt, int account_typeId, String accountStatus) {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.createdAt = createdAt;
+        this.modifiedAt = modifiedAt;
         this.account_typeId = account_typeId;
         this.accountStatus = accountStatus;
     }
 
+    public Timestamp getCreatedAt() {
+        return createdAt;
+    }
 
+    public void setCreatedAt(Timestamp createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public Timestamp getModifiedAt() {
+        return modifiedAt;
+    }
+
+    public void setModifiedAt(Timestamp modifiedAt) {
+        this.modifiedAt = modifiedAt;
+    }
 
     public int getId() {
         return id;
