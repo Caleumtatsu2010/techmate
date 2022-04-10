@@ -1,7 +1,7 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
-import com.longnh02.techmate.models.Supplier;
+import com.longnh02.techmate.models.supplier.Supplier;
 
 import java.io.FileInputStream;
 import java.sql.Connection;
