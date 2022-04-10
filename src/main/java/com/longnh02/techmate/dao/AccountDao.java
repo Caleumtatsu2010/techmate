@@ -1,7 +1,7 @@
 package com.longnh02.techmate.dao;
 
 import com.longnh02.techmate.connection.ConnectionUtils;
-import com.longnh02.techmate.models.Account;
+import com.longnh02.techmate.models.account.Account;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -14,6 +14,9 @@ public class AccountDao implements Dao<Account>{
     private ResultSet rs = null;
     private ConnectionUtils connectionUtils;
 
+    public AccountDao() {
+        this.connectionUtils = new ConnectionUtils();
+    }
 
     @Override
     public Account get(int id) {
@@ -24,7 +27,7 @@ public class AccountDao implements Dao<Account>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typed"),rs.getString("account_status"));
+                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typed"),rs.getString("account_status"));
                 return account;
             }
 
@@ -32,7 +35,6 @@ public class AccountDao implements Dao<Account>{
             System.out.println(e);
         } finally {
             ConnectionUtils.closeAll(connection, ps, rs);
-
         }
         return null;
     }
@@ -49,15 +51,12 @@ public class AccountDao implements Dao<Account>{
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typeId"),rs.getString("account_status"));
-                return account;
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"),rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
             ConnectionUtils.closeAll(connection, ps, rs);
-
         }
         return null;
     }
@@ -71,7 +70,7 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getInt("account_typeId"),rs.getString("account_status"));
+                    Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
                     list.add(account);
                 }
                 return list;
@@ -88,22 +87,23 @@ public class AccountDao implements Dao<Account>{
 
     @Override
     public void insert(Account account) {
-        String query = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?)";
+        String query = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
-            ps.setInt(3, account.getAccount_typeId());
-            ps.setString(4, account.getAccountStatus());
+            ps.setTimestamp(3, account.getCreatedAt());
+            ps.setTimestamp(4, account.getModifiedAt());
+            ps.setInt(5, account.getAccount_typeId());
+            ps.setString(6, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtils.closeAll(connection, ps, rs);
         }
     }
 
