@@ -40,6 +40,5 @@
     <orderEntry type="library" name="Maven: jstl:jstl:1.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.18.22" level="project" />
     <orderEntry type="library" name="Maven: org.apache.commons:commons-csv:1.9.0" level="project" />
-    <orderEntry type="library" name="Maven: org.passay:passay:1.6.1" level="project" />
   </component>
 </module>
