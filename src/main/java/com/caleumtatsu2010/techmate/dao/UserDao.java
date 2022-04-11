@@ -15,6 +15,10 @@ public class UserDao implements Dao<User>{
     private ConnectionUtils connectionUtils;
     FileInputStream fs=null;
 
+    public UserDao() {
+        this.connectionUtils = new ConnectionUtils();
+    }
+
     @Override
     public User get(int id) {
 
@@ -45,9 +49,6 @@ public class UserDao implements Dao<User>{
         }
         return null;
     }
-
-
-
 
     @Override
     public void insert(User user) {
