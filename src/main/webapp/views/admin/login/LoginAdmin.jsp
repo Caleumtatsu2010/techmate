@@ -51,10 +51,10 @@
             <form action="LoginAdmin" method="get">
 
                 <div class="form-group">
-                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" required>
+                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="8" maxlength="15" required>
                 </div>
                 <div class="form-group">
-                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" required>
+                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="8" maxlength="15" required>
                 </div>
 
                 <div class="form-group">
