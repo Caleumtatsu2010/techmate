@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.utility;
+package com.caleumtatsu2010.techmate.utility.image;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
