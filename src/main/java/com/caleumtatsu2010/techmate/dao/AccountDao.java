@@ -1,6 +1,7 @@
 package com.caleumtatsu2010.techmate.dao;
 
 import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
 
 import java.sql.*;
@@ -20,10 +21,9 @@ public class AccountDao implements Dao<Account>{
 
     @Override
     public Account get(int id) {
-        String query = "SELECT * FROM account WHERE id = ?";
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(AccountQueries.getById);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
@@ -37,12 +37,10 @@ public class AccountDao implements Dao<Account>{
         return null;
     }
 
-
     public Account login(String name, String pass) {
-        String query = "SELECT * FROM account WHERE username = ? and password = ?";
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
 
             ps.setString(1, name);
             ps.setString(2, pass);
@@ -61,11 +59,10 @@ public class AccountDao implements Dao<Account>{
 
     @Override
     public List<Account> getAll() {
-        String query = "SELECT * FROM account";
         List<Account> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(AccountQueries.getAll);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
                     Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
@@ -85,10 +82,9 @@ public class AccountDao implements Dao<Account>{
 
     @Override
     public void insert(Account account) {
-        String query = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?, ?, ?)";
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(AccountQueries.insert);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
             ps.setTimestamp(3, account.getCreatedAt());
