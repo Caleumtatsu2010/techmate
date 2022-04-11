@@ -1,7 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ tag import="com.caleumtatsu2010.techmate.models.account.Account" %>
-<%@ tag import="com.caleumtatsu2010.techmate.dao.AccountDao" %>
-<%@ tag import="java.util.List" %><%--
+
+<%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/9/2022
@@ -9,7 +9,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 
-<%@tag description="Simple Wrapper Tag" pageEncoding="UTF-8"%>
+<%@tag description="Simple Wrapper Tag" pageEncoding="UTF-8" %>
 
 <!doctype html>
 <html lang="en">
@@ -30,12 +30,6 @@
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>techmate</title>
 </head>
-<%
-    AccountDao accDao = new AccountDao();
-    List<A> accDao.getAll();
-
-
-%>
 
 <body>
 <!-- ============================================================== -->
@@ -48,7 +42,8 @@
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
             <a class="navbar-brand" href="HomeAdmin">techmate</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse " id="navbarSupportedContent">
@@ -59,7 +54,9 @@
                         </div>
                     </li>
                     <li class="nav-item dropdown notification">
-                        <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span class="indicator"></span></a>
+                        <a class="nav-link nav-icons" href="#" id="navbarDropdownMenuLink1" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><i class="fas fa-fw fa-bell"></i> <span
+                                class="indicator"></span></a>
                         <ul class="dropdown-menu dropdown-menu-right notification-dropdown">
                             <li>
                                 <div class="notification-title"> Notification</div>
@@ -67,32 +64,48 @@
                                     <div class="list-group">
                                         <a href="#" class="list-group-item list-group-item-action active">
                                             <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="assets/images/avatar-2.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Jeremy Rakestraw</span>accepted your invitation to join the team.
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-2.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Jeremy Rakestraw</span>accepted
+                                                    your invitation to join the team.
                                                     <div class="notification-date">2 min ago</div>
                                                 </div>
                                             </div>
                                         </a>
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="assets/images/avatar-3.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">John Abraham </span>is now following you
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-3.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">John Abraham </span>is now
+                                                    following you
                                                     <div class="notification-date">2 days ago</div>
                                                 </div>
                                             </div>
                                         </a>
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="assets/images/avatar-4.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Monaan Pechi</span> is watching your main repository
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-4.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Monaan Pechi</span> is
+                                                    watching your main repository
                                                     <div class="notification-date">2 min ago</div>
                                                 </div>
                                             </div>
                                         </a>
                                         <a href="#" class="list-group-item list-group-item-action">
                                             <div class="notification-info">
-                                                <div class="notification-list-user-img"><img src="assets/images/avatar-5.jpg" alt="" class="user-avatar-md rounded-circle"></div>
-                                                <div class="notification-list-user-block"><span class="notification-list-user-name">Jessica Caruso</span>accepted your invitation to join the team.
+                                                <div class="notification-list-user-img"><img
+                                                        src="assets/images/avatar-5.jpg" alt=""
+                                                        class="user-avatar-md rounded-circle"></div>
+                                                <div class="notification-list-user-block"><span
+                                                        class="notification-list-user-name">Jessica Caruso</span>accepted
+                                                    your invitation to join the team.
                                                     <div class="notification-date">2 min ago</div>
                                                 </div>
                                             </div>
@@ -101,34 +114,41 @@
                                 </div>
                             </li>
                             <li>
-                                <div class="list-footer"> <a href="#">View all notifications</a></div>
+                                <div class="list-footer"><a href="#">View all notifications</a></div>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown connection">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"> <i class="fas fa-fw fa-th"></i> </a>
                         <ul class="dropdown-menu dropdown-menu-right connection-dropdown">
                             <li class="connection-list">
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/github.png" alt="" > <span>Github</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/github.png" alt="">
+                                            <span>Github</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dribbble.png" alt="" > <span>Dribbble</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/dribbble.png"
+                                                                                 alt=""> <span>Dribbble</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt="" > <span>Dropbox</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/dropbox.png" alt="">
+                                            <span>Dropbox</span></a>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/bitbucket.png" alt=""> <span>Bitbucket</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/bitbucket.png"
+                                                                                 alt=""> <span>Bitbucket</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png" alt="" ><span>Mail chimp</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/mail_chimp.png"
+                                                                                 alt=""><span>Mail chimp</span></a>
                                     </div>
                                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 col-12 ">
-                                        <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="" > <span>Slack</span></a>
+                                        <a href="#" class="connection-item"><img src="assets/images/slack.png" alt="">
+                                            <span>Slack</span></a>
                                     </div>
                                 </div>
                             </li>
@@ -138,32 +158,29 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown nav-user">
-                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt="" class="user-avatar-md rounded-circle"></a>
-                        <%
-                            Account account = (Account)session.getAttribute("account");    //Getting Session Attribute
-                            if(account!= null)  {
-                        %>
-                            <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                        <a class="nav-link nav-user-img" href="#" id="navbarDropdownMenuLink2" data-toggle="dropdown"
+                           aria-haspopup="true" aria-expanded="false"><img src="assets/images/avatar-1.jpg" alt=""
+                                                                           class="user-avatar-md rounded-circle"></a>
+                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
+                            <%
+                                Account account = (Account) session.getAttribute("account");    //Getting Session Attribute
+                                if (account != null) {
+                            %>
                                 <div class="nav-user-info">
-
-                                    <h5 class="mb-0 text-white nav-user-name"><%= account.getUsername() %> </h5>
+                                    <h5 class="mb-0 text-white nav-user-name"><%= account.getUsername() %></h5>
                                     <span class="status"></span><span class="ml-2">Available</span>
                                 </div>
                                 <a class="dropdown-item" href="#"><i class="fas fa-user mr-2"></i>Account</a>
                                 <a class="dropdown-item" href="#"><i class="fas fa-cog mr-2"></i>Setting</a>
-                                <a class="dropdown-item" href="#"><i class="fas fa-power-off mr-2"></i>Logout</a>
-                            </div>
-                        <%
-                        } else {
-                        %>
-                        <div class="dropdown-menu dropdown-menu-right nav-user-dropdown" aria-labelledby="navbarDropdownMenuLink2">
-                            <a class="dropdown-item" href="LoginAdmin" methods="get"><i class="fas fa-power-off mr-2"></i>Login</a>
+                                <a class="dropdown-item" href="LogoutAdmin" methods="get"><i class="fas fa-power-off mr-2"></i>Logout</a>
+                            <%
+                                } else {
+                            %>
+                                <a class="dropdown-item" href="LoginAdmin" methods="get"><i class="fas fa-power-off mr-2"></i>Login</a>
+                            <%
+                                }
+                            %>
                         </div>
-                        <%
-                            }
-                        %>
-
-
                     </li>
                 </ul>
             </div>
@@ -179,7 +196,8 @@
         <div class="menu-list">
             <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
@@ -188,11 +206,15 @@
                             Menu
                         </li>
                         <li class="nav-item ">
-                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1"><i class="fa fa-fw fa-user-circle"></i>Dashboard <span class="badge badge-success">6</span></a>
+                            <a class="nav-link active" href="#" data-toggle="collapse" aria-expanded="false"
+                               data-target="#submenu-1" aria-controls="submenu-1"><i
+                                    class="fa fa-fw fa-user-circle"></i>Dashboard <span
+                                    class="badge badge-success">6</span></a>
                             <div id="submenu-1" class="collapse submenu" style="">
                                 <ul class="nav flex-column">
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-2" aria-controls="submenu-1-2">Product</a>
+                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                           data-target="#submenu-1-2" aria-controls="submenu-1-2">Product</a>
                                         <div id="submenu-1-2" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
@@ -211,7 +233,8 @@
                                         </div>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false" data-target="#submenu-1-1" aria-controls="submenu-1-1">User</a>
+                                        <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
+                                           data-target="#submenu-1-1" aria-controls="submenu-1-1">User</a>
                                         <div id="submenu-1-1" class="collapse submenu" style="">
                                             <ul class="nav flex-column">
                                                 <li class="nav-item">
@@ -238,7 +261,7 @@
     <!-- wrapper  -->
     <!-- ============================================================== -->
     <div class="dashboard-wrapper">
-            <jsp:doBody/>
+        <jsp:doBody/>
         <!-- footer -->
         <!-- ============================================================== -->
         <div class="footer">
