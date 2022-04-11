@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.techmate.models.user;
 
 
-import com.caleumtatsu2010.techmate.utility.ImageUtility;
+import com.caleumtatsu2010.techmate.utility.image.ImageUtility;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
