@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.caleumtatsu2010.techmate.models.account.Account" %><%--
   Created by IntelliJ IDEA.
   User: longnh02
   Date: 2/14/2022
@@ -18,7 +18,9 @@
     <link href="assets/vendor/fonts/circular-std/style.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/libs/css/style.css">
     <link rel="stylesheet" href="assets/vendor/fonts/fontawesome/css/fontawesome-all.css">
-
+<%
+    String loginerror = (String) request.getAttribute("loginError");
+%>
 
     <style>
         html,
@@ -43,20 +45,15 @@
 <!-- ============================================================== -->
 <div class="splash-container">
     <div class="card ">
-        <div class="card-header text-center"><a href=""><img class="logo-img" src="../../../assets/images/logon.PNG" alt="logo"></a><span class="splash-description">Please enter your account information.</span></div>
+        <div class="card-header text-center"><a href=""><img class="logo-img" src="assets/images/logon.PNG" alt="logo"></a><span class="splash-description"></span></div>
         <div class="card-body">
-
             <form action="LoginAdmin" method="post">
-
-            <form action="LoginAdmin" method="get">
-
                 <div class="form-group">
-                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="8" maxlength="15" required>
+                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="" maxlength="15" required>
                 </div>
                 <div class="form-group">
-                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="8" maxlength="15" required>
+                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="" maxlength="15" required>
                 </div>
-
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
@@ -65,22 +62,34 @@
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
             </form>
         </div>
-        <div class="card-footer bg-white p-0  ">
+        <div class="card-footer bg-white p-0">
+            <%
+                Account account = (Account) session.getAttribute("account");    //Getting Session Attribute
+                if (account != null && account.getAccount_typeId() == 1) {
+            %>
             <div class="card-footer-item card-footer-item-bordered">
-                <a href="Register" class="footer-link">Create An Account</a></div>
+                <a href="Register" class="footer-link" onblur="">Create An Account</a>
+            </div>
+            <%
+                }else {
+            %>
+
+            <%
+                }
+            %>
             <div class="card-footer-item card-footer-item-bordered">
                 <a href="#" class="footer-link">Forgot Password</a>
             </div>
         </div>
     </div>
-<%--</div>--%>
-<%--<c:if test="${not empty loginError}">--%>
-<%--    <script>--%>
-<%--        window.addEventListener("load",function(){--%>
-<%--            alert("${loginError}");--%>
-<%--        })--%>
-<%--    </script>--%>
-<%--</c:if>--%>
+
+<c:if test="${not empty loginerror}">
+    <script>
+        window.addEventListener("load",function(){
+            alert("${loginError}");
+        })
+    </script>
+</c:if>
 
 <!-- ============================================================== -->
 <!-- end login page  -->
