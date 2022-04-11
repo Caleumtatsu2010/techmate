@@ -32,7 +32,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
         List<CategorySection> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(CategorySectionQueries.selectAllCateSection);
+            ps = connection.prepareStatement(CategorySectionQueries.getAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CategorySection categorySection = new CategorySection(rs.getInt("id"), rs.getString("name"));
@@ -50,7 +50,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public void insert(CategorySection categorySection) {
-        String query = CategorySectionQueries.insertCateSection;//insert category section query
+        String query = CategorySectionQueries.insert;//insert category section query
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
@@ -77,7 +77,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
 
     @Override
     public void delete(int id) {
-        String query = CategorySectionQueries.deleteCategorySection;
+        String query = CategorySectionQueries.delete;
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(query);
