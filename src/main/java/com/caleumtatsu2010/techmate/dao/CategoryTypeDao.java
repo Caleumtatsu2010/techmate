@@ -31,15 +31,15 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         List<CategoryType> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(CategoryTypeQueries.selectAllCateType);
+            ps = connection.prepareStatement(CategoryTypeQueries.getAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 CategoryType categoryType = new CategoryType(rs.getInt("id"), rs.getString("name"),  rs.getString("desc"),  rs.getString("category_section_id"));
                 list.add(categoryType);
             }
             return list;
-        } catch (SQLException e) {
-            System.out.println(e);
+        } catch (SQLException ex) {
+            System.out.println(ex);
         } finally {
             ConnectionUtils.closeAll(connection, ps, rs);
         }
@@ -51,7 +51,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         List<CategoryType> list = new ArrayList<>();
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(CategoryTypeQueries.getByCateSectionId);
+            ps = connection.prepareStatement(CategoryTypeQueries.getAllByCateSecId);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -71,7 +71,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     public void insert(CategoryType categoryType) {
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(CategoryTypeQueries.insertCategoryType);
+            ps = connection.prepareStatement(CategoryTypeQueries.insert);
             ps.setInt(1,categoryType.getId());
             ps.setString(2,  categoryType.getName());
             ps.setString(3, categoryType.getDesc());
