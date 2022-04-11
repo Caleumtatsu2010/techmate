@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers;
+package com.caleumtatsu2010.techmate.admin.controllers.loginout;
 
 import com.caleumtatsu2010.techmate.dao.AccountDao;
 import com.caleumtatsu2010.techmate.models.account.Account;
@@ -21,7 +21,6 @@ public class LoginAdmin extends HttpServlet {
 
         response.setContentType("text/html;charset=UTF-8");
         try{
-
             String username = request.getParameter("username");
             String password = request.getParameter("password");
             AccountDao acc = new AccountDao();
@@ -29,16 +28,14 @@ public class LoginAdmin extends HttpServlet {
             HttpSession session = request.getSession();
 
             if(account != null){
-
-                session.setAttribute("account",account);
-                request.getRequestDispatcher("/views/admin/home/HomeAdmin.jsp").forward(request, response);
+                session.setAttribute("account", account);
+                request.getRequestDispatcher("/HomeAdmin").forward(request, response);
             }
             else
             {
                 request.setAttribute("loginError","Incorrect username or password");
-                request.getRequestDispatcher("/views/admin/login/LoginAdmin.jsp").forward(request, response);
+                request.getRequestDispatcher("/LoginAdmin").forward(request, response);
             }
-
         }catch (Exception ex)
         {
             ex.printStackTrace();
