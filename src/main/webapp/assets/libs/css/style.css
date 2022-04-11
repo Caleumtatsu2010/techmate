@@ -4501,6 +4501,7 @@ Pills vertical
 .table th {
     padding: 10px;
     vertical-align: middle;
+    horiz-align: center;
     border-top: 1px solid #e6e6f2;
     font-weight: normal;
 }

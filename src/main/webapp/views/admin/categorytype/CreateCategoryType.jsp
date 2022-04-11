@@ -62,8 +62,8 @@
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Category Section</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="categorySectionId" class="form-control">
-                                        <c:forEach items="${listdiscount}" var="discount">
-                                            <option value="${discount.id}">${discount.name}</option>
+                                        <c:forEach items="${listCateSec}" var="cateSec">
+                                            <option value="${cateSec.id}">${cateSec.name}</option>
                                         </c:forEach>
                                     </select>
 

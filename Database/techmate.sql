@@ -144,7 +144,7 @@ CREATE TABLE IF NOT EXISTS `category_type` (
   `desc` mediumtext,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-ALTER TABLE `techmate`.`category_type` ADD INDEX `category_section_fk_idx` (`category_section_id` ASC) VISIBLE;;
+ALTER TABLE `techmate`.`category_type` ADD INDEX `category_section_fk_idx` (`category_section_id` ASC) VISIBLE;
 ALTER TABLE `techmate`.`category_type` ADD CONSTRAINT `category_section_fk`
   FOREIGN KEY (`category_section_id`) REFERENCES `techmate`.`category_section` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -161,6 +161,11 @@ CREATE TABLE IF NOT EXISTS `product_category` (
   	CONSTRAINT `product_category_category_type_fk` FOREIGN KEY (`category_type_id`) REFERENCES `category_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+CREATE TABLE IF NOT EXISTS `product_color` (
+  `id` int primary key NOT NULL,
+  `color` varchar(20),
+  `value` varchar(10)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 
 

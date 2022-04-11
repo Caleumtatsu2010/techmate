@@ -152,7 +152,7 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right"></label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <img class="rounded" id="output" width="200" />
+                                    <img class="img-thumbnail mr-3" id="output" alt="Product image">
                                 </div>
                             </div>
 

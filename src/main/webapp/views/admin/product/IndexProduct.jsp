@@ -1,4 +1,4 @@
-<%@ page import="com.longnh02.techmate.models.product.Product" %><%--
+<%@ page import="com.caleumtatsu2010.techmate.models.product.Product" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/10/2022
@@ -9,6 +9,11 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@taglib prefix="t" tagdir="/WEB-INF/tags" %>
 
+<style>
+    .list-group-item{
+        text-align: center;
+    }
+</style>
 
 <t:AdminLayout>
     <div class="container-fluid  dashboard-content">
@@ -43,7 +48,10 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>
+<%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
+                        <a class="btn btn-outline-success" href="IndexProductCategory" methods="get">Product Category</a>
+                        <a class="btn btn-outline-info" href="IndexCategoryType" methods="get">Category Type</a>
+                        <a class="btn btn-outline-secondary" href="IndexCategorySection" methods="get">Category Section</a>
                         <a class="btn btn-primary float-right" href="CreateProduct" methods="get">New Product</a>
                     </div>
                     <div class="card-body">
@@ -54,7 +62,6 @@
                                     <td>No. </td>
                                     <th>id</th>
                                     <th>Product Name</th>
-                                    <th>Description</th>
                                     <th>Price</th>
                                     <th>Unit Price</th>
                                     <th>Image</th>
@@ -67,26 +74,23 @@
                                         <td>${loop.count}</td>
                                         <td>${product.id}</td>
                                         <td>${product.name}</td>
-                                        <td>${product.desc}</td>
-                                        <td>${product.price}</td>
-                                        <td>${product.unitPrice}</td>
-                                        <td><img src="data:image/jpg;base64,${product.getSeenImage()}" width="100" height="100"/></td>
+                                        <td width="60">${product.price}</td>
+                                        <td width="50">${product.unitPrice}</td>
+                                        <td width="100"><img src="data:image/jpg;base64,${product.getSeenImage()}" width="100" height="100"/></td>
                                         <td>
-                                            <a class="list-group-item " href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
-                                            <a class="list-group-item " href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
-                                            <a class="list-group-item " href="DeleteProduct?id=${product.id}" onclick="return confirm('Are you sure you want to delete this item?')"><i class="fas fa-trash" aria-hidden="true" ></i> Delete</a>
+                                            <a class="list-group-item" href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
+                                            <a class="list-group-item" href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>
+                                            <a class="list-group-item" href="DeleteProduct?id=${product.id}" onclick="return confirm('Are you sure you want to delete this item?')"><i class="fas fa-trash" aria-hidden="true" ></i> Delete</a>
                                         </td>
                                     </tr>
                                 </c:forEach>
 
-
-
                                 </tbody>
                                 <tfoot>
                                 <tr>
+                                    <td>No. </td>
                                     <th>id</th>
                                     <th>Product Name</th>
-                                    <th>Description</th>
                                     <th>Price</th>
                                     <th>Unit Price</th>
                                     <th>Image</th>

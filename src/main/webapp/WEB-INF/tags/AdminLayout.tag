@@ -1,5 +1,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ tag import="com.longnh02.techmate.models.account.Account" %><%--
+<%@ tag import="com.caleumtatsu2010.techmate.models.account.Account" %>
+<%@ tag import="com.caleumtatsu2010.techmate.dao.AccountDao" %>
+<%@ tag import="java.util.List" %><%--
   Created by IntelliJ IDEA.
   User: admin
   Date: 2/9/2022
@@ -28,6 +30,12 @@
     <link rel="stylesheet" href="assets/vendor/fonts/flag-icon-css/flag-icon.min.css">
     <title>techmate</title>
 </head>
+<%
+    AccountDao accDao = new AccountDao();
+    List<A> accDao.getAll();
+
+
+%>
 
 <body>
 <!-- ============================================================== -->
@@ -39,7 +47,7 @@
     <!-- ============================================================== -->
     <div class="dashboard-header">
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
-            <a class="navbar-brand" href="index.html">techmate</a>
+            <a class="navbar-brand" href="HomeAdmin">techmate</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -271,6 +279,7 @@
 <script src="assets/vendor/datatables/js/dataTables.bootstrap4.min.js"></script>
 <script src="https://cdn.datatables.net/buttons/1.5.2/js/dataTables.buttons.min.js"></script>
 <script src="assets/vendor/datatables/js/buttons.bootstrap4.min.js"></script>
+
 
 <script src="assets/vendor/datatables/js/data-table.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
