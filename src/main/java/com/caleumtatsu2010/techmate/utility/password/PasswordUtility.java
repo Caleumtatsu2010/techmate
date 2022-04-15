@@ -1,21 +1,23 @@
 //package com.caleumtatsu2010.techmate.utility.password;
 //
-//import com.sun.tools.javac.util.Assert;
+//
 //import org.passay.*;
 //
 //import java.util.*;
 //
 //public class PasswordUtility {
 //
+//    List<CharacterRule> list = null;
 //
-//    public PasswordUtility()
+//    public PasswordUtility(){
+//        this.list.add()
 //
 //    }
 //
-//    public boolean passwordValidator(String password) {
+//    public void passwordValidator(String password) {
 //        PasswordValidator validator = new PasswordValidator(
 //                // length between 8 and 16 characters
-//                new LengthRule(8, 12),
+//                new LengthRule(8, 16),
 //
 //                // at least one upper-case character
 //                new CharacterRule(EnglishCharacterData.UpperCase, 1),
@@ -36,11 +38,10 @@
 //                new IllegalSequenceRule(EnglishSequenceData.Alphabetical, 5, false),
 //                new IllegalSequenceRule(EnglishSequenceData.Numerical, 5, false),
 //                new RepeatCharactersRule(4),
-//
 //                // no whitespace
 //                new WhitespaceRule());
 //
-//        final char[] password = System.console().readPassword("Password: ");
+////        final char[] password = System.console().readPassword("Password: ");
 //        RuleResult result = validator.validate(new PasswordData(new String(password)));
 //        if (result.isValid())
 //        {
@@ -54,15 +55,42 @@
 //                System.out.println(msg);
 //            }
 //        }
+//
 //    }
 //
 //    public String passwordGenerator() {
-//        PasswordGenerator passwordGenerator = new PasswordGenerator();
-//        return passwordGenerator.generatePassword(15, alphabets, digits, special);
+//        CharacterRule alphabets = new CharacterRule(EnglishCharacterData.Alphabetical);
+//        CharacterRule digits = new CharacterRule(EnglishCharacterData.Digit);
+//        CharacterRule special = new CharacterRule(EnglishCharacterData.Special, 1);
+//
+//        return new PasswordGenerator().generatePassword(new LengthRule(8, 16),
+//
+//                // at least one upper-case character
+//                new CharacterRule(EnglishCharacterData.UpperCase, 1),
+//
+//                // at least one lower-case character
+//                new CharacterRule(EnglishCharacterData.LowerCase, 1),
+//
+//                // at least one digit character
+//                new CharacterRule(EnglishCharacterData.Digit, 1),
+//
+//                // at least one symbol (special character)
+//                new CharacterRule(EnglishCharacterData.Special, 1),
+//
+//                // define some illegal sequences that will fail when >= 5 chars long
+//                // alphabetical is of the form 'abcde', numerical is '34567'
+//                // the false parameter indicates that wrapped sequences are allowed; e.g.
+//                // 'xyzabc'
+//                new IllegalSequenceRule(EnglishSequenceData.Alphabetical, 5, false),
+//                new IllegalSequenceRule(EnglishSequenceData.Numerical, 5, false),
+//                new RepeatCharactersRule(4),
+//                // no whitespace
+//                new WhitespaceRule()););
 //    }
 //
 //    public static void main(String[] args) {
 //        PasswordUtility passwordUtility = new PasswordUtility();
+//        passwordUtility.passwordGenerator();
 //
 //
 //    }
