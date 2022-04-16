@@ -11,6 +11,7 @@ public class Account {
     private int id;
     private String username;
     private String password;
+    private String key;
     private Timestamp createdAt;
     private Timestamp modifiedAt;
     private int account_typeId;
