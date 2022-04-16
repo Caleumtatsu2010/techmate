@@ -28,18 +28,22 @@ public class PassGenAndVal {
     private RepeatCharactersRule repeatChar = null;
     // no whitespace
     private WhitespaceRule whitespace = null;
+
+    //RULE SIZE
     //lenth
     private int minLen;
     private int maxLen;
-    //atleast
+    //num of atleast
     private int atleastNum;
-    //num of sequence
-    private int numSeq;
+    //num of sequence alphabet
+    private int numAlSeq;
+    //num of sequence numeric
+    private int numNumSeq;
     //num of repeat
     private int numRep;
 
-
-    public PassGenAndVal(int minLen, int maxLen, int atleastNum, int numSeq, int numRep) {
+    // 8 to 16 char, aleast 1 up, 1 low, 1 digit, without 3 sequence of char, 3 of digit, repeat only 3, no whitespace
+    public PassGenAndVal(int minLen, int maxLen, int atleastNum, int numAlSeq, int numNumSeq,  int numRep) {
         this.minLen = minLen;
         this.maxLen = maxLen;
         this.lengthRule = new LengthRule(minLen, maxLen);
@@ -53,17 +57,17 @@ public class PassGenAndVal {
             }
             @Override
             public String getCharacters() {
-                return "!#$%&()*+-";
+                return "!#$%&()*+";
             }
         }, 1);
-        this.alphabetSeq = new IllegalSequenceRule(EnglishSequenceData.Alphabetical, numSeq, false);
-        this.numericSeq = new IllegalSequenceRule(EnglishSequenceData.Numerical, numSeq, false);
+        this.alphabetSeq = new IllegalSequenceRule(EnglishSequenceData.Alphabetical, numAlSeq, false);
+        this.numericSeq = new IllegalSequenceRule(EnglishSequenceData.Numerical, numNumSeq, false);
         this.repeatChar = new RepeatCharactersRule(numRep);
         this.whitespace =  new WhitespaceRule();
     }
 
     public boolean passwordValidator(String password) {
-        PasswordValidator validator = new PasswordValidator();
+        PasswordValidator validator = new PasswordValidator(lengthRule, upperCase, lowerCase, digit, specialChar, alphabetSeq, numericSeq, repeatChar, whitespace);
         RuleResult result = validator.validate(new PasswordData(new String(password)));
         if (result.isValid())
             return true;
@@ -77,7 +81,7 @@ public class PassGenAndVal {
     }
 
     public static void main(String[] args) {
-        PassGenAndVal passGenAndVal = new PassGenAndVal();
+        PassGenAndVal passGenAndVal = new PassGenAndVal(8, 16, 1, 3,3,  3);
         String password = passGenAndVal.passwordGenerator(8, 16);
         System.out.println(password);
 
