@@ -15,6 +15,7 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/AdminLayout.tag" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/ClientLayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/testLayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/account/IndexAccount.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/account" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/layout/toplayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/layout" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/client/home/Home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/client/home" />
       </map>
