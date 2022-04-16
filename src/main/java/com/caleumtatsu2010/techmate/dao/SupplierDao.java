@@ -19,6 +19,10 @@ public class SupplierDao implements Dao<Supplier>{
     private ConnectionUtils connectionUtils;
     FileInputStream fs=null;
 
+    public SupplierDao() {
+        this.connectionUtils = new ConnectionUtils();
+    }
+
     @Override
     public Supplier get(int id) {
 
