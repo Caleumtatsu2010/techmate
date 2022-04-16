@@ -45,7 +45,6 @@
                                     <th>No.</th>
                                     <th>Id</th>
                                     <th>Username</th>
-                                    <th>Password</th>
                                     <th>Account Type Id</th>
                                     <th>Account Status</th>
                                     <th>Tool</th>
@@ -62,7 +61,6 @@
                                                 <td class="bg-success-light">${loop.count}</td>
                                                 <td class="bg-success-light">${account.id}</td>
                                                 <td class="bg-success-light">${account.username}</td>
-                                                <td class="bg-success-light">${account.password}</td>
                                                 <td class="bg-success-light">${account.account_typeId}</td>
                                                 <td class="bg-success-light">${account.accountStatus}</td>
                                                 <td class="bg-success-light">
@@ -78,7 +76,6 @@
                                                 <td class="bg-secondary-light">${loop.count}</td>
                                                 <td class="bg-secondary-light">${account.id}</td>
                                                 <td class="bg-secondary-light">${account.username}</td>
-                                                <td class="bg-secondary-light">${account.password}</td>
                                                 <td class="bg-secondary-light">${account.account_typeId}</td>
                                                 <td class="bg-secondary-light">${account.accountStatus}</td>
                                                 <td class="bg-secondary-light">
