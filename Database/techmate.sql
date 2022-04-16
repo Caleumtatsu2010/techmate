@@ -20,13 +20,14 @@ CREATE TABLE IF NOT EXISTS `account_type` (
 CREATE TABLE IF NOT EXISTS `account` (
   `id` int NOT NULL AUTO_INCREMENT,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(64) NOT NULL,
   `account_typeId` int,-- 1 admin, 2 staff, 3 user
   `account_status` varchar(50) , -- active -- deactive
   PRIMARY KEY (`id`),
   CONSTRAINT `account_account_type_fk` FOREIGN KEY (`account_typeId`) REFERENCES `account_type` (`id`)  ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+ALTER TABLE `techmate`.`account` ADD COLUMN   `key` varchar(20) AFTER `password`;
 ALTER TABLE `techmate`.`account` ADD COLUMN `created_at` timestamp AFTER `password`;
 ALTER TABLE `techmate`.`account` ADD COLUMN   `modified_at` timestamp AFTER `created_at`;
 
