@@ -21,13 +21,11 @@
 <%
     String loginerror = (String) request.getAttribute("loginError");
 %>
-
     <style>
         html,
         body {
             height: 100%;
         }
-
         body {
             display: -ms-flexbox;
             display: flex;
@@ -49,10 +47,13 @@
         <div class="card-body">
             <form action="LoginAdmin" method="post">
                 <div class="form-group">
-                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="" maxlength="15" required>
+                    <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="" maxlength="16" required>
                 </div>
                 <div class="form-group">
-                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="" maxlength="15" required>
+                    <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="" maxlength="16" required>
+                </div>
+                <div class="form-group">
+                    <input name="key" class="form-control form-control-lg" id="key" type="password" placeholder="Key" minlength="" maxlength="16" required>
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
