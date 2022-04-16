@@ -25,6 +25,7 @@ public class LoginAdmin extends HttpServlet {
             String password = request.getParameter("password");
             String key = request.getParameter("key");
             AccountDao acc = new AccountDao();
+
             Account account = acc.login(username, password, key);
             HttpSession session = request.getSession();
 
@@ -32,8 +33,7 @@ public class LoginAdmin extends HttpServlet {
                 session.setAttribute("account", account);
                 request.getRequestDispatcher("/HomeAdmin").forward(request, response);
             }
-            else
-            {
+            else {
                 request.setAttribute("loginError","Incorrect username or password");
                 request.getRequestDispatcher("/LoginAdmin").forward(request, response);
             }
