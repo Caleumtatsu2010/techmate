@@ -23,8 +23,9 @@ public class LoginAdmin extends HttpServlet {
         try{
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String key = request.getParameter("key");
             AccountDao acc = new AccountDao();
-            Account account = acc.login(username, password);
+            Account account = acc.login(username, password, key);
             HttpSession session = request.getSession();
 
             if(account != null){
