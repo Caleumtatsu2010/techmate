@@ -27,7 +27,7 @@ public class AccountDao implements Dao<Account>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typed"),rs.getString("account_status"));
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -37,17 +37,18 @@ public class AccountDao implements Dao<Account>{
         return null;
     }
 
-    public Account login(String name, String pass) {
+    public Account login(String name, String pass, String key) {
         try {
             connection = connectionUtils.getConnection();
             ps = connection.prepareStatement(AccountQueries.getByUserNPass);
 
             ps.setString(1, name);
             ps.setString(2, pass);
+            ps.setString(3, key);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"),rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -65,8 +66,7 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(AccountQueries.getAll);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    Account account = new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
-                    list.add(account);
+                    list.add(new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status")));
                 }
                 return list;
 
@@ -74,7 +74,6 @@ public class AccountDao implements Dao<Account>{
             System.out.println(e);
         } finally {
             ConnectionUtils.closeAll(connection, ps, rs);
-
         }
         return null;
     }
@@ -87,10 +86,12 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(AccountQueries.insert);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
-            ps.setTimestamp(3, account.getCreatedAt());
-            ps.setTimestamp(4, account.getModifiedAt());
-            ps.setInt(5, account.getAccount_typeId());
-            ps.setString(6, account.getAccountStatus());
+            ps.setString(3, account.getKey());
+
+            ps.setTimestamp(4, account.getCreatedAt());
+            ps.setTimestamp(5, account.getModifiedAt());
+            ps.setInt(6, account.getAccount_typeId());
+            ps.setString(7, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
@@ -103,6 +104,7 @@ public class AccountDao implements Dao<Account>{
 
     @Override
     public void update(Account account, int id) {
+
     }
 
     @Override
