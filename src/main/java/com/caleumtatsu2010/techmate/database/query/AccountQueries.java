@@ -4,7 +4,8 @@ public class AccountQueries {
     //get all by id
     public static String getById = "SELECT * FROM account WHERE id = ?";
     //get by username and password
-    public static String getByUserNPass = "SELECT * FROM account WHERE username = ? and password = ?";
+    public static String getByUserNPass = "SELECT * FROM techmate.account where username = ? and password = ? and `key` = ?";
+
     //get all
     public static String getAll = "SELECT * FROM account";
     //insert new account
