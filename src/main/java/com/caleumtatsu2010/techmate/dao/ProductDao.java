@@ -249,11 +249,9 @@ public List<Review> getReviews(int id) {
 
     @Override
     public void update(Product product, int id) {
-
-        String query = ProductQueries.updateProduct;
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(query);
+            ps = connection.prepareStatement(ProductQueries.updateProduct);
 
             ps.setString(1,  product.getName());
             ps.setString(2, product.getDesc());
@@ -276,13 +274,9 @@ public List<Review> getReviews(int id) {
             System.out.println("Data Updated Successfully");
 
         } catch (Exception e) {
-            System.err.println(e);
             e.printStackTrace();
         } finally {
-            System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
-
+            ConnectionUtils.closeAll(connection, ps, rs);
         }
     }
 
