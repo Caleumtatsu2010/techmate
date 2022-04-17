@@ -179,7 +179,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `unit_price` varchar(50),
   `color` varchar(100) ,
   `category_id` int not null,
-  `discount_id` int NOT NULL,
+  `discount_id` int ,
   `quantity` int,
   `supplier_id` int not null,
   `product_short_desc` longtext,
