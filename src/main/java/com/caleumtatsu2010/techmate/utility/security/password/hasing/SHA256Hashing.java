@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.utility.password.hasing;
+package com.caleumtatsu2010.techmate.utility.security.password.hasing;
 
 import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
