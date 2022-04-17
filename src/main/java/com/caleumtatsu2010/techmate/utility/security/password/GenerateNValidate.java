@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.utility.password;
+package com.caleumtatsu2010.techmate.utility.security.password;
 import org.passay.*;
 
 public class GenerateNValidate {
