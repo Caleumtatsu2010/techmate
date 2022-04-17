@@ -15,4 +15,5 @@ public class connection {
     private String username;
     private String password;
     private String port;
+    private String dbtype;
 }
