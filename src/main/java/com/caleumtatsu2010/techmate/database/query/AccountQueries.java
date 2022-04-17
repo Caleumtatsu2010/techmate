@@ -9,5 +9,8 @@ public class AccountQueries {
     //get all
     public static String getAll = "SELECT * FROM account";
     //insert new account
-    public static String insert = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?, ?, ?)";
+    public static String insert = "INSERT INTO account(username, password, privatekey, salt, account_typed, account_status) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+
+    //get salt by key
+    public static String getSaltByKey = "SELECT salt FROM techmate.account where privatekey = ?";
 }
