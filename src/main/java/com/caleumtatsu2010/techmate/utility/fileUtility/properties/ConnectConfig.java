@@ -1,7 +1,6 @@
 package com.caleumtatsu2010.techmate.utility.fileUtility.properties;
 
 import com.caleumtatsu2010.techmate.models.properties.connection;
-
 import java.io.*;
 import java.util.Properties;
 
@@ -18,7 +17,7 @@ public class ConnectConfig {
      * @param PORTNAME
      * @return connection read from properties file
      */
-    public static connection readProperties(String HOSTNAME, String DBNAME, String USERNAME, String PASSWORD, String PORTNAME)
+    public static connection readProperties(String HOSTNAME, String DBNAME, String USERNAME, String PASSWORD, String PORTNAME, String DBTYPE)
     {
         try {
             FileReader reader = new FileReader(connectionFile);
@@ -30,17 +29,18 @@ public class ConnectConfig {
             String username = props.getProperty(USERNAME);
             String password = props.getProperty(PASSWORD);
             String port = props.getProperty(PORTNAME);
+            String dbtype = props.getProperty(DBTYPE);
 
             reader.close();
-            return new connection(host, dbname, username, password, port);
+            return new connection(host, dbname, username, password, port, dbtype);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
         return null;
     }
 
-    public static void main(String[] args) {
-        System.out.println(readProperties("host", "dbname", "username", "password", "port").getUsername());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(readProperties("host", "dbname", "username", "password", "port").getPort());
+//    }
 }
 
