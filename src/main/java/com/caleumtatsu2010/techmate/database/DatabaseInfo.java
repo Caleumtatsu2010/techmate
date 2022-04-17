@@ -7,7 +7,7 @@ public class DatabaseInfo {
     private static final String username = "root";
     private static final String password = "123456";
     private static final String port = "3306";
-    private static final String url = "jdbc:mysql://+" + host + "+:" + port + "/" + dbname;
+    private static final String url = "jdbc:mysql://" + host + ":" + port + "/" + dbname;
 
     public DatabaseInfo() {
     }
