@@ -26,7 +26,11 @@ public class LoginAdmin extends HttpServlet {
             String key = request.getParameter("key");
             AccountDao acc = new AccountDao();
 
-            Account account = acc.login(username, password, key);
+            // same salt should be passed
+//            byte[] salt = SHA256Hashing.getSalt();
+//            String passwordHash = SHA256Hashing.getSecurePassword(password, salt);
+
+            Account account = acc.login(username, passwordHash, key);
             HttpSession session = request.getSession();
 
             if(account != null){
