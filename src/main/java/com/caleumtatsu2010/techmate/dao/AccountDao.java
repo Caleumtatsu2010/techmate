@@ -1,11 +1,8 @@
 package com.caleumtatsu2010.techmate.dao;
 
 import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
-import com.caleumtatsu2010.techmate.dao.Dao;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
-import com.caleumtatsu2010.techmate.utility.password.GenerateNValidate;
-import com.caleumtatsu2010.techmate.utility.password.hasing.SHA256Hashing;
 
 import java.sql.*;
 import java.util.ArrayList;
