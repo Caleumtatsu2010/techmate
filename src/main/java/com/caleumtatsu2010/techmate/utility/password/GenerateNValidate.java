@@ -1,9 +1,7 @@
 package com.caleumtatsu2010.techmate.utility.password;
-
-
 import org.passay.*;
 
-public class PassGenAndVal {
+public class GenerateNValidate {
     //COMMON CHARACTER RULE
 
     // length between 8 and 16 characters
@@ -43,7 +41,7 @@ public class PassGenAndVal {
     private int numRep;
 
     // 8 to 16 char, aleast 1 up, 1 low, 1 digit, without 3 sequence of char, 3 of digit, repeat only 3, no whitespace
-    public PassGenAndVal(int minLen, int maxLen, int atleastNum, int numAlSeq, int numNumSeq,  int numRep) {
+    public GenerateNValidate(int minLen, int maxLen, int atleastNum, int numAlSeq, int numNumSeq, int numRep) {
         this.minLen = minLen;
         this.maxLen = maxLen;
         this.lengthRule = new LengthRule(minLen, maxLen);
@@ -81,7 +79,7 @@ public class PassGenAndVal {
     }
 
     public static void main(String[] args) {
-        PassGenAndVal passGenAndVal = new PassGenAndVal(8, 16, 1, 3,3,  3);
+        GenerateNValidate passGenAndVal = new GenerateNValidate(8, 16, 1, 3,3,  3);
         String password = passGenAndVal.passwordGenerator(8, 16);
         System.out.println(password);
 
