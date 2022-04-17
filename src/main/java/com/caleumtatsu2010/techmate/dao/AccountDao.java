@@ -1,14 +1,17 @@
 package com.caleumtatsu2010.techmate.dao;
 
 import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.dao.Dao;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
+import com.caleumtatsu2010.techmate.utility.password.GenerateNValidate;
+import com.caleumtatsu2010.techmate.utility.password.hasing.SHA256Hashing;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AccountDao implements Dao<Account>{
+public class AccountDao implements Dao<Account> {
 
     private Connection connection = null;
     private PreparedStatement ps = null;
@@ -27,7 +30,7 @@ public class AccountDao implements Dao<Account>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"),null, null, rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -37,18 +40,39 @@ public class AccountDao implements Dao<Account>{
         return null;
     }
 
-    public Account login(String name, String pass, String key) {
+//    public Account login(String name, String pass, String key) {
+//        try {
+//            connection = connectionUtils.getConnection();
+//            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
+//
+//            ps.setString(1, name);
+//            ps.setString(2, pass);
+//            ps.setString(3, key);
+//
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        } finally {
+//            ConnectionUtils.closeAll(connection, ps, rs);
+//        }
+//        return null;
+//    }
+
+    public byte[] getSalt(String key) {
         try {
             connection = connectionUtils.getConnection();
-            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
+            ps = connection.prepareStatement(AccountQueries.getSaltByKey);
 
-            ps.setString(1, name);
-            ps.setString(2, pass);
-            ps.setString(3, key);
+            ps.setString(1, key);
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
+                byte[] salt = rs.getBytes("salt");
+                //release the blob and free up memory. (since JDBC 4.0)
+                return salt;
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -57,6 +81,31 @@ public class AccountDao implements Dao<Account>{
         }
         return null;
     }
+
+
+//    public Account register(String username) {
+//        try {
+//            connection = connectionUtils.getConnection();
+//            ps = connection.prepareStatement(AccountQueries.insert);
+//
+//            // new salt for new account
+//            byte[] salt = SHA256Hashing.getSalt();
+//
+//            ps.setString(1, username);
+//            ps.setString(2, );
+//            ps.setString(3, key);
+//
+//            ResultSet rs = ps.executeQuery();
+//            if (rs.next()) {
+//                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
+//            }
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        } finally {
+//            ConnectionUtils.closeAll(connection, ps, rs);
+//        }
+//        return null;
+//    }
 
     @Override
     public List<Account> getAll() {
@@ -66,7 +115,7 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(AccountQueries.getAll);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
-                    list.add(new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status")));
+                    list.add(new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), null, null, rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status")));
                 }
                 return list;
 
@@ -86,12 +135,12 @@ public class AccountDao implements Dao<Account>{
             ps = connection.prepareStatement(AccountQueries.insert);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
-            ps.setString(3, account.getKey());
-
-            ps.setTimestamp(4, account.getCreatedAt());
-            ps.setTimestamp(5, account.getModifiedAt());
-            ps.setInt(6, account.getAccount_typeId());
-            ps.setString(7, account.getAccountStatus());
+            ps.setString(3, account.getPrivatekey());
+            ps.setBytes(4, account.getSalt());
+            ps.setTimestamp(5, account.getCreatedAt());
+            ps.setTimestamp(6, account.getModifiedAt());
+            ps.setInt(7, account.getAccount_typeId());
+            ps.setString(8, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
