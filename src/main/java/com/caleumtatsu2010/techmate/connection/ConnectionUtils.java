@@ -1,16 +1,21 @@
 package com.caleumtatsu2010.techmate.connection;
 
-import com.caleumtatsu2010.techmate.database.DatabaseInfo;
+import com.caleumtatsu2010.techmate.models.properties.connection;
+import com.caleumtatsu2010.techmate.utility.fileUtility.properties.ConnectConfig;
 
 import java.sql.*;
 
 public class ConnectionUtils {
 
-    private final String username = DatabaseInfo.getUsername();
-    private final String password = DatabaseInfo.getPassword();
-    private final String url = DatabaseInfo.getUrl();
+    private connection conninfo = null;
+
+    public ConnectionUtils() {
+        this.conninfo = ConnectConfig.readProperties("host", "dbname", "username", "password", "port", "dbtype");
+    }
 
     public Connection getConnection() {
+
+        String url = "jdbc:"+conninfo.getDbtype()+"://" + conninfo.getHost() + ":" + conninfo.getPort() + "/" + conninfo.getDbname();
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -20,9 +25,9 @@ public class ConnectionUtils {
         System.out.println("Register successful!");
         Connection conn = null;
         try {
-            conn = DriverManager.getConnection(url, username, password);
+            conn = DriverManager.getConnection(url, conninfo.getUsername(), conninfo.getPassword());
         } catch (SQLException ex) {
-            System.err.println("ConnectConfig Failed!");
+            ex.printStackTrace();
             return conn;
         }
         return conn;
