@@ -22,7 +22,7 @@ public class ConnectionUtils {
         try {
             conn = DriverManager.getConnection(url, username, password);
         } catch (SQLException ex) {
-            System.err.println("Connection Failed!");
+            System.err.println("ConnectConfig Failed!");
             return conn;
         }
         return conn;
@@ -33,7 +33,7 @@ public class ConnectionUtils {
             try {
                 connection.close();
             } catch (SQLException ex) {
-                System.out.println("Close Connection failed!");
+                System.out.println("Close ConnectConfig failed!");
             }
         }
     }
@@ -68,7 +68,7 @@ public class ConnectionUtils {
                 ps.close();
                 rs.close();
             } catch (SQLException ex) {
-                System.out.println("Close Connection, PreparedStatement, ResultSet failed!");
+                System.out.println("Close ConnectConfig, PreparedStatement, ResultSet failed!");
             }
         }
     }
