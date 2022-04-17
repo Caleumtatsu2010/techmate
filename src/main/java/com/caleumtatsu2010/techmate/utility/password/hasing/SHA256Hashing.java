@@ -4,6 +4,7 @@ import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.util.Base64;
 
 public class SHA256Hashing {
 
@@ -25,7 +26,7 @@ public class SHA256Hashing {
         return generatedPassword;
     }
 
-    private static byte[] getSalt() throws NoSuchAlgorithmException {
+    public static byte[] getSalt() throws NoSuchAlgorithmException {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[16];
         random.nextBytes(salt);
@@ -36,13 +37,15 @@ public class SHA256Hashing {
 
         // same salt should be passed
         byte[] salt = getSalt();
-        String password1 = getSecurePassword("Password", salt);
-        String password2 = getSecurePassword("Password", salt);
+        System.out.println("Salt ->"+ Base64.getEncoder().encodeToString(salt));
+        String password1 = getSecurePassword("1234", salt);
+        String password2 = getSecurePassword("1234", salt);
         System.out.println(" Password 1 -> " + password1);
         System.out.println(" Password 2 -> " + password2);
         if (password1.equals(password2)) {
             System.out.println("passwords are equal");
         }
+
     }
 
 
