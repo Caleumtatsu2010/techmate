@@ -34,7 +34,6 @@ ALTER TABLE `techmate`.`account` ADD COLUMN   `modified_at` timestamp AFTER `cre
 
 
 
-
 CREATE TABLE IF NOT EXISTS `user` (
   `id` int NOT NULL AUTO_INCREMENT,
   `account_id` int,
