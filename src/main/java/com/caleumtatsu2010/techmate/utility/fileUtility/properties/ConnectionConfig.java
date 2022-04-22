@@ -4,7 +4,7 @@ import com.caleumtatsu2010.techmate.models.properties.connection;
 import java.io.*;
 import java.util.Properties;
 
-public class ConnectConfig {
+public class ConnectionConfig {
     //connection information configuration file
     private static File connectionFile = new File("D:\\stuff\\JAVA\\techmate\\src\\main\\java\\com\\caleumtatsu2010\\techmate\\properties\\connection.properties");
 
