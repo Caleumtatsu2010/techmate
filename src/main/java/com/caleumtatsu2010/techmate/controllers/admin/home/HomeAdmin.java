@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers.home;
+package com.caleumtatsu2010.techmate.controllers.admin.home;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
