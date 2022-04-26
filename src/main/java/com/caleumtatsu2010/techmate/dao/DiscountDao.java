@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.discount.Discount;
 
 import java.sql.Connection;
@@ -14,10 +14,10 @@ public class DiscountDao implements Dao<Discount>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     public DiscountDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -25,7 +25,7 @@ public class DiscountDao implements Dao<Discount>{
         String query = "SELECT * FROM discount WHERE id = ?";
 
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -39,7 +39,7 @@ public class DiscountDao implements Dao<Discount>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -49,7 +49,7 @@ public class DiscountDao implements Dao<Discount>{
         String query = "SELECT * FROM discount";
         List<Discount> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -64,7 +64,7 @@ public class DiscountDao implements Dao<Discount>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -74,7 +74,7 @@ public class DiscountDao implements Dao<Discount>{
     public void insert(Discount account) {
 //        String query = "INSERT INTO account(username, password, account_typed, account_status) VALUES (?, ?, ?, ?)";
 //        try {
-//            connection = ConnectionUtils.getConnection();
+//            connection = ConnectionUtility.getConnection();
 //            ps = connection.prepareStatement(query);
 //            ps.setString(1, account.getUsername());
 //            ps.setString(2, account.getPassword());
@@ -86,8 +86,8 @@ public class DiscountDao implements Dao<Discount>{
 //        } catch (SQLException e) {
 //            System.out.println(e);
 //        } finally {
-//            ConnectionUtils.closePreparedStatement(ps);
-//            ConnectionUtils.closeConnection(connection);
+//            ConnectionUtility.closePreparedStatement(ps);
+//            ConnectionUtility.closeConnection(connection);
 //        }
     }
 
