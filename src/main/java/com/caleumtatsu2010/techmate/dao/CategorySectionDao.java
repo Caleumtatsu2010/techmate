@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.CategorySectionQueries;
 import com.caleumtatsu2010.techmate.models.category.CategorySection;
 
@@ -16,10 +16,10 @@ public class CategorySectionDao implements Dao<CategorySection> {
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     public CategorySectionDao() {
-        connectionUtils = new ConnectionUtils();
+        connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -31,7 +31,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
     public List<CategorySection> getAll() {
         List<CategorySection> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(CategorySectionQueries.getAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -43,7 +43,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -52,7 +52,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
     public void insert(CategorySection categorySection) {
         String query = CategorySectionQueries.insert;//insert category section query
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
 
             ps.setInt(1,categorySection.getId());
@@ -66,7 +66,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 
@@ -79,7 +79,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
     public void delete(int id) {
         String query = CategorySectionQueries.delete;
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1,  id);
             System.out.println("Delete Successfully");
@@ -87,7 +87,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
         } catch (Exception e) {
             System.err.println("Delete");
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 }
