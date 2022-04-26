@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.client;
+package com.caleumtatsu2010.techmate.controllers.client;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
