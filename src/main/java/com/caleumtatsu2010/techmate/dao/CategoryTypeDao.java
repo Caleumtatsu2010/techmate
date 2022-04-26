@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.CategoryTypeQueries;
 import com.caleumtatsu2010.techmate.models.category.CategoryType;
 
@@ -15,10 +15,10 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     public CategoryTypeDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     public List<CategoryType> getAll() {
         List<CategoryType> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(CategoryTypeQueries.getAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -41,7 +41,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         } catch (SQLException ex) {
             System.out.println(ex);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -50,7 +50,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     {
         List<CategoryType> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(CategoryTypeQueries.getAllByCateSecId);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -62,7 +62,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -70,7 +70,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     @Override
     public void insert(CategoryType categoryType) {
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(CategoryTypeQueries.insert);
             ps.setInt(1,categoryType.getId());
             ps.setString(2,  categoryType.getName());
@@ -82,7 +82,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
         } catch (Exception e) {
             System.err.println("Error"+ e.getMessage());
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 
