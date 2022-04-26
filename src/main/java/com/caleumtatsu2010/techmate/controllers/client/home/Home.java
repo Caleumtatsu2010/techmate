@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.client.controllers.home;
+package com.caleumtatsu2010.techmate.controllers.client.home;
 
 import com.caleumtatsu2010.techmate.dao.ProductDao;
 
