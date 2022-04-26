@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
 
@@ -13,16 +13,16 @@ public class AccountDao implements Dao<Account> {
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     public AccountDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
     public Account get(int id) {
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(AccountQueries.getById);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -32,14 +32,14 @@ public class AccountDao implements Dao<Account> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
 
 //    public Account login(String name, String pass, String key) {
 //        try {
-//            connection = connectionUtils.getConnection();
+//            connection = connectionUtility.getConnection();
 //            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
 //
 //            ps.setString(1, name);
@@ -53,14 +53,14 @@ public class AccountDao implements Dao<Account> {
 //        } catch (SQLException e) {
 //            System.out.println(e);
 //        } finally {
-//            ConnectionUtils.closeAll(connection, ps, rs);
+//            ConnectionUtility.closeAll(connection, ps, rs);
 //        }
 //        return null;
 //    }
 
     public byte[] getSalt(String key) {
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(AccountQueries.getSaltByKey);
 
             ps.setString(1, key);
@@ -74,7 +74,7 @@ public class AccountDao implements Dao<Account> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -82,7 +82,7 @@ public class AccountDao implements Dao<Account> {
 
 //    public Account register(String username) {
 //        try {
-//            connection = connectionUtils.getConnection();
+//            connection = connectionUtility.getConnection();
 //            ps = connection.prepareStatement(AccountQueries.insert);
 //
 //            // new salt for new account
@@ -99,7 +99,7 @@ public class AccountDao implements Dao<Account> {
 //        } catch (SQLException e) {
 //            System.out.println(e);
 //        } finally {
-//            ConnectionUtils.closeAll(connection, ps, rs);
+//            ConnectionUtility.closeAll(connection, ps, rs);
 //        }
 //        return null;
 //    }
@@ -108,7 +108,7 @@ public class AccountDao implements Dao<Account> {
     public List<Account> getAll() {
         List<Account> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(AccountQueries.getAll);
             ResultSet rs = ps.executeQuery();
                 while (rs.next()) {
@@ -119,7 +119,7 @@ public class AccountDao implements Dao<Account> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -128,7 +128,7 @@ public class AccountDao implements Dao<Account> {
     @Override
     public void insert(Account account) {
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(AccountQueries.insert);
             ps.setString(1, account.getUsername());
             ps.setString(2, account.getPassword());
@@ -144,7 +144,7 @@ public class AccountDao implements Dao<Account> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 
