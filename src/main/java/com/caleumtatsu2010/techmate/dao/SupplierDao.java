@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.supplier.Supplier;
 
 import java.io.FileInputStream;
@@ -16,11 +16,11 @@ public class SupplierDao implements Dao<Supplier>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
     FileInputStream fs=null;
 
     public SupplierDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -35,7 +35,7 @@ public class SupplierDao implements Dao<Supplier>{
         String query = "SELECT * FROM techmate.supplier;";
         List<Supplier> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -52,7 +52,7 @@ public class SupplierDao implements Dao<Supplier>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
 
@@ -65,7 +65,7 @@ public class SupplierDao implements Dao<Supplier>{
     public void insert(Supplier supplier) {
 //        String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at, modified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 //        try {
-//            connection = ConnectionUtils.getConnection();
+//            connection = ConnectionUtility.getConnection();
 //            ps = connection.prepareStatement(query);
 //            ps.setInt(1,user.getAccountId());
 //            ps.setString(2,  user.getFirstName());
@@ -86,8 +86,8 @@ public class SupplierDao implements Dao<Supplier>{
 //            e.printStackTrace();
 //        } finally {
 //            System.out.println("Closing the connection.");
-//            ConnectionUtils.closePreparedStatement(ps);
-//            ConnectionUtils.closeConnection(connection);
+//            ConnectionUtility.closePreparedStatement(ps);
+//            ConnectionUtility.closeConnection(connection);
 //
 //        }
     }

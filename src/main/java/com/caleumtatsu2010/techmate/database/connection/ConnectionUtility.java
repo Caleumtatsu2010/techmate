@@ -1,15 +1,15 @@
-package com.caleumtatsu2010.techmate.connection;
+package com.caleumtatsu2010.techmate.database.connection;
 
-import com.caleumtatsu2010.techmate.models.properties.connection;
-import com.caleumtatsu2010.techmate.utility.fileUtility.properties.ConnectionConfig;
+import com.caleumtatsu2010.techmate.models.connection.connection;
+import com.caleumtatsu2010.techmate.properties.config.ConnectionConfig;
 
 import java.sql.*;
 
-public class ConnectionUtils {
+public class ConnectionUtility {
 
     private connection conninfo = null;
 
-    public ConnectionUtils() {
+    public ConnectionUtility() {
         this.conninfo = ConnectionConfig.readProperties("host", "dbname", "username", "password", "port", "dbtype");
     }
 

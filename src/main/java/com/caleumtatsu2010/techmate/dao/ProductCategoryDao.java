@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.category.ProductCategory;
 
 
@@ -16,10 +16,10 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     public ProductCategoryDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -27,7 +27,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
         String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
 
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
 
@@ -40,7 +40,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
 
         return null;
@@ -51,7 +51,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
         String query = "SELECT * FROM product_category";
         List<ProductCategory> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -64,7 +64,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -73,7 +73,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
     public void insert(ProductCategory productCategory) {
         String query = "INSERT INTO product_category VALUES (?, ?, ?, ?, ?)";
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1,productCategory.getId());
             ps.setString(2,  productCategory.getName());
@@ -89,8 +89,8 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtility.closePreparedStatement(ps);
+            ConnectionUtility.closeConnection(connection);
         }
     }
 

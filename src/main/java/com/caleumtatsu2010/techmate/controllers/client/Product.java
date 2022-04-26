@@ -1,19 +1,15 @@
-package com.caleumtatsu2010.techmate.admin.controllers.loginout;
+package com.caleumtatsu2010.techmate.controllers.client;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "LogoutAdmin", value = "/LogoutAdmin")
-public class LogoutAdmin extends HttpServlet {
+@WebServlet(name = "Product", value = "/Product")
+public class Product extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
-        if (session != null) {
-            session.removeAttribute("account");
-            request.getRequestDispatcher("/LoginAdmin").forward(request, response);
-        }
+
     }
 
     @Override

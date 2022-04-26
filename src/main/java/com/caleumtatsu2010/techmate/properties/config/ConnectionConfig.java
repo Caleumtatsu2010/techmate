@@ -1,6 +1,6 @@
-package com.caleumtatsu2010.techmate.utility.fileUtility.properties;
+package com.caleumtatsu2010.techmate.properties.config;
 
-import com.caleumtatsu2010.techmate.models.properties.connection;
+import com.caleumtatsu2010.techmate.models.connection.connection;
 import java.io.*;
 import java.util.Properties;
 

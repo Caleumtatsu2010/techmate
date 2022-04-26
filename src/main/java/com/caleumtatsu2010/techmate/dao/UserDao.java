@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.user.User;
 
 import java.io.FileInputStream;
@@ -12,11 +12,11 @@ public class UserDao implements Dao<User>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
     FileInputStream fs=null;
 
     public UserDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
@@ -30,7 +30,7 @@ public class UserDao implements Dao<User>{
         String query = "SELECT * FROM user";
         List<User> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -45,7 +45,7 @@ public class UserDao implements Dao<User>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -54,7 +54,7 @@ public class UserDao implements Dao<User>{
     public void insert(User user) {
         String query = "INSERT INTO user(account_id, first_name, last_name, mobile_phone, citizen_id, email, business_phone , image, created_at, modified_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1,user.getAccountId());
             ps.setString(2,  user.getFirstName());
@@ -75,8 +75,8 @@ public class UserDao implements Dao<User>{
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtility.closePreparedStatement(ps);
+            ConnectionUtility.closeConnection(connection);
 
         }
     }
@@ -88,7 +88,7 @@ public class UserDao implements Dao<User>{
     public void update(User user, int id) {
         String query = "UPDATE user set first_name = ?, last_name = ?, mobile_phone= ?, citizen_id= ?, email=?, business_phone=? , image = ?, modified_at =? WHERE id = ?";
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setString(1,  user.getFirstName());
             ps.setString(2, user.getLastName());
@@ -108,8 +108,8 @@ public class UserDao implements Dao<User>{
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtility.closePreparedStatement(ps);
+            ConnectionUtility.closeConnection(connection);
 
         }
     }

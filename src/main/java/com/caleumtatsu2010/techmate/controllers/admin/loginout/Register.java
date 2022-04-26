@@ -1,14 +1,15 @@
-package com.caleumtatsu2010.techmate.client;
+package com.caleumtatsu2010.techmate.controllers.admin.loginout;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "Product", value = "/Product")
-public class Product extends HttpServlet {
+@WebServlet(name = "Register", value = "/Register")
+public class Register extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 
     }
 

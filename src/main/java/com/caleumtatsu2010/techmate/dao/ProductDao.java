@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 
 import com.caleumtatsu2010.techmate.database.query.ProductQueries;
 import com.caleumtatsu2010.techmate.models.product.Product;
@@ -18,18 +18,18 @@ public class ProductDao implements Dao<Product>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
 
     public ProductDao() {
-        this.connectionUtils = new ConnectionUtils();
+        this.connectionUtility = new ConnectionUtility();
     }
 
     @Override
     public Product get(int id) {
         String query = "SELECT * FROM product WHERE id = ?";
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -43,7 +43,7 @@ public class ProductDao implements Dao<Product>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -53,7 +53,7 @@ public class ProductDao implements Dao<Product>{
 //        String query = "SELECT * FROM product_colors  where product_id = ?";
 //        List<String> list = new ArrayList<>();
 //        try {
-//            connection = ConnectionUtils.getConnection();
+//            connection = ConnectionUtility.getConnection();
 //            ps = connection.prepareStatement(query);
 //            ps.setInt(1, id);
 //
@@ -66,9 +66,9 @@ public class ProductDao implements Dao<Product>{
 //        } catch (SQLException e) {
 //            System.out.println(e);
 //        } finally {
-//            ConnectionUtils.closePreparedStatement(ps);
-//            ConnectionUtils.closeResultSet(rs);
-//            ConnectionUtils.closeConnection(connection);
+//            ConnectionUtility.closePreparedStatement(ps);
+//            ConnectionUtility.closeResultSet(rs);
+//            ConnectionUtility.closeConnection(connection);
 //        }
 //        return null;
 //
@@ -77,7 +77,7 @@ public class ProductDao implements Dao<Product>{
     public int getQuantityById(int inventoryid) {
         String query = "SELECT * FROM product_inventory  where inventory_id = ?";//inventory_id in product
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, inventoryid);
 
@@ -89,7 +89,7 @@ public class ProductDao implements Dao<Product>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return 0;
     }
@@ -98,7 +98,7 @@ public class ProductDao implements Dao<Product>{
         String query = "SELECT * FROM product_category where id = ?";//inventory_id in product
 
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, categoryid);
 
@@ -110,7 +110,7 @@ public class ProductDao implements Dao<Product>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -122,7 +122,7 @@ public List<Review> getReviews(int id) {
     String query = "select * from product_reviews where product_id= ?";//review from 1 productt
     List<Review> list = new ArrayList<>();
     try {
-        connection = connectionUtils.getConnection();
+        connection = connectionUtility.getConnection();
         ps = connection.prepareStatement(query);
         ps.setInt(1, id);
 
@@ -136,7 +136,7 @@ public List<Review> getReviews(int id) {
     } catch (SQLException e) {
         System.out.println(e);
     } finally {
-        ConnectionUtils.closeAll(connection, ps, rs);
+        ConnectionUtility.closeAll(connection, ps, rs);
     }
     return null;
 }
@@ -144,7 +144,7 @@ public List<Review> getReviews(int id) {
     public String getDiscount(int discountid) {
         String query = "SELECT * FROM discount where id = ?";//inventory_id in product
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, discountid);
 
@@ -157,7 +157,7 @@ public List<Review> getReviews(int id) {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
     }
@@ -167,7 +167,7 @@ public List<Review> getReviews(int id) {
         String query = ProductQueries.selectAllProduct;
         List<Product> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -181,7 +181,7 @@ public List<Review> getReviews(int id) {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
 
@@ -191,7 +191,7 @@ public List<Review> getReviews(int id) {
         String query = "SELECT * FROM product WHERE category_id = ?";
         List<Product> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -206,7 +206,7 @@ public List<Review> getReviews(int id) {
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
 
@@ -216,7 +216,7 @@ public List<Review> getReviews(int id) {
     public void insert(Product product) {
         String query = ProductQueries.insertProduct;//insert table query
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
 
             ps.setInt(1,product.getId());
@@ -243,14 +243,14 @@ public List<Review> getReviews(int id) {
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 
     @Override
     public void update(Product product, int id) {
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(ProductQueries.updateProduct);
 
             ps.setString(1,  product.getName());
@@ -276,7 +276,7 @@ public List<Review> getReviews(int id) {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 
@@ -284,7 +284,7 @@ public List<Review> getReviews(int id) {
     public void delete(int id) {
         String query = ProductQueries.deleteProduct;
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
 
             ps.setInt(1,  id);
@@ -297,8 +297,8 @@ public List<Review> getReviews(int id) {
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtils.closePreparedStatement(ps);
-            ConnectionUtils.closeConnection(connection);
+            ConnectionUtility.closePreparedStatement(ps);
+            ConnectionUtility.closeConnection(connection);
 
         }
     }

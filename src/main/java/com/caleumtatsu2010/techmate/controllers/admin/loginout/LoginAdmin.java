@@ -1,4 +1,4 @@
-//package com.caleumtatsu2010.techmate.admin.controllers.loginout;
+//package com.caleumtatsu2010.techmate.controllers.admin.loginout;
 //
 //import com.caleumtatsu2010.techmate.dao.AccountDao;
 //import com.caleumtatsu2010.techmate.models.account.Account;
