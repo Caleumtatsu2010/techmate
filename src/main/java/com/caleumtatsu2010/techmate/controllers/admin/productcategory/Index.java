@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers.productcategory;
+package com.caleumtatsu2010.techmate.controllers.admin.productcategory;
 
 
 import com.caleumtatsu2010.techmate.dao.ProductCategoryDao;
