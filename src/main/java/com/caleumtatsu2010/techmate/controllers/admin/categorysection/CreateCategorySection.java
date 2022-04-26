@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers.categorysection;
+package com.caleumtatsu2010.techmate.controllers.admin.categorysection;
 
 import com.caleumtatsu2010.techmate.dao.CategorySectionDao;
 import com.caleumtatsu2010.techmate.models.category.CategorySection;
