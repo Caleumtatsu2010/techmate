@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers.account;
+package com.caleumtatsu2010.techmate.controllers.admin.account;
 
 import com.caleumtatsu2010.techmate.dao.AccountDao;
 import com.caleumtatsu2010.techmate.models.account.Account;
