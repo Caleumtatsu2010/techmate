@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.models.properties;
+package com.caleumtatsu2010.techmate.models.connection;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
