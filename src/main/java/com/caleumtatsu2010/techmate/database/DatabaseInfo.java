@@ -7,10 +7,9 @@ import lombok.Setter;
 
 @AllArgsConstructor
 @NoArgsConstructor
-@Setter
 @Getter
+@Setter
 public class DatabaseInfo {
-
     private static final String host = "localhost";
     private static final String dbname = "techmate";
     private static final String username = "root";

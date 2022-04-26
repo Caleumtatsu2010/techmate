@@ -1,14 +1,17 @@
 package com.caleumtatsu2010.techmate.models.account;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.sql.Blob;
 import java.sql.Timestamp;
 
 @Getter
 @Setter
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class Account {
     private int id;
     private String username;
