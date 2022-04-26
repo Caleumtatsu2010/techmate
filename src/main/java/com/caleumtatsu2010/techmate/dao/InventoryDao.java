@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.connection.ConnectionUtils;
+import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.Inventory;
 
 import java.sql.Connection;
@@ -15,13 +15,13 @@ public class InventoryDao implements Dao<Inventory>{
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
-    private ConnectionUtils connectionUtils;
+    private ConnectionUtility connectionUtility;
 
     @Override
     public Inventory get(int id) {
         String query = "SELECT * FROM techmate.product_inventory WHERE id = ?";
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
@@ -33,7 +33,7 @@ public class InventoryDao implements Dao<Inventory>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
 
         return null;
@@ -45,7 +45,7 @@ public class InventoryDao implements Dao<Inventory>{
         String query = "SELECT * FROM product_inventory";
         List<Inventory> list = new ArrayList<>();
         try {
-            connection = connectionUtils.getConnection();
+            connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
@@ -57,7 +57,7 @@ public class InventoryDao implements Dao<Inventory>{
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
-            ConnectionUtils.closeAll(connection, ps, rs);
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
         return null;
 
