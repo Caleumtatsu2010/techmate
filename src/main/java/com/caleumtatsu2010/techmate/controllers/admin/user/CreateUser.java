@@ -1,4 +1,4 @@
-package com.caleumtatsu2010.techmate.admin.controllers.user;
+package com.caleumtatsu2010.techmate.controllers.admin.user;
 
 import com.caleumtatsu2010.techmate.dao.UserDao;
 import com.caleumtatsu2010.techmate.models.user.User;
