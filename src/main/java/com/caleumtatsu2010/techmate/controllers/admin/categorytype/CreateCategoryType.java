@@ -1,17 +1,14 @@
-package com.caleumtatsu2010.techmate.admin.controllers.categorytype;
+package com.caleumtatsu2010.techmate.controllers.admin.categorytype;
 
 import com.caleumtatsu2010.techmate.dao.CategorySectionDao;
 import com.caleumtatsu2010.techmate.dao.CategoryTypeDao;
-import com.caleumtatsu2010.techmate.dao.ProductDao;
 import com.caleumtatsu2010.techmate.models.category.CategoryType;
-import com.caleumtatsu2010.techmate.models.product.Product;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.Part;
 import java.io.IOException;
 
 @WebServlet(name = "CreateCategoryType", value = "/CreateCategoryType")
