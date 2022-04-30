@@ -43,7 +43,6 @@
             <version>8.0.28</version>
         </dependency>
 
-
         <!-- https://mvnrepository.com/artifact/jstl/jstl -->
         <dependency>
             <groupId>jstl</groupId>
@@ -59,25 +58,13 @@
         </dependency>
 
 
-        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-csv -->
-        <dependency>
-            <groupId>org.apache.commons</groupId>
-            <artifactId>commons-csv</artifactId>
-            <version>1.9.0</version>
-        </dependency>
+
         <!-- https://mvnrepository.com/artifact/org.passay/passay -->
         <dependency>
             <groupId>org.passay</groupId>
             <artifactId>passay</artifactId>
             <version>1.6.1</version>
         </dependency>
-
-        <dependency>
-            <groupId>com.datastax.oss</groupId>
-            <artifactId>java-driver-core</artifactId>
-            <version>4.13.0</version>
-        </dependency>
-
 
 
     </dependencies>

@@ -6,7 +6,7 @@ import com.caleumtatsu2010.techmate.models.account.Account;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
-import java.io.IOException;
+import java.io.*;
 
 @WebServlet(name = "AccountDetail", value = "/AccountDetail")
 public class AccountDetail extends HttpServlet {
