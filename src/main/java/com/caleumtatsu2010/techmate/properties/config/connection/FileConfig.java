@@ -1,10 +1,10 @@
-package com.caleumtatsu2010.techmate.properties.config;
+package com.caleumtatsu2010.techmate.properties.config.connection;
 
 import com.caleumtatsu2010.techmate.models.connection.connection;
 import java.io.*;
 import java.util.Properties;
 
-public class ConnectionConfig {
+public class FileConfig {
     //connection information configuration file
     private static File connectionFile = new File("D:\\stuff\\JAVA\\techmate\\src\\main\\java\\com\\caleumtatsu2010\\techmate\\properties\\files\\connection.properties");
 

@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.techmate.database.connection;
 
 import com.caleumtatsu2010.techmate.models.connection.connection;
-import com.caleumtatsu2010.techmate.properties.config.ConnectionConfig;
+import com.caleumtatsu2010.techmate.properties.config.connection.FileConfig;
 
 import java.sql.*;
 
@@ -10,7 +10,7 @@ public class ConnectionUtility {
     private connection conninfo = null;
 
     public ConnectionUtility() {
-        this.conninfo = ConnectionConfig.readProperties("host", "dbname", "username", "password", "port", "dbtype");
+        this.conninfo = FileConfig.readProperties("host", "dbname", "username", "password", "port", "dbtype");
     }
 
     public Connection getConnection() {
@@ -38,7 +38,7 @@ public class ConnectionUtility {
             try {
                 connection.close();
             } catch (SQLException ex) {
-                System.out.println("Close ConnectionConfig failed!");
+                System.out.println("Close FileConfig failed!");
             }
         }
     }
@@ -73,7 +73,7 @@ public class ConnectionUtility {
                 ps.close();
                 rs.close();
             } catch (SQLException ex) {
-                System.out.println("Close ConnectionConfig, PreparedStatement, ResultSet failed!");
+                System.out.println("Close FileConfig, PreparedStatement, ResultSet failed!");
             }
         }
     }

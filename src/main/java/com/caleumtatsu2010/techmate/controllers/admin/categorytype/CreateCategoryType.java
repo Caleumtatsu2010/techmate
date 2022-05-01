@@ -4,6 +4,7 @@ import com.caleumtatsu2010.techmate.dao.CategorySectionDao;
 import com.caleumtatsu2010.techmate.dao.CategoryTypeDao;
 import com.caleumtatsu2010.techmate.models.category.CategoryType;
 
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

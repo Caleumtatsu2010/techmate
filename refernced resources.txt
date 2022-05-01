@@ -1,0 +1,2 @@
+astra db
+https://astra.datastax.com/3f58a8b6-0dda-422a-9760-0341a0a45708
