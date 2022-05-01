@@ -1,7 +1,7 @@
 package com.caleumtatsu2010.techmate.utility.security.password;
 import org.passay.*;
 
-public class GenerateNValidate {
+public class GenNVal {
     //COMMON CHARACTER RULE
 
     // length between 8 and 16 characters
@@ -41,7 +41,7 @@ public class GenerateNValidate {
     private int numRep;
 
     // 8 to 16 char, aleast 1 up, 1 low, 1 digit, without 3 sequence of char, 3 of digit, repeat only 3, no whitespace
-    public GenerateNValidate(int minLen, int maxLen, int atleastNum, int numAlSeq, int numNumSeq, int numRep) {
+    public GenNVal(int minLen, int maxLen, int atleastNum, int numAlSeq, int numNumSeq, int numRep) {
         this.minLen = minLen;
         this.maxLen = maxLen;
         this.lengthRule = new LengthRule(minLen, maxLen);
@@ -78,13 +78,13 @@ public class GenerateNValidate {
         return new PasswordGenerator().generatePassword(minLen + (int)(Math.random() * ((maxLen - minLen) + 1)), upperCase, lowerCase, digit, specialChar);
     }
 
-    public static void main(String[] args) {
-        GenerateNValidate passGenAndVal = new GenerateNValidate(8, 16, 1, 3,3,  3);
-        String password = passGenAndVal.passwordGenerator(8, 16);
-        System.out.println(password);
-
-        System.out.println(passGenAndVal.passwordValidator(password));
-
-
-    }
+//    public static void main(String[] args) {
+//        GenerateNValidate passGenAndVal = new GenerateNValidate(8, 16, 1, 3,3,  3);
+//        String password = passGenAndVal.passwordGenerator(8, 16);
+//        System.out.println(password);
+//
+//        System.out.println(passGenAndVal.passwordValidator(password));
+//
+//
+//    }
 }
