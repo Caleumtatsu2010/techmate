@@ -6,7 +6,7 @@ import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
 import java.util.Base64;
 
-public class SHA256Hashing {
+public class SHA256 {
 
     public static String getSecurePassword(String password, byte[] salt) {
 

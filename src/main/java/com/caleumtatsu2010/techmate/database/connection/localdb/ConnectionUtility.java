@@ -1,7 +1,7 @@
-package com.caleumtatsu2010.techmate.database.connection;
+package com.caleumtatsu2010.techmate.database.connection.localdb;
 
 import com.caleumtatsu2010.techmate.models.connection.connection;
-import com.caleumtatsu2010.techmate.properties.config.connection.FileConfig;
+import com.caleumtatsu2010.techmate.utility.file.properties.connection.FileConfig;
 
 import java.sql.*;
 
