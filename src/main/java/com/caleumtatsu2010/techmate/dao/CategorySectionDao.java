@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.database.connection.ConnectionUtility;
+import com.caleumtatsu2010.techmate.database.connection.localdb.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.CategorySectionQueries;
 import com.caleumtatsu2010.techmate.models.category.CategorySection;
 
