@@ -1,17 +1,20 @@
 package com.caleumtatsu2010.techmate.utility.file.csv;
 
+import com.caleumtatsu2010.techmate.utility.file.Path;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
+
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.io.Reader;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 import java.util.*;
 
-public class AstraTokenCsv {
-    private static final String AstraTokenCsv = "D:\\stuff\\JAVA\\techmate\\resources\\token\\GeneratedToken.csv";
+public class AstraToken {
 
     public static CSVParser readCsv(String filepath){
         try {
@@ -49,19 +52,29 @@ public class AstraTokenCsv {
         }
     }
 
-    public static void writeToProperties(CSVParser csvParser) {
-        for (CSVRecord csvRecord : csvParser) {
-            // Accessing values by the names assigned to each column
-            String id = csvRecord.get("Client Id");
-            String clientSecret = csvRecord.get("Client Secret");
-            String role = csvRecord.get("Role");
-            String token = csvRecord.get("Token");
-            List<List<String>> list = new ArrayList<>();
+    public static void writeToProperties(CSVParser csvParser, String filepath) {
+        try(OutputStream outputStream = new FileOutputStream(filepath)){
+            Properties properties = new Properties();
+            int i = 0;
+            for (CSVRecord csvRecord : csvParser) {
 
+                if (i == 1) {
+                    properties.setProperty("clientId", csvRecord.get("Client Id"));
+                    properties.setProperty("clientSecret", csvRecord.get("Client Secret"));
+                    properties.setProperty("role", csvRecord.get("Role"));
+                    properties.setProperty("token", csvRecord.get("Token"));
+                    properties.store(outputStream, null);
+                }
+                i++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
     public static void main(String[] args) throws IOException {
-        printTokenCsv(readCsv(AstraTokenCsv));
+//        printTokenCsv(readCsv(Path.AstraTokenCsv));
+        writeToProperties(readCsv(Path.astraTokenCsv),Path.mysqlConnectProperties);
     }
+
 }
