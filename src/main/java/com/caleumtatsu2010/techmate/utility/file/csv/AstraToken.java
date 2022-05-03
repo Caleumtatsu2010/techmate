@@ -14,15 +14,12 @@ import java.nio.file.Paths;
 
 import java.util.*;
 
-public class AstraToken {
+public class AstraToken extends Csv {
 
-    public static CSVParser readCsv(String filepath){
+    @Override
+    public CSVParser readCsv(String filepath){
         try {
             Reader reader = Files.newBufferedReader(Paths.get(filepath));
-//            CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
-//                    .withFirstRecordAsHeader()
-//                    .withIgnoreHeaderCase()
-//                    .withTrim());
             CSVParser csvParser = new CSVParser(reader, CSVFormat.DEFAULT
                     .withHeader("Client Id", "Client Secret", "Role", "Token")
                     .withIgnoreHeaderCase()
@@ -34,7 +31,8 @@ public class AstraToken {
         return null;
     }
 
-    public static void printTokenCsv(CSVParser csvParser) {
+    @Override
+    public void printCsv(CSVParser csvParser) {
         for (CSVRecord csvRecord : csvParser) {
             // Accessing values by the names assigned to each column
             String id = csvRecord.get("Client Id");
@@ -52,8 +50,9 @@ public class AstraToken {
         }
     }
 
-    public static void writeToProperties(CSVParser csvParser, String filepath) {
-        try(OutputStream outputStream = new FileOutputStream(filepath)){
+    @Override
+    public void writeToProperties(CSVParser csvParser, String propertiesFilePath) {
+        try(OutputStream outputStream = new FileOutputStream(propertiesFilePath)){
             Properties properties = new Properties();
             int i = 0;
             for (CSVRecord csvRecord : csvParser) {
@@ -72,9 +71,14 @@ public class AstraToken {
         }
     }
 
+    @Override
+    public void writeToText(CSVParser csvParser, String textFilePath) {
+
+    }
+
     public static void main(String[] args) throws IOException {
 //        printTokenCsv(readCsv(Path.AstraTokenCsv));
-        writeToProperties(readCsv(Path.astraTokenCsv),Path.astraTokenProperties);
+//        writeToProperties(readCsv(Path.astraTokenCsv),Path.astraTokenProperties);
     }
 
 }
