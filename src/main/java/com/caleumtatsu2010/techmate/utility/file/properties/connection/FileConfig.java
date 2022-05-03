@@ -2,6 +2,9 @@ package com.caleumtatsu2010.techmate.utility.file.properties.connection;
 
 import com.caleumtatsu2010.techmate.models.connection.connection;
 import com.caleumtatsu2010.techmate.utility.file.Path;
+import com.fasterxml.jackson.core.*;
+import com.fasterxml.jackson.databind.*;
+import sun.rmi.transport.Endpoint;
 
 import java.io.*;
 import java.util.Properties;
@@ -35,9 +38,20 @@ public class FileConfig {
         }
         return null;
     }
+//    /**
+//     * read properties files
+//     * @return read properties file and return connection
+//     */
+//    public static connection readProperties() {
+//        JavaPropsMapper mapper = new JavaPropsMapper();
+//        // and then read/write data as usual
+//        Endpoint host = mapper.readValue(new File(Path.mysqlConnectProperties),
+//                Endpoint.class);
+//        String asText = mapper.writeValueAsString(host);
+//    }
 
-    public static void main(String[] args) {
-        System.out.println(readProperties());
-    }
+//    public static void main(String[] args) {
+//        System.out.println(readProperties());
+//    }
 }
 
