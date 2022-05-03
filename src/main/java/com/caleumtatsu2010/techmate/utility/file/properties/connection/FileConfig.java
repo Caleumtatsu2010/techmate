@@ -8,30 +8,25 @@ import java.util.Properties;
 
 public class FileConfig {
     //connection information configuration file
-    private static File connectionFile = new File(Path.connectionFilePath);
+    private static File connectionFile = new File(Path.mysqlConnectProperties);
 
     /**
      * read properties files
-     * @param HOSTNAME
-     * @param DBNAME
-     * @param USERNAME
-     * @param PASSWORD
-     * @param PORTNAME
      * @return read properties file and return connection
      */
-    public static connection readProperties(String HOSTNAME, String DBNAME, String USERNAME, String PASSWORD, String PORTNAME, String DBTYPE)
+    public static connection readProperties()
     {
         try {
             FileReader reader = new FileReader(connectionFile);
             Properties props = new Properties();
             props.load(reader);
 
-            String host = props.getProperty(HOSTNAME, "localhost");
-            String dbname = props.getProperty(DBNAME);
-            String username = props.getProperty(USERNAME);
-            String password = props.getProperty(PASSWORD);
-            String port = props.getProperty(PORTNAME);
-            String dbtype = props.getProperty(DBTYPE);
+            String host = props.getProperty("host", "localhost");
+            String dbname = props.getProperty("dbname");
+            String username = props.getProperty("username");
+            String password = props.getProperty("password");
+            String port = props.getProperty("port");
+            String dbtype = props.getProperty("dbtype");
 
             reader.close();
             return new connection(host, dbname, username, password, port, dbtype);
@@ -41,8 +36,8 @@ public class FileConfig {
         return null;
     }
 
-//    public static void main(String[] args) {
-//        System.out.println(readProperties("host", "dbname", "username", "password", "port", "dbtype"));
-//    }
+    public static void main(String[] args) {
+        System.out.println(readProperties());
+    }
 }
 
