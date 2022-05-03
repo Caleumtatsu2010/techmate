@@ -15,7 +15,7 @@ public class FileConfig {
      * @param USERNAME
      * @param PASSWORD
      * @param PORTNAME
-     * @return connection read from properties file
+     * @return read properties file and return connection
      */
     public static connection readProperties(String HOSTNAME, String DBNAME, String USERNAME, String PASSWORD, String PORTNAME, String DBTYPE)
     {
@@ -40,7 +40,7 @@ public class FileConfig {
     }
 
 //    public static void main(String[] args) {
-//        System.out.println(readProperties("host", "dbname", "username", "password", "port").getPort());
+//        System.out.println(readProperties("host", "dbname", "username", "password", "port", "dbtype"));
 //    }
 }
 
