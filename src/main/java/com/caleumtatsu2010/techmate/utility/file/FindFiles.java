@@ -58,6 +58,6 @@ public class FindFiles {
 //        for (int i = 0; i < files.length; i++) {
 //            System.out.println(files[i].getName());
 //        }
-        findPath("connection.properties");
+        findPath("mysqlConnect.properties");
     }
 }
