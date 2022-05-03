@@ -10,7 +10,7 @@ public class ConnectionUtility {
     private connection conninfo = null;
 
     public ConnectionUtility() {
-        this.conninfo = FileConfig.readProperties("host", "dbname", "username", "password", "port", "dbtype");
+        this.conninfo = FileConfig.readProperties();
     }
 
     public Connection getConnection() {
