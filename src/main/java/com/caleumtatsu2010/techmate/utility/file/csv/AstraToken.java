@@ -74,7 +74,7 @@ public class AstraToken {
 
     public static void main(String[] args) throws IOException {
 //        printTokenCsv(readCsv(Path.AstraTokenCsv));
-        writeToProperties(readCsv(Path.astraTokenCsv),Path.mysqlConnectProperties);
+        writeToProperties(readCsv(Path.astraTokenCsv),Path.astraTokenProperties);
     }
 
 }
