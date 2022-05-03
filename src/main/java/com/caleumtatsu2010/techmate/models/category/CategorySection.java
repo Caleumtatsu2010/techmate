@@ -12,5 +12,4 @@ import lombok.Setter;
 public class CategorySection {
     private int id;
     private String name;
-
 }
