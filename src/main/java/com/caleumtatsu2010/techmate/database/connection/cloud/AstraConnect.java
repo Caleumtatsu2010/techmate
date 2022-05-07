@@ -1,5 +1,6 @@
-package com.caleumtatsu2010.techmate.database.connection.clouddb;
+package com.caleumtatsu2010.techmate.database.connection.cloud;
 
+import com.caleumtatsu2010.techmate.utility.file.Path;
 import com.datastax.oss.driver.api.core.CqlSession;
 import com.datastax.oss.driver.api.core.cql.ResultSet;
 import com.datastax.oss.driver.api.core.cql.Row;
@@ -7,10 +8,10 @@ import java.nio.file.Paths;
 
 
 public class AstraConnect {
-    public static void main(String[] args) {
+    public static void connect(){
         // Create the CqlSession object:
         try (CqlSession session = CqlSession.builder()
-                .withCloudSecureConnectBundle(Paths.get("<</D:/stuff/JAVA/techmate/db/>>secure-connect-techmate.zip"))
+                .withCloudSecureConnectBundle(Paths.get(Path.secureConnectTechmate))
                 .withAuthCredentials("<<CLIENT ID>>","<<CLIENT SECRET>>")
                 .build()) {
             // Select the release_version from the system.local table:
@@ -24,5 +25,8 @@ public class AstraConnect {
             }
         }
         System.exit(0);
+    }
+    public static void main(String[] args) {
+
     }
 }

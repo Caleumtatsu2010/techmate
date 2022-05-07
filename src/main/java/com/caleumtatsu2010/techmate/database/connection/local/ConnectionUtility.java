@@ -1,9 +1,10 @@
-package com.caleumtatsu2010.techmate.database.connection.localdb;
+package com.caleumtatsu2010.techmate.database.connection.local;
 
 import com.caleumtatsu2010.techmate.models.connection.connection;
 import com.caleumtatsu2010.techmate.utility.file.properties.connection.FileConfig;
 
 import java.sql.*;
+import java.util.PropertyResourceBundle;
 
 public class ConnectionUtility {
 
@@ -76,6 +77,11 @@ public class ConnectionUtility {
                 System.out.println("Close FileConfig, PreparedStatement, ResultSet failed!");
             }
         }
+    }
+
+    public static void main(String[] args) {
+        PropertyResourceBundle prb = (PropertyResourceBundle)PropertyResourceBundle.getBundle("properties.mysqlConnect");
+        System.out.println(prb.getString("host"));
     }
 
 }

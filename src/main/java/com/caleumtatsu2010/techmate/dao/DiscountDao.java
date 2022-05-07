@@ -1,6 +1,6 @@
 package com.caleumtatsu2010.techmate.dao;
 
-import com.caleumtatsu2010.techmate.database.connection.localdb.ConnectionUtility;
+import com.caleumtatsu2010.techmate.database.connection.local.ConnectionUtility;
 import com.caleumtatsu2010.techmate.models.discount.Discount;
 
 import java.sql.Connection;
