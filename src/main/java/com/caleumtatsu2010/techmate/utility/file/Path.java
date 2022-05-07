@@ -4,7 +4,7 @@ public class Path {
     //project dir
     private static String dir = System.getProperty("user.dir"); //D:\stuff\JAVA\techmate
 
-    private static String resourceDir = "D:\\stuff\\resources";
+    private static String resourceDir = "D:\\stuff\\JAVA\\techmate\\src\\main\\resources";
     //properties connection infor file  path
     public static String mysqlConnectProperties = "properties.mysqlConnect";
 
