@@ -48,11 +48,37 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <div class="card">
                     <div class="card-header">
-<%--                        <h5 class="mb-0">Data Tables - Print, Excel, CSV, PDF Buttons</h5>--%>
-                        <a class="btn btn-outline-success" href="IndexProductCategory" methods="get">Product Category</a>
-                        <a class="btn btn-outline-info" href="IndexCategoryType" methods="get">Category Type</a>
-                        <a class="btn btn-outline-secondary" href="IndexCategorySection" methods="get">Category Section</a>
-                        <a class="btn btn-primary float-right" href="CreateProduct" methods="get">New Product</a>
+                            <form class="row" action="" method="get">
+                                <div class="col-md-2 mb-2">
+                                    <label for="country">Category</label>
+                                    <select class="custom-select d-block w-100" id="country" required="">
+                                        <option>Product Category</option>
+                                        <option>Category Type</option>
+                                        <option>Category Section</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please select a valid country.
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <label for="state">State</label>
+                                    <select class="custom-select d-block w-100" id="state" required="">
+                                        <option value="">Choose...</option>
+                                        <option>California</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Please provide a valid state.
+                                    </div>
+                                </div>
+                                <div class="col-md-2 mb-2">
+                                    <label for="zip">Zip</label>
+                                    <input type="submit" class="form-control bg-primary" id="zip" value="Submit" required="">
+                                    <div class="invalid-feedback">
+                                    </div>
+                                </div>
+                            </form>
+
+
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">

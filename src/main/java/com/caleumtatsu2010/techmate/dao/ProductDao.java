@@ -39,7 +39,6 @@ public class ProductDao implements Dao<Product>{
                         rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
                 return product;
             }
-
         } catch (SQLException e) {
             System.out.println(e);
         } finally {

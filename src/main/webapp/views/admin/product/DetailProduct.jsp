@@ -1,3 +1,4 @@
+<%@ page import="com.caleumtatsu2010.techmate.models.product.Product" %>
 <%--
   Created by IntelliJ IDEA.
   User: longnh02
@@ -50,7 +51,7 @@
                 <div class="carousel-inner">
 
                     <div class="carousel-item active">
-                        <img class="d-block" src="data:image/jpg;base64,${Product.getInputStreamImage()}" alt="slide" width="285" height="313">
+                        <img class="d-block" src="data:image/jpg;base64,${Product.getSeenImage()}" alt="slide" width="285" height="313">
                     </div>
 
 

@@ -13,7 +13,7 @@ public class AstraConnector {
     private static PropertyResourceBundle prb = null;
 
     public static CqlSession connect(){
-        prb = (PropertyResourceBundle)PropertyResourceBundle.getBundle("properties.astraToken");
+        prb = (PropertyResourceBundle)PropertyResourceBundle.getBundle(Path.astraTokenProperties);
         // Create the CqlSession object:
         try (CqlSession session = CqlSession.builder()
                 .withCloudSecureConnectBundle(Paths.get(Path.secureConnectTechmate))
