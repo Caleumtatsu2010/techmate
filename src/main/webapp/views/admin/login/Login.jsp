@@ -60,7 +60,7 @@
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
             </form>
         </div>
         <div class="card-footer bg-white p-0">
@@ -69,7 +69,7 @@
                 if (account != null && account.getAccount_typeId() == 1) {
             %>
             <div class="card-footer-item card-footer-item-bordered">
-                <a href="Register" class="footer-link" onblur="">Create An Account</a>
+                <a href="Register" methods="get" class="footer-link" onblur="">Create An Account</a>
             </div>
             <%
                 }else {

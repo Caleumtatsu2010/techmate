@@ -3,6 +3,7 @@ package com.caleumtatsu2010.techmate.dao;
 import com.caleumtatsu2010.techmate.database.connection.local.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
+import com.caleumtatsu2010.techmate.utility.security.password.hasing.SHA256;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -79,23 +80,23 @@ public class AccountDao implements Dao<Account> {
         return null;
     }
 
-
-//    public Account register(String username) {
+    //staff send username to admin, admin generate salt, password
+//    public Account register(String username, String hashedpassword, String key) {
 //        try {
 //            connection = connectionUtility.getConnection();
 //            ps = connection.prepareStatement(AccountQueries.insert);
 //
 //            // new salt for new account
-//            byte[] salt = SHA256Hashing.getSalt();
+//            byte[] salt = SHA256.getSalt();
 //
 //            ps.setString(1, username);
-//            ps.setString(2, );
+//            ps.setString(2, hashedpassword);
 //            ps.setString(3, key);
+//            ps.setBytes(4, salt);
+//            ps.setString(5, "staff");
+//            ps.setString(3, "active");
 //
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
-//            }
+//
 //        } catch (SQLException e) {
 //            System.out.println(e);
 //        } finally {

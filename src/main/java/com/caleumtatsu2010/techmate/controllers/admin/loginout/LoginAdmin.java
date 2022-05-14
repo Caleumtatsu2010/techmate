@@ -1,25 +1,25 @@
-//package com.caleumtatsu2010.techmate.controllers.admin.loginout;
-//
-//import com.caleumtatsu2010.techmate.dao.AccountDao;
-//import com.caleumtatsu2010.techmate.models.account.Account;
-//import com.caleumtatsu2010.techmate.utility.security.password.hasing.SHA256Hashing;
-//
-//import javax.servlet.*;
-//import javax.servlet.http.*;
-//import javax.servlet.annotation.*;
-//import java.io.IOException;
-//
-//@WebServlet(name = "LoginAdmin", value = "/LoginAdmin")
-//public class LoginAdmin extends HttpServlet {
-//    @Override
-//    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
-//        request.getRequestDispatcher("/views/admin/login/LoginAdmin.jsp").forward(request, response);
-//    }
-//
-//    @Override
-//    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-//
+package com.caleumtatsu2010.techmate.controllers.admin.loginout;
+
+import com.caleumtatsu2010.techmate.dao.AccountDao;
+import com.caleumtatsu2010.techmate.models.account.Account;
+import com.caleumtatsu2010.techmate.utility.security.password.hasing.SHA256;
+
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.*;
+import java.io.IOException;
+
+@WebServlet(name = "LoginAdmin", value = "/LoginAdmin")
+public class LoginAdmin extends HttpServlet {
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        request.getRequestDispatcher("/views/admin/login/Login.jsp").forward(request, response);
+    }
+
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
 //        response.setContentType("text/html;charset=UTF-8");
 //        try{
 //            String username = request.getParameter("username");
@@ -28,8 +28,8 @@
 //            AccountDao acc = new AccountDao();
 //
 //            // same salt should be passed
-//            byte[] salt = SHA256Hashing.getSalt();
-//            String passwordHash = SHA256Hashing.getSecurePassword(password, salt);
+////            byte[] salt = SHA256.getSalt();//get salt from account
+//            String passwordHash = SHA256.getSecurePassword(password, salt);
 //
 //            Account account = acc.login(username, passwordHash, key);
 //            HttpSession session = request.getSession();
@@ -46,5 +46,5 @@
 //        {
 //            ex.printStackTrace();
 //        }
-//    }
-//}
+    }
+}
