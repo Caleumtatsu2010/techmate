@@ -78,13 +78,13 @@ public class GenNVal {
         return new PasswordGenerator().generatePassword(minLen + (int)(Math.random() * ((maxLen - minLen) + 1)), upperCase, lowerCase, digit, specialChar);
     }
 
-//    public static void main(String[] args) {
-//        GenerateNValidate passGenAndVal = new GenerateNValidate(8, 16, 1, 3,3,  3);
-//        String password = passGenAndVal.passwordGenerator(8, 16);
-//        System.out.println(password);
-//
-//        System.out.println(passGenAndVal.passwordValidator(password));
-//
-//
-//    }
+    public static void main(String[] args) {
+        GenNVal passGenAndVal = new GenNVal(8, 16, 1, 3,3,  3);
+        String password = passGenAndVal.passwordGenerator(8, 16);
+        System.out.println(password);
+
+        System.out.println(passGenAndVal.passwordValidator(password));
+
+
+    }
 }

@@ -23,7 +23,7 @@ public class SHA256 {
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         }
-        return generatedPassword;
+        return generatedPassword;//hashed password with salt
     }
 
     public static byte[] getSalt() throws NoSuchAlgorithmException {

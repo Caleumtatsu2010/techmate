@@ -52,9 +52,9 @@
                 <div class="form-group">
                     <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="" maxlength="16" required>
                 </div>
-                <div class="form-group">
-                    <input name="repassword" class="form-control form-control-lg" id="password" type="password" placeholder="Retype Password" minlength="" maxlength="16" required>
-                </div>
+<%--                <div class="form-group">--%>
+<%--                    <input name="repassword" class="form-control form-control-lg" id="password" type="password" placeholder="Retype Password" minlength="" maxlength="16" required>--%>
+<%--                </div>--%>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">
                         <input class="custom-control-input" type="checkbox"><span class="custom-control-label">Remember Me</span>

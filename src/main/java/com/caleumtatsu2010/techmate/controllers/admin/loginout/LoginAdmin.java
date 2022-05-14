@@ -19,32 +19,29 @@ public class LoginAdmin extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("text/html;charset=UTF-8");
+        try{
+            String username = request.getParameter("username");
+            String password = request.getParameter("password");
+            String privatekey = request.getParameter("privatekey");
+            AccountDao acc = new AccountDao();
 
-//        response.setContentType("text/html;charset=UTF-8");
-//        try{
-//            String username = request.getParameter("username");
-//            String password = request.getParameter("password");
-//            String key = request.getParameter("key");
-//            AccountDao acc = new AccountDao();
-//
-//            // same salt should be passed
-////            byte[] salt = SHA256.getSalt();//get salt from account
-//            String passwordHash = SHA256.getSecurePassword(password, salt);
-//
-//            Account account = acc.login(username, passwordHash, key);
-//            HttpSession session = request.getSession();
-//
-//            if(account != null){
-//                session.setAttribute("account", account);
-//                request.getRequestDispatcher("/HomeAdmin").forward(request, response);
-//            }
-//            else {
-//                request.setAttribute("loginError","Incorrect username or password");
-//                request.getRequestDispatcher("/LoginAdmin").forward(request, response);
-//            }
-//        }catch (Exception ex)
-//        {
-//            ex.printStackTrace();
-//        }
+            byte[] salt = acc.getSalt(privatekey);//get salt from account
+            String passwordHash = SHA256.getSecurePassword(password, salt);
+
+            Account account = acc.login(username, passwordHash);
+            HttpSession session = request.getSession();
+            if(account != null){
+                session.setAttribute("account", account);
+                request.getRequestDispatcher("/HomeAdmin").forward(request, response);
+            }
+            else {
+                request.setAttribute("loginError","Incorrect username or password");
+                request.getRequestDispatcher("/LoginAdmin").forward(request, response);
+            }
+        }catch (Exception ex)
+        {
+            ex.printStackTrace();
+        }
     }
 }

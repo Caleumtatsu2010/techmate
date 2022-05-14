@@ -2,6 +2,7 @@ package com.caleumtatsu2010.techmate.controllers.admin.loginout;
 
 import com.caleumtatsu2010.techmate.dao.AccountDao;
 import com.caleumtatsu2010.techmate.models.account.Account;
+import com.caleumtatsu2010.techmate.utility.security.password.GenNVal;
 import com.caleumtatsu2010.techmate.utility.security.password.hasing.SHA256;
 
 import javax.servlet.*;
@@ -23,11 +24,14 @@ public class Register extends HttpServlet {
         try{
             String username = request.getParameter("username");
             String password = request.getParameter("password");
-//            String repassword = request.getParameter("repassword");
+//            String privatekey = request.getParameter("privatekey");
             AccountDao acc = new AccountDao();
-            // same salt should be passed
+            //generate string
+//            GenNVal passGenAndVal = new GenNVal(8, 16, 1, 3,3,  3);
+//            String privatekey = passGenAndVal.passwordGenerator(8, 16);
+
             byte[] salt = SHA256.getSalt();//generate new salt and store to db
-            acc.insert(new Account(1, username, SHA256.getSecurePassword(password, salt), "privatekey14-5-2022", salt, null, null, 2, "active"));
+            acc.insert(new Account(1, username, SHA256.getSecurePassword(password, salt), "privatekey", salt, null, null, 2, "active"));
         }catch (Exception ex) {
             ex.printStackTrace();
         }

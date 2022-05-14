@@ -53,7 +53,7 @@
                     <input name="password" class="form-control form-control-lg" id="password" type="password" placeholder="Password" minlength="" maxlength="16" required>
                 </div>
                 <div class="form-group">
-                    <input name="key" class="form-control form-control-lg" id="key" type="password" placeholder="Key" minlength="" maxlength="16" required>
+                    <input name="privatekey" class="form-control form-control-lg" id="key" type="password" placeholder="Private Key" minlength="" maxlength="16" required>
                 </div>
                 <div class="form-group">
                     <label class="custom-control custom-checkbox">

@@ -38,38 +38,32 @@ public class AccountDao implements Dao<Account> {
         return null;
     }
 
-//    public Account login(String name, String pass, String key) {
-//        try {
-//            connection = connectionUtility.getConnection();
-//            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
-//
-//            ps.setString(1, name);
-//            ps.setString(2, pass);
-//            ps.setString(3, key);
-//
-//            ResultSet rs = ps.executeQuery();
-//            if (rs.next()) {
-//                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("key"), rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status"));
-//            }
-//        } catch (SQLException e) {
-//            System.out.println(e);
-//        } finally {
-//            ConnectionUtility.closeAll(connection, ps, rs);
-//        }
-//        return null;
-//    }
+    public Account login(String name, String pass) {
+        try {
+            connection = connectionUtility.getConnection();
+            ps = connection.prepareStatement(AccountQueries.getByUserNPass);
+            ps.setString(1, name);
+            ps.setString(2, pass);
+            ResultSet rs = ps.executeQuery();
+            if (rs.next()) {
+                return new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), rs.getString("privatekey"), null, rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"), rs.getString("account_status"));
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            ConnectionUtility.closeAll(connection, ps, rs);
+        }
+        return null;
+    }
 
-    public byte[] getSalt(String key) {
+    public byte[] getSalt(String privatekey) {
         try {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(AccountQueries.getSaltByKey);
-
-            ps.setString(1, key);
-
+            ps.setString(1, privatekey);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 byte[] salt = rs.getBytes("salt");
-                //release the blob and free up memory. (since JDBC 4.0)
                 return salt;
             }
         } catch (SQLException e) {
