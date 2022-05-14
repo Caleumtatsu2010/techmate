@@ -28,8 +28,7 @@ public class Register extends HttpServlet {
             // same salt should be passed
             byte[] salt = SHA256.getSalt();//generate new salt and store to db
             acc.insert(new Account(1, username, SHA256.getSecurePassword(password, salt), "privatekey14-5-2022", salt, null, null, 2, "active"));
-        }catch (Exception ex)
-        {
+        }catch (Exception ex) {
             ex.printStackTrace();
         }
     }

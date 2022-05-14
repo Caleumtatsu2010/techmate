@@ -45,7 +45,7 @@
     <div class="card ">
         <div class="card-header text-center"><a href=""><img class="logo-img" src="assets/images/logon.PNG" alt="logo"></a><span class="splash-description"></span></div>
         <div class="card-body">
-            <form action="/Register" method="post">
+            <form action="Register" method="post">
                 <div class="form-group">
                     <input name="username" class="form-control form-control-lg" id="username" type="text" placeholder="Username" autocomplete="off" minlength="" maxlength="16" required>
                 </div>
@@ -62,25 +62,6 @@
                 </div>
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Sign in</button>
             </form>
-        </div>
-        <div class="card-footer bg-white p-0">
-            <%
-                Account account = (Account) session.getAttribute("account");    //Getting Session Attribute
-                if (account != null && account.getAccount_typeId() == 1) {
-            %>
-            <div class="card-footer-item card-footer-item-bordered">
-                <a href="Register" class="footer-link" onblur="">Create An Account</a>
-            </div>
-            <%
-            }else {
-            %>
-
-            <%
-                }
-            %>
-            <div class="card-footer-item card-footer-item-bordered">
-                <a href="#" class="footer-link">Forgot Password</a>
-            </div>
         </div>
     </div>
 

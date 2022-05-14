@@ -63,6 +63,9 @@
                 <button type="submit" class="btn btn-primary btn-lg btn-block">Login</button>
             </form>
         </div>
+        <div class="card-footer-item card-footer-item-bordered">
+            <a href="Register" methods="get" class="footer-link" onblur="">Create An Account</a>
+        </div>
         <div class="card-footer bg-white p-0">
             <%
                 Account account = (Account) session.getAttribute("account");    //Getting Session Attribute
