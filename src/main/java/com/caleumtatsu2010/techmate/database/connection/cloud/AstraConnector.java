@@ -34,8 +34,9 @@ public class AstraConnector {
     }
 
 //    public static boolean excute(CqlSession session, String query) {
-//        // Select the release_version from the system.local table:
-//        ResultSet rs = session.execute("select release_version from system.local");
+//        // "select release_version from system.local"
+//
+//        ResultSet rs = session.execute(query);
 //        Row row = rs.one();
 //        //Print the results of the CQL query to the console:
 //        if (row != null) {
