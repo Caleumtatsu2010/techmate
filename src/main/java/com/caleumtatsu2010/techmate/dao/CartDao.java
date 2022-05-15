@@ -1,10 +1,22 @@
 package com.caleumtatsu2010.techmate.dao;
 
+import com.caleumtatsu2010.techmate.database.connection.cloud.AstraConnector;
+import com.caleumtatsu2010.techmate.database.connection.local.ConnectionUtility;
+import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.cart.Cart;
+import com.datastax.oss.driver.api.core.CqlSession;
+import com.datastax.oss.driver.api.core.cql.SimpleStatement;
 
+import java.sql.SQLException;
 import java.util.List;
 
 public class CartDao implements Dao<Cart>{
+
+    private CqlSession cqlSession = null;
+
+    public CartDao() {
+        this.cqlSession = AstraConnector.connect();
+    }
 
     @Override
     public List<Cart> getAll() {
@@ -18,7 +30,10 @@ public class CartDao implements Dao<Cart>{
 
     @Override
     public void insert(Cart cart) {
-
+//        cqlSession.execute(
+//                SimpleStatement.builder( )
+//                        .addPositionalValues(cart.getId(), cart.)
+//                        .build());
     }
 
     @Override

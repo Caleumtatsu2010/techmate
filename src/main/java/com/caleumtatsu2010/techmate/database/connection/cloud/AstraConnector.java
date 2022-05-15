@@ -24,7 +24,7 @@ public class AstraConnector {
         }
     }
 
-    public boolean disconnect(CqlSession session){
+    public static boolean disconnect(CqlSession session){
         if(session != null){
             session.close();
             System.out.println("All operation exsiting! ");
