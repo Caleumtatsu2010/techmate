@@ -69,7 +69,7 @@
         <div class="card-footer bg-white p-0">
             <%
                 Account account = (Account) session.getAttribute("account");    //Getting Session Attribute
-                if (account != null && account.getAccount_typeId() == 1) {
+                if (account != null && account.getAccountTypeId() == 1) {
             %>
             <div class="card-footer-item card-footer-item-bordered">
                 <a href="Register" methods="get" class="footer-link" onblur="">Create An Account</a>

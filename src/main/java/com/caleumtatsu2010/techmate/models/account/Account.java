@@ -19,6 +19,6 @@ public class Account {
     private byte[] salt;
     private Timestamp createdAt;
     private Timestamp modifiedAt;
-    private int account_typeId;
+    private int accountTypeId;
     private String accountStatus;
 }

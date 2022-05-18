@@ -19,7 +19,6 @@ public class AccountDetail extends HttpServlet {
         AccountDao accDao = new AccountDao();
 
         Account account = accDao.get(Integer.parseInt(id));
-
         request.setAttribute("Account", account);
 
         request.getRequestDispatcher("/views/admin/account/DetailAccount.jsp").forward(request, response);

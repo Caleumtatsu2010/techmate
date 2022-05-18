@@ -3,7 +3,6 @@ package com.caleumtatsu2010.techmate.dao;
 import com.caleumtatsu2010.techmate.database.connection.local.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
-import com.caleumtatsu2010.techmate.utility.security.password.hasing.SHA256;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -131,7 +130,7 @@ public class AccountDao implements Dao<Account> {
             ps.setBytes(4, account.getSalt());
             ps.setTimestamp(5, account.getCreatedAt());
             ps.setTimestamp(6, account.getModifiedAt());
-            ps.setInt(7, account.getAccount_typeId());
+            ps.setInt(7, account.getAccountTypeId());
             ps.setString(8, account.getAccountStatus());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
