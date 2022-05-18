@@ -264,11 +264,8 @@ public List<Review> getReviews(int id) {
             ps.setInt(10, product.getSupplierId());
             ps.setString(11, product.getProductShortDesc());
             ps.setString(12, product.getDetail());
-
             ps.setBlob(13, product.getImage());
-
             ps.setInt(14, id);
-
             ps.executeUpdate();
             System.out.println("Data Updated Successfully");
 
@@ -285,20 +282,15 @@ public List<Review> getReviews(int id) {
         try {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
-
             ps.setInt(1,  id);
-
             System.out.println("Delete Successfully");
             ps.executeUpdate();
-
         } catch (Exception e) {
             System.err.println(e);
             e.printStackTrace();
         } finally {
             System.out.println("Closing the connection.");
-            ConnectionUtility.closePreparedStatement(ps);
-            ConnectionUtility.closeConnection(connection);
-
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 }

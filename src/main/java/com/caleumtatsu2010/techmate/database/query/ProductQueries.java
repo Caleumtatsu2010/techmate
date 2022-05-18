@@ -14,4 +14,5 @@ public class ProductQueries {
     //delete product by id
     public static String deleteProduct = "DELETE FROM `techmate`.`product` WHERE (`id` = ?)";
     //get product by categoryID
+//    public static String getCategoryById = "SELECT * FROM product_category where id = ?";
 }
