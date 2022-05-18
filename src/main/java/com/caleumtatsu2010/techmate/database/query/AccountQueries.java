@@ -13,4 +13,7 @@ public class AccountQueries {
 
     //get salt by key
     public static String getSaltByKey = "SELECT salt FROM techmate.account where privatekey = ?";
+
+    //delete by id
+    public static String deleteAccount = "DELETE from techmate.account where id = ?";
 }

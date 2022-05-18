@@ -66,7 +66,7 @@
                                                 <td class="bg-success-light">
                                                     <a class="list-group-item-info p-2 m-2" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>
                                                     <a class="list-group-item-action p-2 m-2" href="EditAccount?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
-                                                    <a class="list-group-item-danger p-2 m-2" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                                    <a class="list-group-item-danger p-2 m-2" href="DeleteAccount?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
                                                 </td>
                                             </tr>
 
@@ -79,9 +79,9 @@
                                                 <td class="bg-secondary-light">${account.accountTypeId}</td>
                                                 <td class="bg-secondary-light">${account.accountStatus}</td>
                                                 <td class="bg-secondary-light">
-                                                    <a class="list-group-item-info p-2 m-2" href="AccountDetail?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>
-                                                    <a class="list-group-item-action p-2 m-2" href="AccountUpdate?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
-                                                    <a class="list-group-item-danger p-2 m-2" href="AccountDelete?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
+                                                    <a class="list-group-item-info p-2 m-2" href="De?id=${account.id}"><i class="fas fa-info" aria-hidden="true"></i>&nbsp;Detail</a>
+                                                    <a class="list-group-item-action p-2 m-2" href="EditAccount?id=${account.id}"><i class="far fa-edit" aria-hidden="true"></i>&nbsp; Edit</a>
+                                                    <a class="list-group-item-danger p-2 m-2" href="DeleteAccount?id=${account.id}"><i class="fas fa-trash" aria-hidden="true"></i>&nbsp; Delete</a>
                                                 </td>
                                             </tr>
                                         </c:otherwise>

@@ -2,6 +2,7 @@ package com.caleumtatsu2010.techmate.dao;
 
 import com.caleumtatsu2010.techmate.database.connection.local.ConnectionUtility;
 import com.caleumtatsu2010.techmate.database.query.AccountQueries;
+import com.caleumtatsu2010.techmate.database.query.ProductQueries;
 import com.caleumtatsu2010.techmate.models.account.Account;
 
 import java.sql.*;
@@ -149,6 +150,19 @@ public class AccountDao implements Dao<Account> {
 
     @Override
     public void delete(int id) {
+        try {
+            connection = connectionUtility.getConnection();
+            ps = connection.prepareStatement(AccountQueries.deleteAccount);
+            ps.setInt(1,  id);
+
+            System.out.println("Delete Successfully");
+            ps.executeUpdate();
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            System.out.println("Closing the connection.");
+            ConnectionUtility.closeAll(connection, ps, rs);
+        }
     }
 
 }
