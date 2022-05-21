@@ -7,7 +7,6 @@ import java.nio.file.Paths;
 
 public class ListFiles {
 
-
     public static void listFilesForFolder(String folderPath){
         try {
             Files.walk(Paths.get(folderPath))
@@ -20,6 +19,6 @@ public class ListFiles {
     }
 
     public static void main(String[] args) {
-        listFilesForFolder("D:\\stuff\\Database\\amazone-clone-data\\Electronics\\Accessories & Supplies");
+        listFilesForFolder("D:\\stuff\\Database\\amazone-clone-data\\Electronics");
     }
 }

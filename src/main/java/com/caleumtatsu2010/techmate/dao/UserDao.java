@@ -74,10 +74,7 @@ public class UserDao implements Dao<User>{
             System.err.println(e);
             e.printStackTrace();
         } finally {
-            System.out.println("Closing the connection.");
-            ConnectionUtility.closePreparedStatement(ps);
-            ConnectionUtility.closeConnection(connection);
-
+            ConnectionUtility.closeAll(connection, ps, rs);
         }
     }
 

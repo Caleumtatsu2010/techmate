@@ -36,7 +36,7 @@ public class ProductDao implements Dao<Product>{
             if (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
                         rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 return product;
             }
         } catch (SQLException e) {
@@ -114,8 +114,6 @@ public class ProductDao implements Dao<Product>{
         return null;
     }
 
-
-
 //
 public List<Review> getReviews(int id) {
     String query = "select * from product_reviews where product_id= ?";//review from 1 productt
@@ -172,7 +170,7 @@ public List<Review> getReviews(int id) {
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
                         rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 list.add(product);
             }
             return list;
@@ -196,7 +194,7 @@ public List<Review> getReviews(int id) {
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
                         rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 list.add(product);
             }
             return list;

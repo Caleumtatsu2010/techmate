@@ -31,4 +31,6 @@ public class Product {
 //    public String getSeenImage() {
 //        return ImageUtility.getInputStreamImage(this.image);
 //    }
+    private double star;
+    private int ratings;
 }

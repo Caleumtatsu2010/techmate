@@ -28,6 +28,7 @@ public class CreateProduct extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Product product = new Product();
+
         product.setId(Integer.parseInt(request.getParameter("id")));//admin
         product.setName(request.getParameter("name"));
         product.setDesc(request.getParameter("desc"));
@@ -42,6 +43,7 @@ public class CreateProduct extends HttpServlet {
         product.setProductShortDesc(request.getParameter("productshortdesc"));
         product.setDetail(request.getParameter("detail"));
         product.setImage(request.getParameter("image"));
+
 //        Part filePart = request.getPart("image");
 //        product.setImage(filePart.getInputStream());
 
