@@ -110,7 +110,6 @@ public class AccountDao implements Dao<Account> {
                     list.add(new Account(rs.getInt("id"), rs.getString("username"), rs.getString("password"), null, null, rs.getTimestamp("created_at"), rs.getTimestamp("modified_at"), rs.getInt("account_typeId"),rs.getString("account_status")));
                 }
                 return list;
-
         } catch (SQLException e) {
             System.out.println(e);
         } finally {

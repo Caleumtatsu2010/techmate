@@ -101,8 +101,8 @@
                                         <td>${product.id}</td>
                                         <td>${product.name}</td>
                                         <td width="60">${product.price}</td>
-                                        <td width="50">${product.unitPrice}</td>
-                                        <td width="100"><img src="data:image/jpg;base64,${product.getSeenImage()}" width="100" height="100"/></td>
+                                        <td width="50">${product.currency}</td>
+                                        <td width="100"><img src="${product.image}" width="100" height="100"/></td>
                                         <td>
                                             <a class="list-group-item" href="DetailProduct?id=${product.id}"><i class="fas fa-info" aria-hidden="true"></i> Detail</a>
                                             <a class="list-group-item" href="EditProduct?id=${product.id}" methods="get"><i class="far fa-edit" aria-hidden="true"></i> Edit</a>

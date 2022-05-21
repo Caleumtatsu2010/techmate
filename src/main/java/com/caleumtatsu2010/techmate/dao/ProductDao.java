@@ -35,8 +35,8 @@ public class ProductDao implements Dao<Product>{
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
+                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
                 return product;
             }
         } catch (SQLException e) {
@@ -171,12 +171,11 @@ public List<Review> getReviews(int id) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
+                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
                 list.add(product);
             }
             return list;
-
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
@@ -196,8 +195,8 @@ public List<Review> getReviews(int id) {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("unit_price"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getBinaryStream("image"));
+                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
+                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"));
                 list.add(product);
             }
             return list;
@@ -223,7 +222,7 @@ public List<Review> getReviews(int id) {
             ps.setString(3, product.getDesc());
             ps.setString(4,(product.getSku()));
             ps.setDouble(5, product.getPrice());
-            ps.setString(6, product.getUnitPrice());
+            ps.setString(6, product.getCurrency());
             ps.setString(7, product.getColor());
             ps.setInt(8, (product.getCategoryId()));
             ps.setInt(9, product.getDiscountId());
@@ -232,7 +231,7 @@ public List<Review> getReviews(int id) {
             ps.setString(12, product.getProductShortDesc());
             ps.setString(13, product.getDetail());
 
-            ps.setBlob(14, product.getImage());
+            ps.setString(14, product.getImage());
 
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
@@ -256,7 +255,7 @@ public List<Review> getReviews(int id) {
             ps.setString(2, product.getDesc());
             ps.setString(3,product.getSku());
             ps.setDouble(4, product.getPrice());
-            ps.setString(5, product.getUnitPrice());
+            ps.setString(5, product.getCurrency());
             ps.setString(6, product.getColor());
             ps.setInt(7, product.getCategoryId());
             ps.setInt(8, product.getDiscountId());
@@ -264,7 +263,7 @@ public List<Review> getReviews(int id) {
             ps.setInt(10, product.getSupplierId());
             ps.setString(11, product.getProductShortDesc());
             ps.setString(12, product.getDetail());
-            ps.setBlob(13, product.getImage());
+            ps.setString(13, product.getImage());
             ps.setInt(14, id);
             ps.executeUpdate();
             System.out.println("Data Updated Successfully");

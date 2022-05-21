@@ -14,12 +14,8 @@ public class IndexAccount extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-         AccountDao accDao = new AccountDao();
-
-        List<Account> accounts = accDao.getAll();
-
+        List<Account> accounts = new AccountDao().getAll();
         request.setAttribute("listAccount", accounts);
-
         request.getRequestDispatcher("/views/admin/account/IndexAccount.jsp").forward(request, response);
     }
 

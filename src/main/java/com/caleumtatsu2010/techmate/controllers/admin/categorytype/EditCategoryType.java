@@ -48,28 +48,28 @@ public class EditCategoryType extends HttpServlet {
 
         Product product = new Product();
 
-        int id = Integer.parseInt(request.getParameter("id"));
-        product.setId(id);//hidden
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        product.setId(id);//hidden
+//
+//        product.setName(request.getParameter("name"));
+//        product.setDesc(request.getParameter("desc"));
+//        product.setSku(request.getParameter("sku"));
+//        product.setPrice(Double.parseDouble(request.getParameter("price")));
+//        product.setCurrency(request.getParameter("unitprice"));
+//        product.setColor(request.getParameter("color"));
+//        product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
+//        product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
+//        product.setQuantity(Integer.parseInt( request.getParameter("quantity")));
+//        product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
+//        product.setProductShortDesc(request.getParameter("productshortdesc"));
+//        product.setDetail(request.getParameter("detail"));
+//
+//        Part filePart = request.getPart("image");
+//        product.setImage(filePart.getInputStream());
 
-        product.setName(request.getParameter("name"));
-        product.setDesc(request.getParameter("desc"));
-        product.setSku(request.getParameter("sku"));
-        product.setPrice(Double.parseDouble(request.getParameter("price")));
-        product.setUnitPrice(request.getParameter("unitprice"));
-        product.setColor(request.getParameter("color"));
-        product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
-        product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
-        product.setQuantity(Integer.parseInt( request.getParameter("quantity")));
-        product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
-        product.setProductShortDesc(request.getParameter("productshortdesc"));
-        product.setDetail(request.getParameter("detail"));
 
-        Part filePart = request.getPart("image");
-        product.setImage(filePart.getInputStream());
-
-
-        ProductDao prodDao = new ProductDao();
-        prodDao.update(product, id);
+//        ProductDao prodDao = new ProductDao();
+//        prodDao.update(product, id);
 
     }
 }

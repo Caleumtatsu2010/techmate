@@ -11,7 +11,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@MultipartConfig(maxFileSize = 16177215)
+//@MultipartConfig(maxFileSize = 16177215)
 @WebServlet(name = "EditProduct", value = "/EditProduct")
 public class EditProduct extends HttpServlet {
     @Override
@@ -51,7 +51,7 @@ public class EditProduct extends HttpServlet {
         product.setDesc(request.getParameter("desc"));
         product.setSku(request.getParameter("sku"));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
-        product.setUnitPrice(request.getParameter("unitprice"));
+        product.setCurrency(request.getParameter("currency"));
         product.setColor(request.getParameter("color"));
         product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
@@ -60,9 +60,10 @@ public class EditProduct extends HttpServlet {
         product.setProductShortDesc(request.getParameter("productshortdesc"));
         product.setDetail(request.getParameter("detail"));
 
-        Part filePart = request.getPart("image");
-        product.setImage(filePart.getInputStream());
+//        Part filePart = request.getPart("image");
+//        product.setImage(filePart.getInputStream());
 
+        product.setImage(request.getParameter("image"));
 
         ProductDao prodDao = new ProductDao();
         prodDao.update(product, id);

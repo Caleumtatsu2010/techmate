@@ -71,9 +71,9 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Unit Price</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Currency</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <select name="unitpriceid" class="form-control">
+                                    <select name="currency" class="form-control">
                                             <option value="vnd">VND</option>
                                             <option value="usd">USD</option>
                                             <option value="jpy">JPY</option>
@@ -139,14 +139,14 @@
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Detail</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <textarea name="detail" type="text" required placeholder="Product detail here!" class="form-control" rows="5"></textarea>
+                                    <textarea name="detail" accept="text/plain" type="text" required placeholder="Product detail here!" class="form-control" rows="5"></textarea>
                                 </div>
                             </div>
 
                             <div class="form-group row">
                                 <label class="col-12 col-sm-3 col-form-label text-sm-right">Image</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
-                                    <input name="image" accept="image/*" data-parsley-type="image" type="file" id="file" required placeholder="" class="form-control border-light" onchange="loadFile(event)" >
+                                    <input name="image" accept="text/plain" data-parsley-type="image" type="text" id="text" required placeholder="" class="form-control border-light" onchange="loadFile(event)" >
                                 </div>
                             </div>
                             <div class="form-group row">

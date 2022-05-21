@@ -26,6 +26,17 @@ public class FileConfig {
         return new connection(host, dbname, username, password, port, dbtype);
     }
 
+    public static connection readPropertiesMigrate() {
+        prb = (PropertyResourceBundle)PropertyResourceBundle.getBundle(Path.mysqlConnectProperties);
+        String host = prb.getString("host");
+        String dbname = prb.getString("dbname");
+        String username = prb.getString("username");
+        String password = prb.getString("password");
+        String port = prb.getString("port");
+        String dbtype = prb.getString("dbtype");
+        return new connection(host, dbname, username, password, port, dbtype);
+    }
+
 //    public static void main(String[] args) {
 //        System.out.println(readProperties());
 //    }

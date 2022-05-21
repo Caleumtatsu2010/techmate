@@ -17,7 +17,7 @@ public class Product {
     private String desc;
     private String sku;
     private double price;
-    private String unitPrice;
+    private String currency;
     private String color;
 
     private int categoryId;
@@ -26,9 +26,9 @@ public class Product {
     private int supplierId;
     private String productShortDesc;
     private String detail;
-    private InputStream image;
-
-    public String getSeenImage() {
-        return ImageUtility.getInputStreamImage(this.image);
-    }
+//    private InputStream image;
+    private String image;
+//    public String getSeenImage() {
+//        return ImageUtility.getInputStreamImage(this.image);
+//    }
 }

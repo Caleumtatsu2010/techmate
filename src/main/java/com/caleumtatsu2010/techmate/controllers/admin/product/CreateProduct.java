@@ -12,7 +12,7 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@MultipartConfig(maxFileSize = 16177215)
+//@MultipartConfig(maxFileSize = 16177215)
 @WebServlet(name = "CreateProduct", value = "/CreateProduct")
 public class CreateProduct extends HttpServlet {
     @Override
@@ -33,7 +33,7 @@ public class CreateProduct extends HttpServlet {
         product.setDesc(request.getParameter("desc"));
         product.setSku(request.getParameter("sku"));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
-        product.setUnitPrice(request.getParameter("unitprice"));
+        product.setCurrency(request.getParameter("currency"));
         product.setColor(request.getParameter("color"));
         product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
@@ -41,9 +41,9 @@ public class CreateProduct extends HttpServlet {
         product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
         product.setProductShortDesc(request.getParameter("productshortdesc"));
         product.setDetail(request.getParameter("detail"));
-
-        Part filePart = request.getPart("image");
-        product.setImage(filePart.getInputStream());
+        product.setImage(request.getParameter("image"));
+//        Part filePart = request.getPart("image");
+//        product.setImage(filePart.getInputStream());
 
 
         ProductDao prodDao = new ProductDao();

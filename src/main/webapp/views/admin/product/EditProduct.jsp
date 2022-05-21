@@ -68,10 +68,10 @@
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Unit Price</label>
+                                <label class="col-12 col-sm-3 col-form-label text-sm-right">Currency</label>
                                 <div class="col-12 col-sm-8 col-lg-6">
                                     <select name="unitprice" class="form-control">
-                                        <option  value="${Product.unitPrice}">${Product.unitPrice}</option>
+                                        <option  value="${Product.currency}">${Product.currency}</option>
                                         <option  value="VND">VND</option>
                                         <option  value="JPY">JPY</option>
                                         <option  value="EUR">EUR</option>
@@ -82,9 +82,6 @@
                                         <option  value="GBP">GBP</option>
                                         <option  value="RUB">RUB</option>
                                         <option  value="HKD">HKD</option>
-
-
-
                                     </select>
 <%--                                    <input name="unitprice" data-parsley-type="digits" required="" placeholder="Enter unit price" class="form-control" value="">--%>
                                 </div>

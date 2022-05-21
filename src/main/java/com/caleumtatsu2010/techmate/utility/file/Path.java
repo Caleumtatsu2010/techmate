@@ -8,6 +8,7 @@ public class Path {
     //properties connection infor file  path
     public static String mysqlConnectProperties = "properties.mysqlConnect";
 
+    public static String mysqlConnectPropertiesMigrate = "properties.techmate_migrate";
 
     //astra secure connect bundle zip path
     public static String secureConnectTechmate = resourceDir + "\\secure-connect-techmate.zip";
