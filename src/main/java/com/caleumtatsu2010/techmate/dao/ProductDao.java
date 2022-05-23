@@ -248,7 +248,7 @@ public List<Review> getReviews(int id) {
         try {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(ProductQueries.updateProduct);
-
+// "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
             ps.setString(1,  product.getName());
             ps.setString(2, product.getDesc());
             ps.setString(3,product.getSku());
