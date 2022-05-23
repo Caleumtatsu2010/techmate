@@ -33,4 +33,26 @@ public class Product {
 //    }
     private double star;
     private int ratings;
+
+    @Override
+    public String toString() {
+        return "Product{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", desc='" + desc + '\'' +
+                ", sku='" + sku + '\'' +
+                ", price=" + price +
+                ", currency='" + currency + '\'' +
+                ", color='" + color + '\'' +
+                ", categoryId=" + categoryId +
+                ", discountId=" + discountId +
+                ", quantity=" + quantity +
+                ", supplierId=" + supplierId +
+                ", productShortDesc='" + productShortDesc + '\'' +
+                ", detail='" + detail + '\'' +
+                ", image='" + image + '\'' +
+                ", star=" + star +
+                ", ratings=" + ratings +
+                '}';
+    }
 }
