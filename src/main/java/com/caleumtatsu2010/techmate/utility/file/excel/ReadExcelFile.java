@@ -21,14 +21,6 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 public class ReadExcelFile {
 
-    public static void main(String[] args) throws IOException {
-        final String excelFilePath = "D:\\stuff\\Database\\amazone-clone-data\\Electronics\\Accessories & Supplies\\Audio & Video Accessories\\3D Glasses.xlsx";
-        final List<Product> books = readExcel(excelFilePath);
-        for (Product book : books) {
-            System.out.println(book);
-        }
-    }
-
     public static List<Product> readExcel(String excelFilePath) throws IOException {
         List<Product> listBooks = new ArrayList<>();
 
@@ -65,33 +57,40 @@ public class ReadExcelFile {
                 // Set value for book object
                 int columnIndex = cell.getColumnIndex();
                 switch (columnIndex) {
-                    case 2:
-                        product.setImage((String) getCellValue(cell));
+                    case 1:
+                        product.setImage(getCellValue(cell).toString());
                         break;
-                    case 3:
-                        if (getCellValue(cell) != null) {
-                            product.setStar((double) getCellValue(cell).toString().substring(0,3));
-                        }
+                    case 2:
+                        product.setName(getCellValue(cell).toString());
                         break;
                     case 4:
-                        if (getCellValue(cell) != null) {
-                            String str = getCellValue(cell).toString();
-                            String parts[] = str.split(",");
-                            String rating = parts[0] + parts[1];
-                            product.setRatings(Integer.parseInt(rating));
-                        }
+                        String str = getCellValue(cell).toString().substring(0,3);
+                        product.setStar(Double.parseDouble(str));
                         break;
+                    case 5:
+                        String str1 = getCellValue(cell).toString();
+                        String rating = null;
+                        if(str1.length() > 3){
+                            String parts[] = str1.split(",");
+                            rating = parts[0] + parts[1];
+                        }
+                        if (str1.length() <=3){
+                           rating = str1;
+                        }
+                        product.setRatings(Integer.parseInt(rating));
+                        break;
+                    case 7:
+                        String str7 = getCellValue(cell).toString().substring(1);
+                        product.setPrice(Double.parseDouble(str7.trim()));
+                        product.setCurrency("$");
                     default:
                         break;
                 }
-
             }
             listBooks.add(product);
         }
-
         workbook.close();
         inputStream.close();
-
         return listBooks;
     }
 
@@ -105,7 +104,6 @@ public class ReadExcelFile {
         } else {
             throw new IllegalArgumentException("The specified file is not Excel file");
         }
-
         return workbook;
     }
 
@@ -135,7 +133,14 @@ public class ReadExcelFile {
             default:
                 break;
         }
-
         return cellValue;
+    }
+
+    public static void main(String[] args) throws IOException {
+        final String excelFilePath = "D:\\stuff\\Database\\amazone-clone-data\\Electronics\\Accessories & Supplies\\Audio & Video Accessories\\3D Glasses.xlsx";
+        final List<Product> products = readExcel(excelFilePath);
+        for (Product product : products) {
+            System.out.println(product.toString());
+        }
     }
 }
