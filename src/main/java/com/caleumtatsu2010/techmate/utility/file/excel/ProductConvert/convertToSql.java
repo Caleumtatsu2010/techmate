@@ -26,13 +26,10 @@ public class convertToSql {
             ps = connection.prepareStatement(ProductQueries.updateProduct);
 // "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
             ps.setString(1,  product.getName());
-            ps.setString(2, product.getDesc());
-            ps.setString(3,product.getSku());
             ps.setDouble(4, product.getPrice());
             ps.setString(5, product.getCurrency());
-            ps.setString(6, product.getColor());
-            ps.setInt(7, product.getCategoryId());
-            ps.setInt(8, product.getDiscountId());
+            ps.setInt(7, 1);
+            ps.setInt(8, 4);
             ps.setInt(9, product.getQuantity());
             ps.setInt(10, product.getSupplierId());
             ps.setString(11, product.getProductShortDesc());
