@@ -13,5 +13,5 @@ public class CategoryType{
     private int id;
     private String name;
     private String desc;
-    private String categorySectionId;
+    private int categorySectionId;
 }
