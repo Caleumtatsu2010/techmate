@@ -16,4 +16,5 @@ public class ProductCategory {
     private String desc;
     private Timestamp createdAt;
     private Timestamp modifiedAt;
+    private int categoryTypeId;
 }
