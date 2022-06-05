@@ -15,8 +15,11 @@
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/AdminLayout.tag" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags/ClientLayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/tags" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/testLayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/account/EditAccount.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/account" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/account/IndexAccount.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/account" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/layout/toplayout.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/layout" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/login/register.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/login" />
+        <entry key="file://$PROJECT_DIR$/src/main/webapp/views/admin/product/DetailProduct.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/admin/product" />
         <entry key="file://$PROJECT_DIR$/src/main/webapp/views/client/home/Home.jsp" value="file://$PROJECT_DIR$/src/main/webapp/views/client/home" />
       </map>
     </option>

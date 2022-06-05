@@ -92,7 +92,7 @@ public class DiscountDao implements Dao<Discount>{
     }
 
     @Override
-    public void update(Discount discount, int id) {
+    public void update(Discount discount, String id) {
     }
 
     @Override

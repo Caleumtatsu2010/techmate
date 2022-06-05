@@ -65,7 +65,7 @@ public class AccountTypeDao implements Dao<AccountType> {
     }
 
     @Override
-    public void update(AccountType accountType, int id) {
+    public void update(AccountType accountType, String id) {
 
     }
 

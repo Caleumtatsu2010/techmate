@@ -34,7 +34,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
             ps = connection.prepareStatement(CategoryTypeQueries.getAll);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                CategoryType categoryType = new CategoryType(rs.getInt("id"), rs.getString("name"),  rs.getString("desc"),  rs.getString("category_section_id"));
+                CategoryType categoryType = new CategoryType(rs.getInt("id"), rs.getString("name"),  rs.getString("desc"),  rs.getInt("category_section_id"));
                 list.add(categoryType);
             }
             return list;
@@ -55,7 +55,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                CategoryType categoryType = new CategoryType(rs.getInt("id"), rs.getString("name"),  rs.getString("desc"),  rs.getString("category_section_id"));
+                CategoryType categoryType = new CategoryType(rs.getInt("id"), rs.getString("name"),  rs.getString("desc"),  rs.getInt("category_section_id"));
                 list.add(categoryType);
             }
             return list;
@@ -75,7 +75,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
             ps.setInt(1,categoryType.getId());
             ps.setString(2,  categoryType.getName());
             ps.setString(3, categoryType.getDesc());
-            ps.setString(4,(categoryType.getCategorySectionId()));
+            ps.setInt(4,categoryType.getCategorySectionId());
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
@@ -87,7 +87,7 @@ public class CategoryTypeDao implements Dao<CategoryType>{
     }
 
     @Override
-    public void update(CategoryType categoryType, int id) {
+    public void update(CategoryType categoryType, String id) {
 
     }
 

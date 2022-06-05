@@ -143,7 +143,7 @@ public class AccountDao implements Dao<Account> {
     }
 
     @Override
-    public void update(Account account, int id) {
+    public void update(Account account, String id) {
 
     }
 

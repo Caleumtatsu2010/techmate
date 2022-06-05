@@ -44,21 +44,13 @@ public class EditProduct extends HttpServlet {
 
         Product product = new Product();
 
-        int id = Integer.parseInt(request.getParameter("id"));
+        String id = request.getParameter("id");
         product.setId(id);//hidden
-
         product.setName(request.getParameter("name"));
-        product.setDesc(request.getParameter("desc"));
-        product.setSku(request.getParameter("sku"));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
         product.setCurrency(request.getParameter("currency"));
-        product.setColor(request.getParameter("color"));
-        product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
         product.setQuantity(Integer.parseInt( request.getParameter("quantity")));
-        product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
-        product.setProductShortDesc(request.getParameter("productshortdesc"));
-        product.setDetail(request.getParameter("detail"));
 
 //        Part filePart = request.getPart("image");
 //        product.setImage(filePart.getInputStream());

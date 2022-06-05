@@ -34,9 +34,9 @@ public class ProductDao implements Dao<Product>{
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
+                Product product = new Product(rs.getString("id"), rs.getString("name"),rs.getDouble("price"),
+                        rs.getString("currency"), rs.getInt("sub_category_id"), rs.getInt("discount_id"), rs.getInt("quantity")
+                        ,rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 return product;
             }
         } catch (SQLException e) {
@@ -168,9 +168,9 @@ public List<Review> getReviews(int id) {
             ps = connection.prepareStatement(query);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
+                Product product = new Product(rs.getString("id"), rs.getString("name"),rs.getDouble("price"),
+                        rs.getString("currency"), rs.getInt("sub_category_id"), rs.getInt("discount_id"), rs.getInt("quantity")
+                        ,rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 list.add(product);
             }
             return list;
@@ -192,9 +192,9 @@ public List<Review> getReviews(int id) {
             ps.setInt(1, id);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                Product product = new Product(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getString("SKU"),rs.getDouble("price"),
-                        rs.getString("currency"),rs.getString("color"), rs.getInt("category_id"), rs.getInt("discount_id"), rs.getInt("quantity"), rs.getInt("supplier_id"),
-                        rs.getString("product_short_desc"), rs.getString("detail"), rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
+                Product product = new Product(rs.getString("id"), rs.getString("name"),rs.getDouble("price"),
+                        rs.getString("currency"), rs.getInt("sub_category_id"), rs.getInt("discount_id"), rs.getInt("quantity")
+                        ,rs.getString("image"), rs.getDouble("star"), rs.getInt("ratings"));
                 list.add(product);
             }
             return list;
@@ -215,21 +215,16 @@ public List<Review> getReviews(int id) {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1,product.getId());
+            ps.setString(1,product.getId());
             ps.setString(2,  product.getName());
-            ps.setString(3, product.getDesc());
-            ps.setString(4,(product.getSku()));
-            ps.setDouble(5, product.getPrice());
-            ps.setString(6, product.getCurrency());
-            ps.setString(7, product.getColor());
-            ps.setInt(8, (product.getCategoryId()));
-            ps.setInt(9, product.getDiscountId());
-            ps.setInt(10, product.getQuantity());
-            ps.setInt(11, product.getSupplierId());
-            ps.setString(12, product.getProductShortDesc());
-            ps.setString(13, product.getDetail());
-
-            ps.setString(14, product.getImage());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getCurrency());
+            ps.setInt(5, product.getSubCategoryId());
+            ps.setInt(6, product.getDiscountId());
+            ps.setInt(7, product.getQuantity());
+            ps.setString(8, product.getImage());
+            ps.setDouble(9, product.getStar());
+            ps.setInt(10, product.getRatings());
 
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
@@ -244,25 +239,20 @@ public List<Review> getReviews(int id) {
     }
 
     @Override
-    public void update(Product product, int id) {
+    public void update(Product product, String id) {
         try {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(ProductQueries.updateProduct);
 // "UPDATE `techmate`.`product` SET `name` = ?, `desc` = ?, `SKU` = ?, `price` = ?, `unit_price` = ?, `color` = ?, `category_id` = ?, `discount_id` = ?, `quantity` = ?, `supplier_id` = ?, `product_short_desc` = ?, `detail` = ?, `image` = ? WHERE (`id` = ?)";
             ps.setString(1,  product.getName());
-            ps.setString(2, product.getDesc());
-            ps.setString(3,product.getSku());
-            ps.setDouble(4, product.getPrice());
-            ps.setString(5, product.getCurrency());
-            ps.setString(6, product.getColor());
-            ps.setInt(7, product.getCategoryId());
-            ps.setInt(8, product.getDiscountId());
-            ps.setInt(9, product.getQuantity());
-            ps.setInt(10, product.getSupplierId());
-            ps.setString(11, product.getProductShortDesc());
-            ps.setString(12, product.getDetail());
-            ps.setString(13, product.getImage());
-            ps.setInt(14, id);
+            ps.setDouble(2, product.getPrice());
+            ps.setString(3, product.getCurrency());
+            ps.setInt(4, product.getSubCategoryId());
+            ps.setInt(5, product.getDiscountId());
+            ps.setInt(6, product.getQuantity());
+            ps.setString(7, product.getImage());
+            ps.setDouble(8, product.getStar());
+            ps.setInt(9, product.getRatings());
             ps.executeUpdate();
             System.out.println("Data Updated Successfully");
 

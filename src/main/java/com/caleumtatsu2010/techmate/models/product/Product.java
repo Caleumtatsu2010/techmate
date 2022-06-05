@@ -12,20 +12,18 @@ import java.io.InputStream;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Product {
-    private int id;
+    private String id;
     private String name;
-    private String desc;
-    private String sku;
+//    private String desc;
     private double price;
     private String currency;
-    private String color;
 
-    private int categoryId;
+    private int subCategoryId;
     private int discountId;
     private int quantity;
-    private int supplierId;
-    private String productShortDesc;
-    private String detail;
+//    private int supplierId;
+//    private String productShortDesc;
+//    private String detail;
 //    private InputStream image;
     private String image;
 //    public String getSeenImage() {
@@ -39,17 +37,11 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", desc='" + desc + '\'' +
-                ", sku='" + sku + '\'' +
                 ", price=" + price +
                 ", currency='" + currency + '\'' +
-                ", color='" + color + '\'' +
-                ", categoryId=" + categoryId +
+                ", categoryId=" + subCategoryId +
                 ", discountId=" + discountId +
                 ", quantity=" + quantity +
-                ", supplierId=" + supplierId +
-                ", productShortDesc='" + productShortDesc + '\'' +
-                ", detail='" + detail + '\'' +
                 ", image='" + image + '\'' +
                 ", star=" + star +
                 ", ratings=" + ratings +

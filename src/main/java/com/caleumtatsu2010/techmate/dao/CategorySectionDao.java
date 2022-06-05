@@ -71,7 +71,7 @@ public class CategorySectionDao implements Dao<CategorySection> {
     }
 
     @Override
-    public void update(CategorySection categorySection, int id) {
+    public void update(CategorySection categorySection, String id) {
 
     }
 

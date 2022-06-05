@@ -93,7 +93,7 @@ public class SupplierDao implements Dao<Supplier>{
     }
 
     @Override
-    public void update(Supplier supplier, int id) {
+    public void update(Supplier supplier, String id) {
 
     }
 

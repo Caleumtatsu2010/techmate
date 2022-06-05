@@ -29,19 +29,13 @@ public class CreateProduct extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Product product = new Product();
 
-        product.setId(Integer.parseInt(request.getParameter("id")));//admin
+        product.setId(request.getParameter("id"));//admin
         product.setName(request.getParameter("name"));
-        product.setDesc(request.getParameter("desc"));
-        product.setSku(request.getParameter("sku"));
         product.setPrice(Double.parseDouble(request.getParameter("price")));
         product.setCurrency(request.getParameter("currency"));
-        product.setColor(request.getParameter("color"));
-        product.setCategoryId(Integer.parseInt( request.getParameter("categoryid")));
+        product.setSubCategoryId(Integer.parseInt( request.getParameter("categoryid")));
         product.setDiscountId(Integer.parseInt( request.getParameter("discountid")));
         product.setQuantity(Integer.parseInt( request.getParameter("quantity")));
-        product.setSupplierId(Integer.parseInt( request.getParameter("supplierid")));
-        product.setProductShortDesc(request.getParameter("productshortdesc"));
-        product.setDetail(request.getParameter("detail"));
         product.setImage(request.getParameter("image"));
 
 //        Part filePart = request.getPart("image");

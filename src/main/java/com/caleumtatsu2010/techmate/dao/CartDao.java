@@ -37,7 +37,7 @@ public class CartDao implements Dao<Cart>{
     }
 
     @Override
-    public void update(Cart cart, int id) {
+    public void update(Cart cart, String id) {
 
     }
 

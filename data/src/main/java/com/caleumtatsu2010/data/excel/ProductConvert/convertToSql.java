@@ -8,7 +8,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
-public class convertToSqlz {
+public class convertToSql {
 
     private Connection connection = null;
     private PreparedStatement ps = null;
@@ -20,38 +20,34 @@ public class convertToSqlz {
         this.connectionUtility = new ConnectionUtility();
     }
 
-    @Override
     public void insert(Product product) {
-        String query = "INSERT INTO `techmate`.`product` (`id`, `name`,`desc`, `SKU`,  `price`, `unit_price`,`color`, `category_id`, `discount_id`, `quantity`, `supplier_id`, `product_short_desc`, `detail`, `image`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";//insert table query
+        String query = "";//insert table query
         try {
             connection = connectionUtility.getConnection();
             ps = connection.prepareStatement(query);
 
-            ps.setInt(1,product.getId());
+            ps.setString(1,product.getId());
             ps.setString(2,  product.getName());
-            ps.setString(3, product.getDesc());
-            ps.setString(4,(product.getSku()));
-            ps.setDouble(5, product.getPrice());
-            ps.setString(6, product.getCurrency());
-            ps.setString(7, product.getColor());
-            ps.setInt(8, (product.getCategoryId()));
-            ps.setInt(9, product.getDiscountId());
-            ps.setInt(10, product.getQuantity());
-            ps.setInt(11, product.getSupplierId());
-            ps.setString(12, product.getProductShortDesc());
-            ps.setString(13, product.getDetail());
-
-            ps.setString(14, product.getImage());
+            ps.setDouble(3, product.getPrice());
+            ps.setString(4, product.getCurrency());
+            ps.setInt(5, product.getSubCategoryId());
+            ps.setInt(6, product.getDiscountId());
+            ps.setInt(7, product.getQuantity());
+            ps.setString(8, product.getImage());
+            ps.setDouble(9, product.getStar());
+            ps.setInt(10, product.getRatings());
 
             ps.executeUpdate();
             System.out.println("Data Added Successfully");
 
         } catch (Exception e) {
-            System.err.println(e);
             e.printStackTrace();
         } finally {
-            System.out.println("Closing the connection.");
             ConnectionUtility.closeAll(connection, ps, rs);
         }
+    }
+
+    public static void main(String[] args) {
+
     }
 }

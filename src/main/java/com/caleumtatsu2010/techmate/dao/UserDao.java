@@ -82,7 +82,7 @@ public class UserDao implements Dao<User>{
 
 
     @Override
-    public void update(User user, int id) {
+    public void update(User user, String id) {
         String query = "UPDATE user set first_name = ?, last_name = ?, mobile_phone= ?, citizen_id= ?, email=?, business_phone=? , image = ?, modified_at =? WHERE id = ?";
         try {
             connection = connectionUtility.getConnection();
@@ -95,7 +95,7 @@ public class UserDao implements Dao<User>{
             ps.setInt(6,(user.getBusinessPhone()));
             ps.setBlob(7, user.getImage());
             ps.setTimestamp(8, user.getModifiedAt());
-            ps.setInt(9, id);
+            ps.setString(9, id);
 
             ps.executeUpdate();
             System.out.println("Data Updated Successfully");

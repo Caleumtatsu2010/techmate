@@ -10,7 +10,8 @@ public interface Dao<T> {
 
     public void insert(T t);
 
-    public void update(T t, int id);
+    public void update(T t, String id);
 
     public void delete(int id);
+
 }

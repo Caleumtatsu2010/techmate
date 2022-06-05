@@ -27,7 +27,7 @@ public class CreateCategoryType extends HttpServlet {
         cateType.setId(Integer.parseInt(request.getParameter("id")));
         cateType.setName(request.getParameter("name"));
         cateType.setDesc(request.getParameter("desc"));
-        cateType.setCategorySectionId(request.getParameter("sku"));
+//        cateType.setCategorySectionId(request.getParameter("sku"));
 
         CategoryTypeDao categoryTypeDao = new CategoryTypeDao();
         categoryTypeDao.insert(cateType);

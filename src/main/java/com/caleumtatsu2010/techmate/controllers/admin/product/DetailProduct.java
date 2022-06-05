@@ -27,7 +27,7 @@ public class DetailProduct extends HttpServlet {
 
         List<Review> listreview = prodDao.getReviews(id);
 
-        request.setAttribute("CategoryName", prodDao.getCategoryById(product.getCategoryId()));
+        request.setAttribute("CategoryName", prodDao.getCategoryById(product.getSubCategoryId()));
 
         request.setAttribute("Product", product);
         request.setAttribute("Discount", prodDao.getDiscount(product.getDiscountId()));

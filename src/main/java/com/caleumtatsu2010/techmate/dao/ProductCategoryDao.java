@@ -33,7 +33,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
 
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                return new ProductCategory(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"));
+                return new ProductCategory(rs.getInt("id"), rs.getString("name"), rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"), rs.getInt("category_section_id"));
 
             }
 
@@ -56,7 +56,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
                 ProductCategory pdcategory = new ProductCategory(rs.getInt("id"), rs.getString("name"),
-                        rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"));
+                        rs.getString("desc"), rs.getTimestamp("created_at"),rs.getTimestamp("modified_at"), rs.getInt("category_section_id"));
                 list.add(pdcategory);
             }
             return list;
@@ -95,7 +95,7 @@ public class ProductCategoryDao implements Dao<ProductCategory> {
     }
 
     @Override
-    public void update(ProductCategory productCategory, int id) {
+    public void update(ProductCategory productCategory, String id) {
 
     }
 

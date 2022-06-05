@@ -24,7 +24,7 @@ public class CreateProductCategory extends HttpServlet {
         String name = request.getParameter("name");
         String desc = request.getParameter("desc");
         Timestamp currTime = new Timestamp(new Date().getTime());
-        ProductCategory prodCate = new ProductCategory(id, name, desc, currTime, currTime);
+        ProductCategory prodCate = new ProductCategory(id, name, desc, currTime, currTime, 0);
         ProductCategoryDao prodCateDao = new ProductCategoryDao();
         prodCateDao.insert(prodCate);
     }

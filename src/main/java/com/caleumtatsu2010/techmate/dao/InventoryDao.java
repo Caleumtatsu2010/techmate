@@ -69,7 +69,7 @@ public class InventoryDao implements Dao<Inventory>{
     }
 
     @Override
-    public void update(Inventory inventory, int id) {
+    public void update(Inventory inventory, String id) {
 
     }
 
