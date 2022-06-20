@@ -13,7 +13,7 @@
     <bytecodeTargetLevel>
       <module name="data" target="17" />
       <module name="dataconvert" target="1.8" />
-      <module name="techmate" target="1.8" />
+      <module name="techmate" target="17" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
