@@ -1,1 +1,1 @@
-openjdk 17.0.2
+openjdk 17.0.3 (corretto-17.0.3)
